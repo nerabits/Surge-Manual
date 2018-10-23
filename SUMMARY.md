@@ -1,4 +1,31 @@
-# Table of contents
+# Summary
 
-* [Initial page](README.md)
+* [Overview](README.md)
+  * [Components](overview/components.md)
+  * [Configuration](overview/configuration.md)
+* [Rule](rule.md)
+  * [Domain-based Rule](rule/domain-based.md)
+  * [IP-based Rule](rule/ip-based.md)
+  * [HTTP Rule](rule/http.md)
+  * [Process Rule](rule/process.md)
+  * [Logical Rule](rule/logical-rule.md)
+  * [Misc Rule](rule/misc-rule.md)
+  * [Final Rule](rule/final.md)
+* [Policy](policy.md)
+  * [Proxy Policy](policy/proxy.md)
+  * [Bulit-in Policy](policy/built-in.md)
+  * [Policy Group](policy/group.md)
+* [DNS](dns.md)
+  * [DNS Server](dns/dns-override.md)
+  * [Local DNS Mapping](dns/local-dns-mapping.md)
+* [URL Rewrite](url-rewrite.md)
+* [Header Rewrite](header-rewrite.md)
+* [HTTPS Decryption](mitm.md)
+* Other
+  * [Misc Options](others/misc-options.md)
+  * [Managed Configuration](others/managed-configuration.md)
+  * [Enhanced Mode](others/enhanced-mode.md)
+  * [URL Scheme](others/url-scheme.md)
+* [Release Note](release-note.md)
+  * [Surge Mac](release-note/surge-mac.md)
 
