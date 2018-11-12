@@ -1,6 +1,6 @@
 # DNS Server
 
-You can use this option to override system's DNS setting.
+You can use this option to override system's DNS settings.
 
 ```
 [General]
@@ -13,3 +13,5 @@ Use keyword 'system' to append additional DNS servers to system's setting. (Dupl
 [General]
 dns-server = system, 8.8.8.8, 8.8.4.4
 ```
+
+
