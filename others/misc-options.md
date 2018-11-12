@@ -49,6 +49,16 @@ use-default-policy-if-wifi-not-primary = false
 proxy-settings-interface = Wi-Fi
 ```
 
+### Real IP
+
+```
+always-real-ip = *.apple.com
+```
+
+This option will ask Surge to return a real IP address instead of a fake IP address when a DNS question is handled by Surge VIF.
+
+Surge will forward the DNS packet to upstream DNS servers.
+
 #### Excluded Routes
 
 `tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12`
@@ -64,3 +74,4 @@ Surge VIF can only process TCP and UDP protocols. Use this option to bypass spec
 `tun-included-routes = 192.168.1.12/32`
 
 By default, Surge VIF interface will declare itself as the default route. But since the Wi-Fi interface has a smaller route. Some traffic may not go through Surge VIF interface. Use this option to add a smaller route.
+

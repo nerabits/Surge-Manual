@@ -1,5 +1,35 @@
 # Surge Mac Release Note
 
+## Surge Mac V3
+
+### Version 3.0.2
+
+* Allows import the profile from an URL.
+* Fixed an issue that the HTTP capture button may show wrong state in Dashboard.
+* Fixed an issue that Dashboard doesn't show User-Agent as the process name while connecting to iOS device.
+* Fixed an issue that the bandwidth of processes may be inaccurate.
+* Fixed an issue that the DEST-PORT rule may not be parsed.
+* Fixed an issue that ruleset can't be used with logical type rule.
+
+https://www.nssurge.com/mac/v3/Surge-3.0.2-736.zip
+
+### Version 3.0.1
+
+* Fixed an issue that TFO option will not be saved.
+* Fixed an issue that UDP relay option shows wrong state.
+* Fixed some i18n issues.
+* Fixed crashs on macOS 10.11.
+* Save proxy declarations with legacy style (custom) if the proxy is written in legacy style in the text file.
+* Other minor bug fixes.
+
+https://www.nssurge.com/mac/v3/Surge-3.0.1-711.zip
+
+### Version 3.0.0
+
+https://www.nssurge.com/mac/v3/Surge-3.0.0-702.zip
+
+## Surge Mac V2
+
 ### Version 2.6.5
 
 * Bug fixes.
@@ -344,3 +374,5 @@ http://dl.nssurge.com/mac/Surge-2.0.3-250.zip
 ### Version 2.0.1
 
 * Bug fixes
+
+

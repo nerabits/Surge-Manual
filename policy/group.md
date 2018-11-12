@@ -10,7 +10,8 @@ Select which policy will be used on the user interface.
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 
-> In iOS version. You can use Today Widget to quickly select policy for the first 'select' group. You can enable/disable this feature in 'More' tab.
+> In iOS version. You may use Today Widget to quickly switch policy for the first 'select' group. 
+> In macOS version. You may switch the policy in the menubar menu.
 
 ## Auto URL Test Group
 
@@ -40,7 +41,7 @@ Abandon a policy if not finished in timeout.
 
 ## Fallback Group
 
-Select an available policy by priority. The availability is tested by accessing an URL, just like an auto URL test group.
+Select an available policy by priority. The availability is tested by accessing an URL, just like an auto URL test group. The policy defined in the front has a high priority.
 
 `FallbackGroup = fallback, ProxySOCKS5, ProxySOCKS5TLS, url = http://www.google.com/generate_204`
 
@@ -60,7 +61,7 @@ Abandon a policy if it is not finished until timeout.
 
 ## SSID Group
 
-Select which policy will be used according to the current Wi-FI SSID.
+Select a policy according to the current Wi-Fi SSID.
 
 `SSIDGroup = ssid, default = ProxyHTTP, cellular = ProxyHTTP, SSIDName = ProxySOCKS5`
 
@@ -73,4 +74,18 @@ The policy when no matched SSID option has been found.
 #### cellular: Optional.
 
 The policy under cellular network. If not provided, the default policy will be used.
+
+## External Group
+
+Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policies defined in an external file or from an URL.
+
+`egroup = select, policy-path=proxies.txt`
+
+This file contains a list of policies, just like the definition lines in the main profile
+
+```
+Proxy-A = https, example1.com, 443
+Proxy-B = https, example2.com, 443
+```
+
 

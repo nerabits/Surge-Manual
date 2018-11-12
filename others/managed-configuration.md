@@ -6,7 +6,7 @@ Surge can update a config file from an URL automatically. If the config starts w
 
 The config can only be updated when Surge main application is running.
 
-> Note: The new config in remote should also contain #!MANAGED-CONFIG line. Otherwise this config will become a regular one.
+> Note: The new config in remote should also contain #!MANAGED-CONFIG line. Otherwise the config will become a regular one.
 
 ### Parameters
    
@@ -18,3 +18,5 @@ Determine how long the config will be updated.
 If strict is true, Surge will require a force update after the interval arrives. Otherwise if the update fails the user may still use the outdated config.
 
 > Note: Even when strict is true, the user still can start Surge by widget or VPN switch in Settings.
+
+

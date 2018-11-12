@@ -27,3 +27,10 @@ Option:
   Auto close Surge after action completed. (Cannot be used with install-config)
 
   Example: surge:///toggle?autoclose=true
+  
+  
+## x-callback-url
+
+Surge supports x-callback-url specification from v3.4. The URL scheme is 'surge' and the available actions are 'start', 'stop' and 'toggle'.
+
+
