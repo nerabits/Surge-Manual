@@ -29,4 +29,3 @@
 * [Release Note](release-note.md)
   * [Surge Mac](release-note/surge-mac.md)
 
-
