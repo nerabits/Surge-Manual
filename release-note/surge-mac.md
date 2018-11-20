@@ -30,6 +30,20 @@ https://www.nssurge.com/mac/v3/Surge-3.0.0-702.zip
 
 ## Surge Mac V2
 
+### Version 2.6.7
+
+* Fixed a compatibility issue with 304 response.
+* Fixed a Dashboard crash.
+
+https://www.nssurge.com/mac/Surge-2.6.7-656.zip
+
+### Version 2.6.6
+
+* Fixed a compatibility issue with 304 response.
+* Fixed an issue that Dashboard may not use the correct encoding to decode text body.
+
+https://www.nssurge.com/mac/Surge-2.6.6-654.zip
+
 ### Version 2.6.5
 
 * Bug fixes.

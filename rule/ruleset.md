@@ -1,4 +1,4 @@
-# Rule Set
+# Ruleset
 
 Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules from a file or an URL. Surge also provides two internal rulesets.
 

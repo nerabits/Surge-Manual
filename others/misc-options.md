@@ -59,6 +59,16 @@ This option will ask Surge to return a real IP address instead of a fake IP addr
 
 Surge will forward the DNS packet to upstream DNS servers.
 
+### Hijack Other DNS Servers
+
+`hijack-dns = 8.8.8.8:53`
+
+By default, Surge only returns fake IP addresses for DNS queries sent to Surge DNS address (198.18.0.2). Queries which are sent to standard DNS will be simply forwarded.
+
+Some devices or softwares always use a hardcode DNS server. (For example, Google Speakers always use 8.8.8.8). You may use this option to hijack the query to get a fake address.
+
+You may use `hijack-dns = *:53` to hijack all DNS queries.
+
 #### Excluded Routes
 
 `tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12`
@@ -67,7 +77,7 @@ Surge VIF can only process TCP and UDP protocols. Use this option to bypass spec
 
 > Notice: This option only works for Surge VIF. Requests handled by Surge Proxy Server will not be affected. Combine 'skip-proxy' and 'tun-excluded-routes' to make sure that certain HTTP traffic bypasses Surge.
 > 
-> This option might cause a system error ENOMEM (Cannot allocate memory). It seems a bug in iOS system. Please do noy use this option if possible.
+> This option might cause a system error ENOMEM (Cannot allocate memory). It seems a bug in iOS system. Please do not use this option if possible.
 
 #### Included Routes
 

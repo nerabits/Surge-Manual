@@ -10,7 +10,7 @@
   * [Process Rule](rule/process.md)
   * [Logical Rule](rule/logical-rule.md)
   * [Misc Rule](rule/misc-rule.md)
-  * [Rule Set](rule/ruleset.md)
+  * [Ruleset](rule/ruleset.md)
   * [Final Rule](rule/final.md)
 * [Policy](policy.md)
   * [Proxy Policy](policy/proxy.md)

@@ -32,7 +32,7 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2
 ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other-interface=true
 ```
 
-When the option is ture, if the desired interface is not available, Surge is allowed to use another interface to setup the connection. Otherwise the connection will fail directly.
+When the option is ture, if the desired interface is not available, Surge is allowed to use the default interface to setup the connection. Otherwise the connection fails directly.
 
 ### Parameter for proxy with TLS (https and socks5-tls)
 #### skip-cert-verify: Optional, "true" or "false" (Default: false).
