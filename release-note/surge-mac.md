@@ -2,6 +2,37 @@
 
 ## Surge Mac V3
 
+### Version 3.0.5
+
+* CPU usage optimizations (50% reduced for high throughout).
+* Enabled Hardened Runtime to get enhanced security protections in macOS Mojave.
+* Add more notes for rule evaluating stage.
+* WeChat.app may flood ping when network is unstable, which causes a high CPU usage of Surge. We added a mechanism to limit ICMP throughput in this version.
+
+https://www.nssurge.com/mac/v3/Surge-3.0.5-773.zip
+
+
+### Version 3.0.4
+          
+* Added a new option 'hijack-dns' to hijack DNS queries to other DNS servers with fake IP addresses. See manual for more information: https://manual.nssurge.com/others/misc-options.html.
+* Bug fixes
+
+https://www.nssurge.com/mac/v3/Surge-3.0.4-759.zip
+
+
+### Version 3.0.3
+
+* Supports new iCloud container for Surge iOS migration.
+* The MitM feature is now compatible with Android system. Please regenerate an new CA certificate before using with Android.
+* Fixed some UI issues in Dashboard.
+* Fixed a bug that MitM may refuse to enable after modifying settings.
+* Fixed a bug that br decompress may fail.
+* Fixed a bug that the menu item may use a wrong color if the accent color of system isn't blue.
+* Fixed the JSON viewer color issue in the Dark Mode.
+* Minor bug fixes.
+                
+https://www.nssurge.com/mac/v3/Surge-3.0.3-754.zip
+
 ### Version 3.0.2
 
 * Allows import the profile from an URL.

@@ -4,7 +4,7 @@ A policy group may contain multiple policies. It can be a proxy policy, another 
 
 There are three group types: ‘select‘, ’url-test‘ and ’ssid‘. Section \[Proxy Group\] declares policy group.
 
-## Manaully Select Group
+## Manual Select Group
 
 Select which policy will be used on the user interface.
 
