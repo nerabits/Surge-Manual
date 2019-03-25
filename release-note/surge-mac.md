@@ -2,6 +2,30 @@
 
 ## Surge Mac V3
 
+### Version 3.1.0
+
+* Added more feature to the main menu.
+* Dashboard now supports to export all requests to an archive file for opening later or sharing.
+* Supports a new proxy protocol: Snell. (https://github.com/surge-networks/snell)
+* Surge Mac can work as a Snell proxy server now. See https://manual.nssurge.com/others/snell-server.html for more information.
+* A new option to automatically reload if the profile was modified externally/remotely.
+* Fixed a compatibility issue with some FTP clients.
+* Added a new option to disable automatically notification dismissing.
+* The update notification is now shown as a banner instead of an alert window.
+* Bug fixes.
+
+https://www.nssurge.com/mac/v3/Surge-3.1.0-807.zip
+
+### Version 3.0.6
+
+* Optimizations for no network error handling.
+* Reduces CPU usage on idle.
+* Fixed a bug while enabling MitM with a new certificate.
+* Fixed crashes on macOS 10.11.
+
+https://www.nssurge.com/mac/v3/Surge-3.0.6-781.zip
+
+
 ### Version 3.0.5
 
 * CPU usage optimizations (50% reduced for high throughout).

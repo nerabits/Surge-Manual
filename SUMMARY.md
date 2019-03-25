@@ -26,7 +26,9 @@
   * [Misc Options](others/misc-options.md)
   * [Managed Configuration](others/managed-configuration.md)
   * [Enhanced Mode](others/enhanced-mode.md)
+  * [SSID Suspend](others/ssid-suspend.md)
   * [URL Scheme](others/url-scheme.md)
+  * [Snell Server](others/snell-server.md)
 * [Release Note](release-note.md)
   * [Surge Mac](release-note/surge-mac.md)
 
