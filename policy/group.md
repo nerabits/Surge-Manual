@@ -15,7 +15,7 @@ Select which policy will be used on the user interface.
 
 ## Auto URL Test Group
 
-Automatically select which policy will be used by benchmarking the latency to an URL.
+Automatically select which policy will be used by benchmarking the latency to a URL.
 
 `AutoTestGroup = url-test, ProxySOCKS5, ProxySOCKS5TLS, url = http://www.google.com/generate_204`
 
@@ -23,7 +23,7 @@ Automatically select which policy will be used by benchmarking the latency to an
 
 #### url: Required
 
-Surge will send a HTTP HEAD request to the URL. The test only cares about whether receiving a response data, even if the response is a HTTP error.
+Surge will send an HTTP HEAD request to the URL. The test only cares about whether receiving a response data, even if the response is an HTTP error.
 
 #### interval: Optional, s \(Default: 600s\).
 
@@ -41,7 +41,7 @@ Abandon a policy if not finished in timeout.
 
 ## Fallback Group
 
-Select an available policy by priority. The availability is tested by accessing an URL, just like an auto URL test group. The policy defined in the front has a high priority.
+Select an available policy by priority. The availability is tested by accessing a URL, just like an auto URL test group. The policy defined in the front has a high priority.
 
 `FallbackGroup = fallback, ProxySOCKS5, ProxySOCKS5TLS, url = http://www.google.com/generate_204`
 
@@ -77,7 +77,7 @@ The policy under cellular network. If not provided, the default policy will be u
 
 ## External Group
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policies defined in an external file or from an URL.
+Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policies defined in an external file or from a URL.
 
 `egroup = select, policy-path=proxies.txt`
 

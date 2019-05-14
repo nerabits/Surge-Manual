@@ -1,6 +1,6 @@
 # Managed Configuration
 
-Surge can update a config file from an URL automatically. If the config starts with
+Surge can update a config file from a URL automatically. If the config starts with
 
 `#!MANAGED-CONFIG http://test.com/surge.conf interval=60 strict=true`
 

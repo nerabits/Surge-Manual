@@ -2,6 +2,39 @@
 
 ## Surge Mac V3
 
+### Version 3.2.0
+
+**Scripting**
+* New major feature: scripting. You may use JavaScript to modify the response as you wish. See the manual for more information: https://manual.nssurge.com/http-processing/scripting.html
+* You can now use a script to modify the response headers and status code.
+**Dashboard**
+* USB module has been refactored to improve stability. Also, you may choose the device from multiple USB devices now.
+**MitM**
+* HTTP and MitM engine has been refactored. Please report if you encounter any issues.
+* You can now use URL-REGEX rule for MitM connections.
+* You may use prefix '-' to exclude domains for MitM. Example: 
+```
+[MITM]
+hostname = -*.apple.com, -*.icloud.com, *
+```
+* MitM hostname list now supports port number. By default only the connections to port 443 will be decrypted. Use suffix :port to enable MitM for other ports. Use suffix :0 to enable MitM for all ports on the hostname.
+* URL rewrite type 'header' is now available for MitM connections. You may also use it to rewrite a plain HTTP request to an HTTPS request.
+**Misc**
+* You can now enable/disable a rule.
+* Added a small indicator in the menu icon for Metered Network Mode.</lo>
+* Added main switches for rewrite and scripting.
+* Supports TCP SACKs for Surge VIF.
+* New general option: force-http-engine-hosts. You can force Surge to treat a raw TCP connection as an HTTP connection, to enable high-level functions such as URL-REGEX rules, rewrite and scripting. This option uses the same format as [MITM] hostname option.
+* New option for url-test/fallback group: evaluate-before-use. By default, the requests before a connection evaluation will use the first policy in the list and trigger the evaluate. Enable the option to delay the requests until the evaluation completed.
+
+https://www.nssurge.com/mac/v3/Surge-3.2.0-860.zip
+
+### Version 3.1.1
+
+* Bug fixes.
+
+https://www.nssurge.com/mac/v3/Surge-3.1.1-811.zip
+
 ### Version 3.1.0
 
 * Added more feature to the main menu.
@@ -59,7 +92,7 @@ https://www.nssurge.com/mac/v3/Surge-3.0.3-754.zip
 
 ### Version 3.0.2
 
-* Allows import the profile from an URL.
+* Allows import the profile from a URL.
 * Fixed an issue that the HTTP capture button may show wrong state in Dashboard.
 * Fixed an issue that Dashboard doesn't show User-Agent as the process name while connecting to iOS device.
 * Fixed an issue that the bandwidth of processes may be inaccurate.

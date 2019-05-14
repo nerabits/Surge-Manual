@@ -1,6 +1,6 @@
 # Ruleset
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules from a file or an URL. Surge also provides two internal rulesets.
+Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules from a file or a URL. Surge also provides two internal rulesets.
 
 ## Internal Ruleset
 
@@ -67,7 +67,7 @@ IP-CIDR,100.64.0.0/10
 
 ## External Ruleset
 
-Ruleset from an URL or a local file. The ruleset file should be a text file. Each line contains a rule declaration without the policy.
+Ruleset from a URL or a local file. The ruleset file should be a text file. Each line contains a rule declaration without the policy.
 
 Example:
 

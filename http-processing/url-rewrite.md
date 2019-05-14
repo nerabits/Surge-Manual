@@ -23,7 +23,7 @@ The "Host" field in request header will be modified to match the new URL.
 ^http://www\.google\.cn http://www.google.com header
 ```
 
-> You can't redirect to an URL with HTTPS scheme. And you can't redirect a HTTPS request.
+> You can't redirect to a URL with HTTPS scheme. And you can't redirect an HTTPS request.
 
 
 ### 302 Mode

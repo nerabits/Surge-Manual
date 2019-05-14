@@ -7,7 +7,9 @@ Use logical operator rule to combine multiple rules for complex scenarios. You m
 
 Rule matches if all sub-rules match.
 
-`AND,((#Rule1), (#Rule2), (#Rule3)...),Policy`
+```
+AND,((#Rule1), (#Rule2), (#Rule3)...),Policy
+```
 
 Example:
 ```
@@ -29,11 +31,13 @@ OR,((SRC-IP,192.168.1.110), (SRC-IP,192.168.1.111)),DIRECT
 
 Reverse the evaluation result of the original rule. 
 
-`NOT,((#Rule1)),Policy`
+```
+NOT,((#Rule1)),Policy
+```
 
 
 Example:
 ```
-AND,(NOT((SRC-IP,192.168.1.110)), (DOMAIN, example.com)),DIRECT
+AND,((NOT,((SRC-IP,192.168.1.110))),(DOMAIN, example.com)),DIRECT
 ```
 

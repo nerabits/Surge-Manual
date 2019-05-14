@@ -15,8 +15,25 @@ ca-passphrase = password
 hostname = *google.com
 ```
 
+Surge will only decrypt traffic to hosts declared here.
 
-Surge will only decrypt traffic to hosts which are declared in "hostname". Prefix wildcard \* is allowed. It uses the same wildcard rule as [Local DNS Mapping](dns/local-dns-mapping.md). Although you can use single \* to enable MitM to all requests, it's not recommended.
+- Wildcard characters * and ? are supported.
+- Use prefix - to exclude a hostname.
+- By deafult only the requests to port 443 will be decrypted.
+  - Use suffix :port to allow other ports.
+  - Use suffix :0 to allow all ports.
 
+Example:
+- `-*.apple.com`: Excludes all requests sent to *.apple.com on port 443.
+- `www.google.com`: Allows MitM for www.google.com on port 443.
+- `www.google.com:8080`: Allows MitM for www.google.com on port 8080.
+- `www.google.com:0`: Allows MitM for www.google.com on all ports.
+- `*:0`: Allows MitM for all hostnames on all ports. 
+
+A general configuration may be like:
+
+`hostname = -*.apple.com, -*.icloud.com, *`
 
 > Some applications has strict security policy to use pinned certificates or CA. Enabling decryption to these hosts may casue problems.
+
+

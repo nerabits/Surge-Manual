@@ -27,7 +27,7 @@ One of verbose, info, notify or warning. It's not recommended to enable verbose 
 
 `skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local`
 
-In iOS version, this option forces connections to these domain/IP ranges to be handled by Surge TUN, instead of Surge proxy. In macOS version, these settings will be applied to system when "Set as System Proxy" is enabled. This option is used to fix compatibility problems with some apps.
+In the iOS version, this option forces connection to these domain/IP ranges to be handled by Surge TUN, instead of Surge proxy. In the macOS version, these settings will be applied to the system when "Set as System Proxy" is enabled. This option is used to fix compatibility problems with some apps.
 
 * To specify a single domain, enter the domain name - for example, apple.com.
 * To specify all websites on a domain, use an asterisk before the domain name - for example, *apple.com.
@@ -55,7 +55,7 @@ proxy-settings-interface = Wi-Fi
 always-real-ip = *.apple.com
 ```
 
-This option will ask Surge to return a real IP address instead of a fake IP address when a DNS question is handled by Surge VIF.
+This option will ask Surge to return a real IP address instead of a fake IP address when Surge VIF handles a DNS question.
 
 Surge will forward the DNS packet to upstream DNS servers.
 
@@ -63,9 +63,9 @@ Surge will forward the DNS packet to upstream DNS servers.
 
 `hijack-dns = 8.8.8.8:53`
 
-By default, Surge only returns fake IP addresses for DNS queries sent to Surge DNS address (198.18.0.2). Queries which are sent to standard DNS will be simply forwarded.
+By default, Surge only returns fake IP addresses for DNS queries sent to Surge DNS address (198.18.0.2). Queries that are sent to standard DNS will be  forwarded.
 
-Some devices or softwares always use a hardcode DNS server. (For example, Google Speakers always use 8.8.8.8). You may use this option to hijack the query to get a fake address.
+Some devices or software always use a hardcoded DNS server. (For example, Google Speakers always use 8.8.8.8). You may use this option to hijack the query to get a fake address.
 
 You may use `hijack-dns = *:53` to hijack all DNS queries.
 
@@ -75,9 +75,9 @@ You may use `hijack-dns = *:53` to hijack all DNS queries.
 
 Surge VIF can only process TCP and UDP protocols. Use this option to bypass specific IP ranges to allow all traffic to pass through.
 
-> Notice: This option only works for Surge VIF. Requests handled by Surge Proxy Server will not be affected. Combine 'skip-proxy' and 'tun-excluded-routes' to make sure that certain HTTP traffic bypasses Surge.
+> Notice: This option only works for Surge VIF. Requests handled by Surge Proxy Server will not be affected. Combine 'skip-proxy' and 'tun-excluded-routes' to make sure that specific HTTP traffic bypasses Surge.
 > 
-> This option might cause a system error ENOMEM (Cannot allocate memory). It seems a bug in iOS system. Please do not use this option if possible.
+> This option might cause a system error ENOMEM (Cannot allocate memory). It seems a bug in the iOS system. Please do not use this option if possible.
 
 #### Included Routes
 
