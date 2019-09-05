@@ -5,10 +5,13 @@
 ### Version 3.2.0
 
 **Scripting**
+
 * New major feature: scripting. You may use JavaScript to modify the response as you wish. See the manual for more information: https://manual.nssurge.com/http-processing/scripting.html
 * You can now use a script to modify the response headers and status code.
+
 **Dashboard**
 * USB module has been refactored to improve stability. Also, you may choose the device from multiple USB devices now.
+
 **MitM**
 * HTTP and MitM engine has been refactored. Please report if you encounter any issues.
 * You can now use URL-REGEX rule for MitM connections.
@@ -19,6 +22,7 @@ hostname = -*.apple.com, -*.icloud.com, *
 ```
 * MitM hostname list now supports port number. By default only the connections to port 443 will be decrypted. Use suffix :port to enable MitM for other ports. Use suffix :0 to enable MitM for all ports on the hostname.
 * URL rewrite type 'header' is now available for MitM connections. You may also use it to rewrite a plain HTTP request to an HTTPS request.
+
 **Misc**
 * You can now enable/disable a rule.
 * Added a small indicator in the menu icon for Metered Network Mode.</lo>

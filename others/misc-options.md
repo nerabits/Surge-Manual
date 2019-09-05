@@ -1,4 +1,4 @@
-# Misc Options
+# Misc Options in [General] section
 
 ```
 [General]
@@ -11,19 +11,19 @@ tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
 tun-included-routes = 192.168.1.12/32
 ```
 
-### Common Options
+### ipv6
 
-#### Enable full IPv6 support (Default: false)
+Enable full IPv6 support (Default: false)
 
 `ipv6 = false`
 
-#### loglevel (Default: notify)
+### loglevel (Default: notify)
 
 `loglevel = notify`
 
 One of verbose, info, notify or warning. It's not recommended to enable verbose in daily use because this will slow down the performance significantly.
 
-#### skip-proxy
+### skip-proxy
 
 `skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local`
 
@@ -37,19 +37,23 @@ In the iOS version, this option forces connection to these domain/IP ranges to b
 > Notice: If you enter an IP address or address range, you will only be able to bypass the proxy when you connect to that host using that address, not when you connect to the host by a domain name that resolves to that address.
 
 
-#### Misc
+### use-default-policy-if-wifi-not-primary
+
+Use the default policy if Wi-Fi isn't primary interface for SSID Group. (macOS only)
 
 ```
 use-default-policy-if-wifi-not-primary = false
 ```
 
-#### Helper
+### proxy-settings-interface
+
+Helper proxy interface setting.
 
 ```
 proxy-settings-interface = Wi-Fi
 ```
 
-### Real IP
+### always-real-ip
 
 ```
 always-real-ip = *.apple.com
@@ -59,7 +63,7 @@ This option will ask Surge to return a real IP address instead of a fake IP addr
 
 Surge will forward the DNS packet to upstream DNS servers.
 
-### Hijack Other DNS Servers
+### hijack-dns
 
 `hijack-dns = 8.8.8.8:53`
 
@@ -69,7 +73,13 @@ Some devices or software always use a hardcoded DNS server. (For example, Google
 
 You may use `hijack-dns = *:53` to hijack all DNS queries.
 
-#### Excluded Routes
+### force-http-engine-hosts
+
+`force-http-engine-hosts = example.com:80`
+
+Make Surge treat TCP connections as HTTP requests. HTTP engine will process the requests and all advanced features may be available, such as capturing, rewrite and scripting.
+
+### tun-excluded-routes
 
 `tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12`
 
@@ -79,7 +89,7 @@ Surge VIF can only process TCP and UDP protocols. Use this option to bypass spec
 > 
 > This option might cause a system error ENOMEM (Cannot allocate memory). It seems a bug in the iOS system. Please do not use this option if possible.
 
-#### Included Routes
+### tun-included-routes
 
 `tun-included-routes = 192.168.1.12/32`
 
