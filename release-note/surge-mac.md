@@ -2,6 +2,48 @@
 
 ## Surge Mac V3
 
+### Version 3.3.2
+
+* Supports MITM on non-standard port for TCP mode.
+* Proxy editing view now supports VMess protocol and all misc options.
+* A new option 'persistent' has been added to the load-balance group. (aka PCC, per connection classifier) When 'persistent=true' is set, the same hostname will always get the same policy.
+* Bug fixes.
+
+https://www.nssurge.com/mac/v3/Surge-3.3.2-925.zip
+
+### Version 3.3.1
+
+* Supports VMess proxy protocol.
+  * vmess-proxy= vmess, example.com, 443, username = 12345678-abcd-1234-1234-47ffca0ce229, ws=true, tls=true, ws-path=/v2, ws-headers=X-Header-1:value|X-Header-2:value
+  * All proxy options for TLS proxy are available.
+  * Web-socket and TLS options would degrade performance. Only enable when necessary.
+  * Surge only supports chacha20-poly1305 encryption algorithm. Please make sure the server supports it. We have no plan to implement other ciphers.
+
+https://www.nssurge.com/mac/v3/Surge-3.3.1-906.zip
+
+
+### Version 3.3.0
+
+* The scripting has been rewritten totally. The old scripts are not compatible with this version. See https://community.nssurge.com/d/33-scripting/3
+* Added support for TLS 1.3. Append 'tls13=true' to the proxy line to enable it. (Requires macOS 10.14 or above)
+* Supports to use 'X-Surge-Policy' to force policy for HTTP/HTTPS requests.
+* SSID group now supports to use the IP address of default router as an identifier.
+* New policy group type: load-balance, which will use a random sub-policy for every request.
+* Supports DNS over HTTPS. More information in community: https://community.nssurge.com/d/48-dns-over-http
+* IN-PORT and DEST-PORT rule now supports port range expression: <code>DEST-PORT,8000-8999,DIRECT</code>
+* Provides compatibility for Surge iOS 4.
+* Surge Mac software package is now notarized by Apple.
+* A new standalone view to manage all external resources.
+
+https://www.nssurge.com/mac/v3/Surge-3.3.0-893.zip
+
+### Version 3.2.1
+
+* Fixed a bug that Handoff doesn't work between Surge iOS and Dashboard.
+* Fixed a bug that 'Update All Remote Resources' may not work.
+
+https://www.nssurge.com/mac/v3/Surge-3.2.1-863.zip
+
 ### Version 3.2.0
 
 **Scripting**

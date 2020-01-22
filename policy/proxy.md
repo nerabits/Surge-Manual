@@ -39,4 +39,4 @@ When the option is ture, if the desired interface is not available, Surge is all
 If this option is enabled, Surge will not verify the server's certificate.
 
 #### sni (Default: hostname)
-You may customize Server Name Indication (SNI) during TLS handshank. Use sni=off to turn off SNI completely. By defualt Surge will send SNI with hostname like most browsers.
+You may customize Server Name Indication (SNI) during TLS handshake. Use sni=off to turn off SNI completely. By defualt Surge will send SNI with hostname like most browsers.

@@ -23,7 +23,15 @@
   * [HTTPS Decryption](http-processing/mitm.md)
   * [URL Rewrite](http-processing/url-rewrite.md)
   * [Header Rewrite](http-processing/header-rewrite.md)
-  * [Scripting](http-processing/scripting.md)
+* Scripting
+  * [Basic](scripting/common.md)
+  * [HTTP Request](scripting/http-request.md)
+  * [HTTP Response](scripting/http-response.md)
+  * [Policy Group](scripting/policy-group.md)
+  * [Rule](scripting/rule.md)
+  * [Event](scripting/event.md)
+  * [DNS](scripting/dns.md)
+  * [Cron](scripting/cron.md)
 * Other
   * [Misc Options](others/misc-options.md)
   * [Managed Configuration](others/managed-configuration.md)
