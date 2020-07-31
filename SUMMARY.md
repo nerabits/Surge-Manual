@@ -27,7 +27,6 @@
   * [Basic](scripting/common.md)
   * [HTTP Request](scripting/http-request.md)
   * [HTTP Response](scripting/http-response.md)
-  * [Policy Group](scripting/policy-group.md)
   * [Rule](scripting/rule.md)
   * [Event](scripting/event.md)
   * [DNS](scripting/dns.md)
@@ -39,6 +38,9 @@
   * [SSID Suspend](others/ssid-suspend.md)
   * [URL Scheme](others/url-scheme.md)
   * [Snell Server](others/snell-server.md)
+  * [Module](others/module.md)
+  * [DNS over HTTPS](others/doh.md)
+
 * [Release Note](release-note.md)
   * [Surge Mac](release-note/surge-mac.md)
 

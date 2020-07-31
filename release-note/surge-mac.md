@@ -2,11 +2,128 @@
 
 ## Surge Mac V3
 
+### Version 3.5.4
+      
+#### Changes in Policy Group
+
+* New parameter: policy-regex-filter. If the parameter is configured, only matched policy line will be used.
+      
+#### Minor Changes
+
+* Provides more details for the TLS handshake error.
+* Increases the file description limitation alert threshold.
+
+https://www.nssurge.com/mac/v3/Surge-3.5.4-1119.zip
+
+### Version 3.5.3
+
+#### New Parameter: use-local-host-item-for-proxy
+
+`[General]`
+
+`use-local-host-item-for-proxy = true`
+
+If use-local-host-item-for-proxy is true, Surge sends the proxy request with the IP address defined in the [Host] section, instead of the original domain.
+
+#### Changes in Load Balance Group
+
+* load-balance group now supports connectivity testing before being used. Add 'url' parameter to enable it.
+* Parameters 'timeout', 'interval' and 'evaluate-before-use' are also available.
+
+#### Minor Changes
+
+* Surge will send an ICMP port unreachable message if UDP forwarding fails.
+* Eliminate unnecessary local DNS lookup while forwarding UDP traffic to a proxy server.
+* Fixed a bug that connecting to Surge iOS via USB is not working in Surge Dashboard.
+
+https://www.nssurge.com/mac/v3/Surge-3.5.3-1094.zip
+
+### Version 3.5.2
+
+#### SSID Suspend
+* Surge Mac supports SSID suspend now. The system proxy and enhanced mode will be temporarily suspended under specified SSIDs.
+* The name of WiFi can be an SSID, a BSSID, or a gateway IP address.
+* No UI configuration in the current version.
+
+#### REJECT-DROP
+* REJECT-DROP policy is now effective to proxy connections. The connections matched with a REJECT-DROP policy will be closed in 60-120s later without any data returned.
+
+#### Global Proxy
+* You may now select and view sub-policy for policy groups while using the global proxy mode.
+
+https://www.nssurge.com/mac/v3/Surge-3.5.2-1082.zip
+
+### Version 3.5.1
+
+#### New rule type: DOMAIN-SET
+* DOMAIN-SET is just like RULE-SET. But it is designed a large number of rules and highly efficient.
+* Unlike RULE-SET, you can only write hostnames (domain or IP address) in it. One hostname per line.
+* You may use "." prefix to include all sub-domains.
+
+#### Changes in SRC-IP
+* SRC-IP rule now supports IP-CIDR for both IPv4 and IPv6.
+          
+#### Changes in DNS over HTTPS
+* From this version, if DNS-over-HTTPS is configured, the traditional DNS will only be used to test the connectivity and resolve the domain in the DOH URL.
+* The DNS over HTTPS now has a separate parameter: doh-server. The DOH servers in 'dns-server' will be moved to the new parameter after saving.
+* The legacy DNS is always required now.
+* DOH can be matched with rule 'PROTOCOL,DOH' now.
+* Added a new parameter 'doh-follow-outbound-mode'. In the previous version, the DOH client follows the system proxy settings. From this version, all DOH requests will use DIRECT policy by default. If 'doh-follow-outbound-mode' is set, the DOH requests will follow the outbound mode settings regardless of the system proxy settings.
+* We are refactoring the HTTP client for DOH and scripting. Please feedback if you encounter any issue.
+
+#### Changes in Scripting
+* Added a simple view to test the script. You may find it in the Window menu.
+
+#### Minor Changes
+* Fixed a crash in Dashboard while using search.
+* Bug fixes.
+
+#### Known Issues
+* You may not configure DOH with UI in this version temporarily.
+
+https://www.nssurge.com/mac/v3/Surge-3.5.1-1069.zip
+
+### Version 3.5.0
+
+* New feature: Module, which can override the current profile with a set of settings. Highly flexible for diverse purposes. See the post in the community for more information: https://community.nssurge.com/d/225-module.
+* You may enable modules in the menu now.
+* You may view the detail of a module by double clicking.
+* Supports pattern filter for Dashboard requests.
+* Added a new rule type: PROTOCOL. The possible values are HTTP, HTTPS, SOCKS, SNELL, TCP, UDP.
+* You may now use UI to add and edit load-balance group.
+  * DNS over HTTP (DoH) now uses DNS wireformat by default. You may configure doh-format=json in [General] to continue using JSON format.
+  * TCP connection setup optimizations.
+  * Bug fixes.
+
+https://www.nssurge.com/mac/v3/Surge-3.5.0-1039.zip
+
+### Version 3.4.0
+
+* Snell protocol now upgrade to version 2, supporting to reuse TCP connections to improve performance. https://github.com/surge-networks/snell/releases
+* Supports a new proxy protocol: Trojan.
+* Remote Dashboard now upgraded to Remote Controller. You may use Surge iOS to select policy group, toggle HTTP capture/MitM, and switch outbound mode remotely.
+* The comment lines in the text config won't lost after editing with UI.
+* You may open the new connection window of Dashboard by holding the Option key while clicking the Dashboard item in the main menu.
+* Supports to use OpenSSL as TLS provider. See the post in the community for more information: https://community.nssurge.com/d/196-surge-ios-mac-tls-provider.
+* Fixed a bug that Surge may not be able to process DNS answer packets which is longer than 512 bytes.
+
+https://www.nssurge.com/mac/v3/Surge-3.4.0-989.zip
+
+### Version 3.3.3
+
+* Fixed a bug which causes TFO failed.
+* You may use a profile which stores in a subdirectory of the profile directory.
+* Added Traditional Chinese localizations.
+* Fixed a bug that the menu might be unresponsive.
+* Fixed crashs on macOS 10.11.
+
+https://www.nssurge.com/mac/v3/Surge-3.3.3-939.zip
+
 ### Version 3.3.2
 
 * Supports MITM on non-standard port for TCP mode.
 * Proxy editing view now supports VMess protocol and all misc options.
-* A new option 'persistent' has been added to the load-balance group. (aka PCC, per connection classifier) When 'persistent=true' is set, the same hostname will always get the same policy.
+* A new option 'persistent' has been added to the load-balance group. (aka PCC, per connection classifier) When 'persistent=true' is set, a same hostname will always get the same policy.
 * Bug fixes.
 
 https://www.nssurge.com/mac/v3/Surge-3.3.2-925.zip

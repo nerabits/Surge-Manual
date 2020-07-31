@@ -12,7 +12,7 @@ The script must invoke $done() with an object. The object may contain:
 * `url<String>`: Use the new URL to overwrite the old one. Please note that it won't update the 'Host' field in the header as URL Rewrite does. You need to change it manually by returning a modified header object if necessary.
 * `headers<Object>`: Use the new headers to overwrite all the old headers. Please note that some fields may not be modified, such as 'Content-Length'.
 * `body<String>`: Use the new body to overwrite the old one. Only works when requires-body = true.
-* `response<Object>`：If this object exists, Surge returns an HTTP response directly without a real network operation. The object may contain:
+* `response<Object>`：If this object exists, Surge returns an HTTP response directly without making a real network operation. The object may contain:
     * `$status<Number>`: Response HTTP status code. (Optional. Default: 200)
     * `$headers<Object>`: Response HTTP Headers. (Optional)
     * `$body<String>`: Response HTTP Body. (Optional)

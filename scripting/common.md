@@ -8,23 +8,24 @@ You may use JavaScript to extend the ability of Surge as your wish.
 
 ```
 [Script]
-http-response ^http://www.example.com/test script-path=test.js,max-size=16384,debug=true
-cron "* * * * *" script-path=fired.js
-policy-group worst script-path=worst.js,debug=true
-http-request ^http://httpbin.org script-path=http-request.js,max-size=16384,debug=true,requires-body=true
-dns local script-path=dns.js,debug=true
+script1 = type=http-response,pattern=^http://www.example.com/test script-path=test.js,max-size=16384,debug=true
+scropt2 = type=cron,cronexp="* * * * *",script-path=fired.js
+scropt3 = type=http-request,pattern=^http://httpbin.org script-path=http-request.js,max-size=16384,debug=true,requires-body=true
+scropt4 = type=dns,script-path=dns.js,debug=true
 ```
 
-Each line has three components: type, value, and parameters. Value has different purposes for each type. 
- 
+Each line has two components: script name, and parameters. 
 Common parameters: 
  
+* type: The type of script: http-request, http-response, cron, event, dns, rule.
 * script-path: The path of the script, can be a relative path to the profile, an absolute path, or a URL.
 * script-update-interval: The update interval while using an URL for script-path, in second. 
 * debug: Enabling debug mode. The script is loaded from the filesystem every time before evaluating it.
 * timeout: The longest-running time for the script. The default value is 10s.
 
 Parameters for http-request and http-response:
+
+* pattern: The regex pattern to match URL.
 
 * requires-body：Allows the script to modify request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
 

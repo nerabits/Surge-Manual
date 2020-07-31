@@ -4,16 +4,14 @@
 [General]
 ipv6 = false
 loglevel = notify
-
 skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local
-
 tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
 tun-included-routes = 192.168.1.12/32
 ```
 
-### ipv6
+### ipv6 (Default: false)
 
-Enable full IPv6 support (Default: false)
+Enable full IPv6 support
 
 `ipv6 = false`
 
@@ -37,15 +35,15 @@ In the iOS version, this option forces connection to these domain/IP ranges to b
 > Notice: If you enter an IP address or address range, you are only able to bypass the proxy when you connect to that host using that address, not when you connect to the host by a domain name that resolves to that address.
 
 
-### use-default-policy-if-wifi-not-primary
+### use-default-policy-if-wifi-not-primary (macOS only)
 
-Use the default policy if Wi-Fi isn't the primary interface for SSID Group. (macOS only)
+Use the default policy of a SSID Group if Wi-Fi isn't the primary interface. 
 
 ```
 use-default-policy-if-wifi-not-primary = false
 ```
 
-### proxy-settings-interface
+### proxy-settings-interface (macOS only)
 
 Helper proxy interface setting.
 
@@ -61,7 +59,7 @@ always-real-ip = *.apple.com
 
 This option asks Surge to return a real IP address instead of a fake IP address when Surge VIF handles a DNS question.
 
-Then the DNS packet is forwarded to upstream DNS servers.
+The DNS packet will be forwarded to upstream DNS servers.
 
 ### hijack-dns
 
@@ -108,4 +106,27 @@ Surge VIF can only process TCP and UDP protocols. Use this option to bypass spec
 `tun-included-routes = 192.168.1.12/32`
 
 By default, Surge VIF interface declares itself as the default route. However, since the Wi-Fi interface has a smaller route, some traffic may not go through Surge VIF interface. Use this option to add a smaller route.
+
+### compatibility-mode (iOS only)
+
+### allow-wifi-access (iOS only)
+### wifi-access-http-port (iOS only)
+### wifi-access-socks5-port (iOS only)
+### show-error-page-for-reject
+### exclude-simple-hostnames
+
+### socks5-listen (macOS only)
+### http-listen (macOS only)
+
+### proxy-test-url
+### test-timeout
+### internet-test-url
+### read-etc-hosts
+
+### network-framework
+### tls-provider
+
+### debug-cpu-usage
+### debug-memory-usage
+
 

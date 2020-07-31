@@ -1,6 +1,6 @@
 # IP-based Rule
 
-There are 2 IP-based rule types. A IP-based rule will trigger a DNS lookup if the hostname of the request is a domain. If the DNS lookup fails, Surge will abort the rule testing and report an error.
+There are 3 IP-based rule types. A IP-based rule will trigger a DNS lookup if the hostname of the request is a domain. If the DNS lookup fails, Surge will abort the rule testing and report an error.
 
 #### IP-CIDR
 
@@ -12,6 +12,15 @@ IP-CIDR,127.0.0.1/8,DIRECT
 ```
 
 Rule matches if the IP address of the request matches a specified range.
+
+#### IP-CIDR6
+
+```
+IP-CIDR6,2001:db8:abcd:8000::/50,DIRECT
+```
+
+Rule matches if the IPv6 address of the request matches a specified range.
+
 
 #### GEOIP
 
