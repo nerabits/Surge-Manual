@@ -24,8 +24,9 @@ Rule matches if the GeoIP test result matches a specified country code.
 
 ```
 GEOIP,US,DIRECT,no-resolve
-IP-CIDR,172.16.0.0/12,DIRECT,no-resolve```
+IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+```
 
-When a GEOIP or IP-CIDR rule is encountered, Surge will send a DNS question to check if the hostname of request is a domain. You can select 'no-resolve' option to skip this rule for a request with domain.
+When a GEOIP or IP-CIDR rule is encountered, Surge will send a DNS query to check if the hostname of request is a domain. You can select 'no-resolve' option to skip this rule for a request with domain.
 
 > Notice: If some domains can't be resolved by local DNS server, please make sure there is no IP-based rule in front of the rule which matches that domain. Otherwise the rule testing will fail due to a DNS error. You can use 'no-resolve' to solve the issue too.
