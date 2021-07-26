@@ -14,7 +14,7 @@ Off = reject
 
 Then you can use 'On' and 'Off' as a policy name in rule and policy group.
 
-#### Interface Option
+#### Interface Parameter
 
 Direct policy alias supports 'interface' parameter like a proxy policy.
 
@@ -26,4 +26,5 @@ WiFi = direct, interface = en2, allow-other-interface=true
 
 Please make sure the interface has a valid route table for the destination address.
 
-'allow-other-interface=true' means when the desired interface is not available, Surge is allowed to use another interface to setup the connection. Otherwise the connection will fail directly.
+`allow-other-interface=true` means when the desired interface is not available, Surge is allowed to use another interface to setup the connection. Otherwise the connection will fail directly.
+

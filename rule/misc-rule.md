@@ -24,3 +24,13 @@ Rule matches if the incoming port of the request matches. Useful while Surge lis
 ```
 IN-PORT,6152,DIRECT
 ```
+
+
+#### PROTOCOL 
+
+Rule matches if the protocol of the request matches. The possible values are HTTP, HTTPS, TCP, UDP, DOH.
+
+```
+PROTOCOL,HTTP,DIRECT
+```
+

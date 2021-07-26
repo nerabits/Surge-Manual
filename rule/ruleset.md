@@ -4,6 +4,8 @@ Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules fr
 
 ## Internal Ruleset
 
+The internal ruleset contents might change with Surge version updates. Please go to the ruleset settings to check the latest sub-rules.
+
 ### SYSTEM
 
 `RULE-SET,SYSTEM,DIRECT`
@@ -62,6 +64,7 @@ IP-CIDR,10.0.0.0/8
 IP-CIDR,172.16.0.0/12
 IP-CIDR,127.0.0.0/8
 IP-CIDR,100.64.0.0/10
+IP-CIDR6,fe80::/10
 ```
 
 
@@ -75,3 +78,4 @@ Example:
 DOMAIN,exampleA.com
 DOMAIN,exampleB.com
 ```
+

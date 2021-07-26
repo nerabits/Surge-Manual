@@ -54,9 +54,17 @@ Snell is a lightweight encryption proxy protocol developed by ourselves. You may
 	
 	When the option is true, if the desired interface is not available, Surge is allowed to use the default interface to bind the connection. Otherwise, the connection fails directly.
 
+* test-url
+
+Override the global testing URL. The URL is used for availability and latency testing.
+
 * tfo
 
+Enable the TCP Fast Open for the policy.
+
 * mptcp
+
+Enable the MultiPath TCP for the policy. Must be used with the Network Framework. (Experimental features)
 
 * no-error-alert
 
@@ -65,7 +73,7 @@ Snell is a lightweight encryption proxy protocol developed by ourselves. You may
   
 	If this option is enabled, Surge will not verify the server's certificate.
 
-* sni (Default: hostname)
+* sni (Default: the proxy hostname)
 
 	You may customize the Server Name Indication (SNI) during the TLS handshake. Use sni=off to turn off SNI completely. By default Surge sends the SNI using the hostname like most browsers.
 	

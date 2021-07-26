@@ -2,6 +2,17 @@
 
 Surge is a web development and proxy utility. It is designed for developers and therefore requires professional knowledge to use.
 
+These four capabilities form the core workflow of Surge:
+
+* Takeover: You can take over the network connection sent by the device. Surge supports both proxy service and virtual NIC takeover.
+
+* Processing: You can modify the network requests and responses that have been taken over. This includes URL redirection, local file mapping, custom modification using JavaScript, and many other methods.
+
+* Forwarding: You can forward the taken over network requests to other proxy servers. This can be global forwarding or with a flexible rule system to determine an outbound policy.
+
+* Intercept: You can intercept and save specific data of network requests and responses, and you can also decrypt HTTPS traffic with MITM.
+
+
 ## Features
 
 * High Performance, Stability, and Efficiency: Surge can smoothly handle all network traffic with industrial-grade stability using minimum system resources.
@@ -27,4 +38,13 @@ Surge is a web development and proxy utility. It is designed for developers and 
 * Capture all HTTP/HTTPS/TCP traffic from any apps on your device, and redirect to HTTP/HTTPS/SOCKS5/Shadowosocks proxy servers following highly configurable rules, even if the app does not follow system proxy settings.
 * Override system DNS settings even on a cellular network, and boost performance by querying all DNS servers simultaneously.
 * Monitor and analyze network requests on iOS devices by connecting Surge Dashboard to Surge iOS via Wi-Fi or USB cables. You can even examine cellular network requests when connecting via USB cables.
+
+### Understanding Surge
+
+We have published an official guide book to help you understand Surge.
+
+* English version: https://manual.nssurge.com/book/understanding-surge/en/
+
+* Chinese version: https://manual.nssurge.com/book/understanding-surge/cn/
+
 

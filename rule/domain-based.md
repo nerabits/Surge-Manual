@@ -21,3 +21,8 @@ Rule matches if the domain of the request matches the suffix. For example: 'goog
 Rule matches if the domain of the request contains the keyword.
 
 
+#### DOMAIN-SET
+
+Designed for a large number of domain name list file, supports fast search for thousands of records. Each line in the file is a domain name, if a line begins with . matches all sub-domains and the domain name itself. This can be used for ad filtering.
+
+

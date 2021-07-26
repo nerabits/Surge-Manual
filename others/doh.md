@@ -35,3 +35,17 @@ You need to confirm the supported type of your DoH service.
 	doh-format=json
 	```
 
+### Use DoH with Proxy
+
+If you want to query DoH servers through proxy, you can set doh-follow-outbound-mode to true.
+
+```
+[General]
+doh-follow-outbound-mode=true
+```
+
+All the DoH connections will follow the outbound mode setttings. Then configure a rule for the DoH hostname to use a proxy.
+
+Or, use `PROTOCOL,DOH` rule to match all DoH connections.
+
+
