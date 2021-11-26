@@ -22,4 +22,7 @@ $surge.setSelectGroupPolicy('Group', 'Proxy');
 $done();
 ```
 
+### Additional API
+
+- `$cronexp`: The cron expression string.
 

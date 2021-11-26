@@ -4,16 +4,16 @@ Use a script to modify the HTTP response. The value field is a regular expressio
 
 The incoming parameters are $request and $response:
 
-* `$request.url<String>`: Request URL
-* `$request.method<String>`：Request HTTP method
-
-* `$response.status<Number>`: Response HTTP status code
-* `$response.headers<Object>`: Response HTTP Headers
-* `$response.body<String>`: Response HTTP Body, decoded to string with UTF-8. Only exists when requires-body = true.
+* `$request.url<String>`: Request URL.
+* `$request.method<String>`：Request HTTP method.
+* `$request.id<String>`: A unique ID for continuity among scripts.
+* `$response.status<Number>`: Response HTTP status code.
+* `$response.headers<Object>`: Response HTTP headers.
+* `$response.body<String or Uint8Array>`: Response HTTP body, decoded to string with UTF-8 if binary-mode isn't set. Only exists when requires-body = true.
 
 The script must invoke $done() with an object. The object may contain:
 
-* `body<String>`: Use the new body to overwrite the old one. Only works when requires-body = true.
+* `body<String or Uint8Array>`: Use the new body to overwrite the old one. Only works when requires-body = true.
 * `headers<Object>`: Use the new headers to overwrite all the old headers. Please note that some fields may not be modified, such as 'Content-Length'.
 * `status<Number>`: Use the new status code to overwrite the old one.
 

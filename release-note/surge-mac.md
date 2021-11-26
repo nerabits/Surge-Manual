@@ -2,6 +2,46 @@
 
 ## Surge Mac V4
 
+### Version 4.2.4
+
+- New option: Menubar icon display mode. You can now hide the icon and display the real-time speed only, to save the precious menubar space.
+- New HTTP API: GET /policies/benchmark_results
+- Supports IP Fragmentation for UDP and ICMP packets. (IP Fragmentation for TCP packets is already supported in the previous versions.)
+- You can now right click on a remote client to add a new rule in the Dashboard.
+- Performance improvements.
+- Added a few device icons.
+- The UI editor of policy group now supports filter and mixed policies.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.2.4-1399-4f3c53abfe45fce5646d84af11e589c4.zip
+
+### Version 4.2.3
+
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.2.3-1357-0803594c82248360a95722089650f7f7.zip
+
+### Version 4.2.2
+- Supports binary mode for http-request and http-response scripts.
+- DHCP can detect if a device is private address enabled now.
+- Surge won't reload the profile automatically if the new profile is invalid.
+- New local and remote notification selections: auto-updating and profile reloading.
+
+https://dl.nssurge.com/mac/v4/Surge-4.2.2-1351-5dc813192d6e37fdb0895034ebc90b57.zip
+
+### Version 4.2.1
+
+#### External IP
+- You may now check the external IP address in the interfaces view.
+
+#### DDNS
+- Surge Mac can associate its external IP address to .sgddns hostname. You may use the hostname with Surge iOS or Surge Mac on another device. The data is synced via iCloud, and the hostname can't be used publicly.
+
+#### Others
+- Surge Mac now can fix the helper installtion issues automatically。
+
+https://dl.nssurge.com/mac/v4/Surge-4.2.1-1333-14f7cb7cd943be7e4b3cecfb3fcd8ba3.zip
+
 ### Version 4.2.0
 
 #### Web Dashboard

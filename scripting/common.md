@@ -22,6 +22,7 @@ Common parameters:
 * script-update-interval: The update interval while using an URL for script-path, in second. 
 * debug: Enabling debug mode. The script is loaded from the filesystem every time before evaluating it.
 * timeout: The longest-running time for the script. The default value is 10s.
+* argument: The script may fetch the value with $argument.
 
 Parameters for http-request and http-response:
 
@@ -30,6 +31,8 @@ Parameters for http-request and http-response:
 * requires-body：Allows the script to modify request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
 
 * max-size: The maximum allowed size for the request/response body. Default value is 131072 (128KB).
+
+* binary-mode: Only available in iOS 15 and macOS. The raw binary body data will be passed to the script in Uint8Array instead of string value.
 
 Scripting requires Surge to load the entire response body data to memory. A huge response body may cause Surge iOS crash since the iOS system limits the maximum amount of memory which the Network Extension can occupy.
 
@@ -46,6 +49,47 @@ Scripts allow asynchronous operations. $done(value<Object>) should be invoked to
 You don't need to worry about the performance of scripting. The JavaScript core is notably effective. 
 
 ## Public API
+
+### Basic Information
+
+* **`$network`**
+
+The object contains the detail of the network environment.
+
+* **`$script`**
+
+  - `$script.name<String>`: The script name which is being evaluating.
+  - `$script.startTime<Date>`: The time when the current script starts.
+  - `$script.type<String>`: The type of the current script.
+
+* **`$environment`**
+
+  - `$environment.system<String>`: iOS or macOS.
+  - `$environment.surge-build<String>`: The build number of Surge.
+  - `$environment.surge-version<String>`: The short version number of Surge.
+  - `$environment.language<String>`: The cuurent UI langauge of Surge.
+
+### Persistent Store
+
+* **`$persistentStore.write(data<String>, [key<String>])`**
+
+Save data permanently. Only string is allowed. Return true if successes.
+
+* **`$persistentStore.read([key<String>])`**
+
+Get the saved data. Return a string or Null.
+
+If the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+
+### Control Surge
+
+* **`$httpAPI(method<String>, path<String>, callback<Function>(result<Object>))`**
+
+You may use $httpAPI to call all HTTP APIs to control Surge's functions. No authentication parameters are required. See HTTP API section for the available abilities.
+
+
+### Utilities
+
 
 * **`console.log(message<String>)`**
 
@@ -85,43 +129,10 @@ Post a notification.
 
 Perform a GeoIP lookup. Results are in ISO 3166 code.
 
-* **`$surge.setSelectGroupPolicy(groupName<String>, policyName<String>)`**
 
-Set the select type policy group result. Return true if successes.
+### Manually Trigger
 
-* **`$surge.selectGroupDetails()`**
+You can manually trigger a script on Surge iOS, by long pressing on the script or use the system Shortcuts.app.
 
-Get details of all select type policy groups.
-
-* **`$surge.setOutboundMode(mode<String>)`**
-
-Set the outbound mode, the value should be 'direct', 'global-proxy', or 'rule'.Return true if successes.
-
-* **`$surge.setHTTPCaptureEnabled(enabled<Boolean>)`**
-* **`$surge.setCellularModeEnabled(enabled<Boolean>)`**
-* **`$surge.setRewriteEnabled(enabled<Boolean>)`**
-* **`$surge.setEnhancedModeEnabled(enabled<Boolean>)`** _Surge Mac Only_
-
-Control the state of components.
-
-* **`$network`**
-
-The object contains the detail of the network environment.
-
-* **`$script.name<String>`**
-
-The script name which is being evaluating 
-* **`$script.startTime<Date>`**
-
-The time when the current script starts.
-
-* **`$persistentStore.write(data<String>, [key<String>])`**
-
-Save data permanently. Only string is allowed. Return true if successes.
-
-* **`$persistentStore.read([key<String>])`**
-
-Get the saved data. Return a string or Null.
-
-If the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script, use `$intent.parameter` to retrieve it.
 

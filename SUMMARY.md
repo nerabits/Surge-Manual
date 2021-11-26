@@ -15,6 +15,7 @@
 * [Proxy Policy](policy.md)
   * [Proxy Policy](policy/proxy.md)
   * [Bulit-in Policy](policy/built-in.md)
+  * [Common Policy Parameters](policy/parameters.md)
   * [Policy Group](policy/group.md)
 * [DNS](dns.md)
   * [DNS Server](dns/dns-override.md)
@@ -41,7 +42,9 @@
   * [Module](others/module.md)
   * [DNS over HTTPS](others/doh.md)
   * [HTTP API](others/http-api.md)
-
-* [Release Note](release-note.md)
+  * [Information Panel](others/panel.md)
+* Release Note
   * [Surge Mac](release-note/surge-mac.md)
+  * [Profile Version](release-note/profile-version.md)
+
 

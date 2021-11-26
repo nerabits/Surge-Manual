@@ -34,3 +34,38 @@ Rule matches if the protocol of the request matches. The possible values are HTT
 PROTOCOL,HTTP,DIRECT
 ```
 
+#### SUBNET
+
+Rule matches if the SSID/BSSID/router IP address matches. Supports a wildcard pattern.
+
+```
+SUBNET,MyHome,DIRECT
+```
+
+#### SCRIPT
+
+Use a Javascript script to determine whether it matches.
+
+```
+SCRIPT,ScriptName,DIRECT
+```
+
+
+#### CELLULAR-RADIO (iOS Only)
+
+Rule matches if the cellular radio technology of the current network matches. The possible values are GPRS, Edge, WCDMA, HSDPA, HSUPA, CDMA1x, CDMAEVDORev0, CDMAEVDORevA, CDMAEVDORevB, eHRPD, HRPD, LTE, NRNSA, NR
+
+```
+CELLULAR-RADIO,LTE,DIRECT
+```
+
+
+#### CELLULAR-CARRIER (iOS Only)
+
+Rule matches if the cellular carrier of the current network matches. The value should be in MCC-MNC code style.
+
+```
+CELLULAR-CARRIER,289-67,DIRECT
+```
+
+
