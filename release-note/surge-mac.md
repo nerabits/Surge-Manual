@@ -2,6 +2,49 @@
 
 ## Surge Mac V4
 
+
+### Version 4.4.0
+
+- Uses Surge as a WireGuard client, converting L3 VPN as an outbound proxy policy. More information: https://manual.nssurge.com/policy/wireguard.html
+- Supports VmessAEAD. (Policy parameter: vmess-aead = true)
+- Trojan protocol now supports UDP relay. (No additional parameter required)
+- The underlying proxy now supports using a policy group.
+- Performance optimization.
+- Added a release note window to show update history.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.4.0-1521-a0024e9fbe33f5ccaa41316d63cdefee.zip
+
+### Version 4.3.1
+
+- Snell Protocol v3, which brings UDP over TCP relay support
+  - Optimized for high throughput.
+  - Port Restricted Cone NAT support. (aka NAT type 2)
+- The http-response scripts can read request headers via $request.headers now.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.3.1-1461-829471a307259fe1729cf06a7cd13d06.zip
+
+### Version 4.3.0
+- Surge Dashboard now supports managing DHCP devices. All of the properties (name, icon, static IP address, gateway mode) can be edited locally and remotely.
+- The traffic statistics data is now persistent between sessions. And you may use Dashboard to view all the detailed statistical data.
+- The statistics data range is extended to 24 hours.
+- Performance improvements.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.3.0-1430-bde27671bfdadfab143338a7cd5b2fa3.zip
+
+### Version 4.2.5
+
+- Performance improvements.
+- Supports remote rule editing for Surge iOS remote controller.
+- Kill other processes that take over port 53 when starting DHCP service.
+- Surge now only executes reloading if the profile is valid.
+- Supports custom the policy IP TOS field. Example: test-policy = direct, tos=0xb8.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.2.5-1414-764146258a319c307056593a1309cf89.zip
+
 ### Version 4.2.4
 
 - New option: Menubar icon display mode. You can now hide the icon and display the real-time speed only, to save the precious menubar space.

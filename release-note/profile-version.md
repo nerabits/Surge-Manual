@@ -28,3 +28,7 @@ By adding a profile version requirement prefix, the old versions will treat the 
 - Supports script type 'generic'.
 - Supports new section [Panel]. (This doesn't require a profile version requirement since an unknown section won't be parsed.)
 
+### Version 11 (Starts from Surge iOS 4.11.0 & Surge Mac 4.4.0)
+
+- Supports WireGuard policies.
+

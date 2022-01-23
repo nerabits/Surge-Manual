@@ -42,6 +42,10 @@ Snell is a lightweight encryption proxy protocol developed by ourselves. You may
 
 Do not show error alert for this policy.
 
+* underlying-proxy
+
+Use a proxy to connect another proxy, aka proxy chain.
+
 #### Parameter for proxy via TLS (HTTP, SOCKS5-TLS, VMess, Trojan)
 * skip-cert-verify: Optional, "true" or "false" (Default: false).
   

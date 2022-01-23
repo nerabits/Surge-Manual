@@ -7,6 +7,7 @@ The incoming parameters are $request and $response:
 * `$request.url<String>`: Request URL.
 * `$request.method<String>`：Request HTTP method.
 * `$request.id<String>`: A unique ID for continuity among scripts.
+* `$request.headers<Object>`：Request HTTP headers.
 * `$response.status<Number>`: Response HTTP status code.
 * `$response.headers<Object>`: Response HTTP headers.
 * `$response.body<String or Uint8Array>`: Response HTTP body, decoded to string with UTF-8 if binary-mode isn't set. Only exists when requires-body = true.

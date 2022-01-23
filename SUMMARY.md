@@ -17,6 +17,7 @@
   * [Bulit-in Policy](policy/built-in.md)
   * [Common Policy Parameters](policy/parameters.md)
   * [Policy Group](policy/group.md)
+  * [WireGuard](policy/wireguard.md)
 * [DNS](dns.md)
   * [DNS Server](dns/dns-override.md)
   * [Local DNS Mapping](dns/local-dns-mapping.md)

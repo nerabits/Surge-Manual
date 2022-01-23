@@ -56,9 +56,13 @@ Enable MultiPath TCP. (Requires Network.framework enabled)
 
 Customize the IP TOS value.
 
+### Testing
 
 #### test-url
 
 Override the global testing URL. The URL is used for availability and latency testing.
 
+#### test-timeout (In seconds)
+ 
+Override the global testing timeout.
 
