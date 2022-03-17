@@ -4,7 +4,7 @@
 
 All of these parameters are available for both built-in and proxy policies.
 
-#### interface (macOS only, Default: automatically)
+#### interface (Default: automatically)
 
 Force to use a specified outgoing network interface.
 
@@ -12,7 +12,7 @@ Force to use a specified outgoing network interface.
 ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2
 ```
 
-Direct policy alias supports 'interface' parameter like a proxy policy.
+Direct policy alias supports the "interface" parameter like a proxy policy.
 
 ```
 [Proxy]
@@ -22,7 +22,7 @@ WiFi = direct, interface = en2, allow-other-interface=true
 
 Please make sure the interface has a valid route table for the destination address.
 
-#### allow-other-interface (macOS only)
+#### allow-other-interface
 
 When the option is true, if the desired interface is not available, Surge is allowed to use the default interface to bind the connection. Otherwise, the connection fails directly.
 

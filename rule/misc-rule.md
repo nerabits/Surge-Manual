@@ -34,14 +34,6 @@ Rule matches if the protocol of the request matches. The possible values are HTT
 PROTOCOL,HTTP,DIRECT
 ```
 
-#### SUBNET
-
-Rule matches if the SSID/BSSID/router IP address matches. Supports a wildcard pattern.
-
-```
-SUBNET,MyHome,DIRECT
-```
-
 #### SCRIPT
 
 Use a Javascript script to determine whether it matches.

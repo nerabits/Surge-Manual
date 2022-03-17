@@ -1,6 +1,6 @@
 # Profile
 
-The core functionality of Surge is controlled by the profile. Basically all content of the profile can be adjusted by the user interface. But some experimental features may not have the view to configure yet. When you encounter some special requirements, you might need to edit the profile manually to achieve it.
+The core functionality of Surge is controlled by the profile. Basically, all content of the profile can be adjusted by the user interface. But some experimental features may not have the view to configure yet. When you encounter some special requirements, you might need to edit the profile manually to achieve it.
 
 ### Profile content
 
@@ -20,13 +20,13 @@ In these paragraphs, the order of the configuration lines has no effect. However
 
 Configuration files are divided into three categories.
 1. Normal profile: created manually or used by default.
-2. Managed profile: usually provided by the enterprise administrator or service provider. Managed profile cannot be modified locally because they can be updated remotely. If you want to make changes, you should first create a copy to transfer it to a normal configuration.
+2. Managed profile: usually provided by the enterprise administrator or service provider. The managed profile cannot be modified locally because they can be updated remotely. If you want to make changes, you should first create a copy to transfer it to a normal configuration.
 3. Enterprise profile: Enterprise version only, cannot be modified or viewed, and cannot be copied.
 
 
 ### Detached Profile Section
 
-To meet the complexity of various usage scenarios, Surge Mac 4.1.0 Beta / Surge iOS Beta 1903 starts to support separation of one section of the profile into another file.
+To meet the complexity of various usage scenarios, Surge Mac 4.1.0 Beta / Surge iOS Beta 1903 starts to support the separation of one section of the profile into another file.
 
 For example.
 
@@ -45,7 +45,7 @@ ProxyA = http, 1.2.3.4, 80
 ```
 
 Using this function, you can.
-1. Reference the [Proxy], [Proxy Group], [Rule] paragraphs of a managed configuration and write other paragraphs yourself. This allows you to enjoy proxy-related content updates of the managed configuration without affecting other features adjusted through the UI.
+1. Reference the [Proxy], [Proxy Group], [Rule] paragraphs of a managed configuration, and write other paragraphs yourself. This allows you to enjoy proxy-related content updates of the managed configuration without affecting other features adjusted through the UI.
 2. Share the content of certain sections among multiple configurations. For example, when using Surge on both iOS and macOS, the contents of the [Proxy], [Proxy Group], [Rule], etc. sections are often the same, but the contents of [General] may be very different. You can create two configurations, iOS.conf and macOS.conf, and place the duplicate sections in another file.
 
 ```
@@ -63,13 +63,21 @@ This way, when adjusting the [General] section on iOS, it does not affect macOS 
 
 Some additional notes.
 - After modifying the configuration via the UI, the configuration is written to the corresponding detached configuration segment file according to the include statement. If the file contains other paragraphs that are not used, the write will only modify the paragraphs in question.
-- If a managed configuration is referenced, the configuration associated with that segment cannot be edited, but does not affect the adjustment of other segments.
+- If a managed configuration is referenced, the configuration associated with that segment cannot be edited but does not affect the adjustment of other segments.
 - To complement this feature, all installed managed configurations will be checked for updates periodically in the new version of Surge Mac, whereas in the old version only the currently active configuration was checked for updates.
 - The filename suffix is not required, if it is a complete configuration you can continue to use the conf suffix, if it is not a complete configuration it is recommended to use another suffix to avoid being displayed in the configuration list.
+- Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can include multiple detached profiles in one section. But the section will be marked read-only and can't be edited with UI.
+
+```
+[Proxy]
+#!include A.dconf, B.dconf
+```
+
+
 
 ### Modules
 
-The Detached Profile Section feature is used to split a single profile into multiple files, while modules are patches to the profile, each module file is used to fine tune various parts of the profile to achieve a specific task.
+The Detached Profile Section feature is used to split a single profile into multiple files, while modules are patches to the profile, each module file is used to tune various parts of the profile to achieve a specific task.
 
 Modules can be:
 - Flexibility to turn on and off.

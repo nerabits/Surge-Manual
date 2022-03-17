@@ -32,7 +32,7 @@ Surge also supports multiple non-standard proxy protocols.
 
 Snell is a lightweight encryption proxy protocol developed by ourselves. You may get the server-side binary from https://github.com/surge-networks/snell.
 
-
+Surge supports UDP relay of Snell V3, Shadowsocks, and Trojan protocols. The UDP relay support for shadowsocks proxies should be turned on manually by adding the parameter `udp-relay=true` since the shadowsocks server may not support the UDP relay.
 
 ## Parameters
 
@@ -40,24 +40,42 @@ Snell is a lightweight encryption proxy protocol developed by ourselves. You may
 
 * no-error-alert
 
-Do not show error alert for this policy.
+Do not show error alerts for this policy.
 
 * underlying-proxy
 
 Use a proxy to connect another proxy, aka proxy chain.
 
+* test-url
+
+Example:
+`test-url=http://google.com`
+
+Override the global `proxy-test-url` settings for the proxy. Surge test and benchmark the proxy by performing an HTTP HEAD request to the URL.
+
+* test-udp
+
+Example:
+`test-udp=google.com@1.1.1.1`
+
+Override the global `proxy-test-udp` settings for the proxy. Surge test and benchmark the UDP relay by performing a DNS lookup.
+
+
 #### Parameter for proxy via TLS (HTTP, SOCKS5-TLS, VMess, Trojan)
+
 * skip-cert-verify: Optional, "true" or "false" (Default: false).
   
 	If this option is enabled, Surge will not verify the server's certificate.
 
 * sni (Default: the proxy hostname)
 
-	You may customize the Server Name Indication (SNI) during the TLS handshake. Use sni=off to turn off SNI completely. By default Surge sends the SNI using the hostname like most browsers.
+	You may customize the Server Name Indication (SNI) during the TLS handshake. Use sni=off to turn off SNI completely. By default, Surge sends the SNI using the hostname like most browsers.
 	
 #### Parameter for HTTP/HTTPS protocol
 
 * always-use-connect
+
+Always use the HTTP CONNECT method to relay, even for plain HTTP requests.
 
 
 #### Parameter for protocols that support obfuscating (Shadowsocks, Snell)
@@ -82,6 +100,13 @@ Use a proxy to connect another proxy, aka proxy chain.
 * ws-path
 * ws-headers
 * encrypt-method
+
+#### Parameter for Trojan protocol
+
+* ws
+* ws-path
+* ws-headers
+
 
 ## Client Certificate for TLS Proxy
 

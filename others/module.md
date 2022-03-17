@@ -26,7 +26,7 @@ The syntax of a module is the same as the profile. You are allowed to override t
   * Append to the original value: `key = %APPEND% value`
   * Insert in the front of the original value: `key = %INSERT% value`
 
-	You can manipulate the 'hostname' field only in a MITM section.
+	You can manipulate the 'hostname', 'skip-server-cert-verify', and 'tcp-connection' fields only in a MITM section.
 
 
 * Rule, Script, URL Rewrite, Header Rewrite, Host

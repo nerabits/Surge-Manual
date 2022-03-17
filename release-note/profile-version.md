@@ -1,6 +1,6 @@
 # Profile Version
 
-Starts from Surge iOS 4.9.3 & Surge Mac 4.2.2. The profile now supports version remark for better backward compatibility.
+Starting from Surge iOS 4.9.3 & Surge Mac 4.2.2. The profile now supports version remark for better backward compatibility.
 
 For example:
 ```
@@ -23,12 +23,12 @@ By adding a profile version requirement prefix, the old versions will treat the 
 
 ### Version 0 (All versions below Surge iOS 4.9.3 & Surge Mac 4.2.2)
 
-### Version 10 (Starts from Surge iOS 4.9.3 & Surge Mac 4.2.2)
+### Version 10 (Starting from Surge iOS 4.9.3 & Surge Mac 4.2.2)
 
 - Supports script type 'generic'.
 - Supports new section [Panel]. (This doesn't require a profile version requirement since an unknown section won't be parsed.)
 
-### Version 11 (Starts from Surge iOS 4.11.0 & Surge Mac 4.4.0)
+### Version 11 (Starting from Surge iOS 4.11.0 & Surge Mac 4.4.0)
 
 - Supports WireGuard policies.
 

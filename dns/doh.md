@@ -1,6 +1,6 @@
 # DNS over HTTPS
 
-If DNS-over-HTTPS is configured, the traditional DNS will only be used to test the connectivity and resolve the domain in the DOH URL.
+If DNS-over-HTTPS is configured, the traditional DNS will be used to test the connectivity and resolve the domain in the DOH URL only.
 
 ### Use DoH for All Domains
 
@@ -37,15 +37,19 @@ You need to confirm the supported type of your DoH service.
 
 ### Use DoH with Proxy
 
-If you want to query DoH servers through proxy, you can set doh-follow-outbound-mode to true.
+If you want to query DoH servers through a proxy, you can set `doh-follow-outbound-mode` to true.
 
 ```
 [General]
 doh-follow-outbound-mode=true
 ```
 
-All the DoH connections will follow the outbound mode setttings. Then configure a rule for the DoH hostname to use a proxy.
+All the DoH connections will follow the outbound mode settings. Then configure a rule for the DoH hostname to use a proxy.
 
 Or, use `PROTOCOL,DOH` rule to match all DoH connections.
+
+
+
+
 
 

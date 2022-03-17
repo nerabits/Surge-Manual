@@ -113,3 +113,20 @@ Do not show the policy change notification for this group.
 Do not show the group in the menu (Surge Mac) and the policy selection view (Surge iOS).
 
 
+## Policy Including
+
+Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can use include-all-proxies and include-other-group to include all proxies or reuse defines from another group.
+
+#### include-all-proxies
+
+Parameter include-all-proxies=true includes all proxy policies defined in the [Proxy] section and can be used with the policy-regex-filter parameter for filtering.
+
+#### include-other-group
+
+Parameter include-other-group="group1,group2" includes policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the policy-regex-filter parameter for filtering.
+
+Some Notes:
+- include-all-proxies, include-other-group, and policy-path parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
+- There is an order of precedence among the policy groups for the include-other-group parameter, but there is no order of precedence among the include-all-proxies, include-other-group, and policy-path parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with include-other-group.
+
+

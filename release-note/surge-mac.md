@@ -1,7 +1,8 @@
 # Surge Mac Release Note
 
-## Surge Mac V4
+Starting from Surge Mac v4.4.0, you may get the most up-to-date release notes within the app: Main Window Menu -> Help -> Release Note.
 
+## Surge Mac V4
 
 ### Version 4.4.0
 

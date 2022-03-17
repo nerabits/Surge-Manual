@@ -9,6 +9,7 @@
   * [HTTP Rule](rule/http.md)
   * [Process Rule](rule/process.md)
   * [Logical Rule](rule/logical-rule.md)
+  * [Subnet Expression & Rule](rule/subnet.md)
   * [Misc Rule](rule/misc-rule.md)
   * [Ruleset](rule/ruleset.md)
   * [Final Rule](rule/final.md)
@@ -21,6 +22,7 @@
 * [DNS](dns.md)
   * [DNS Server](dns/dns-override.md)
   * [Local DNS Mapping](dns/local-dns-mapping.md)
+  * [DNS over HTTPS](dns/doh.md)
 * HTTP Processing
   * [HTTPS Decryption](http-processing/mitm.md)
   * [URL Rewrite](http-processing/url-rewrite.md)
@@ -37,11 +39,10 @@
   * [Misc Options](others/misc-options.md)
   * [Managed Configuration](others/managed-configuration.md)
   * [Enhanced Mode](others/enhanced-mode.md)
-  * [SSID Suspend](others/ssid-suspend.md)
+  * [Subnet Settings](others/subnet-settings.md)
   * [URL Scheme](others/url-scheme.md)
   * [Snell Server](others/snell-server.md)
   * [Module](others/module.md)
-  * [DNS over HTTPS](others/doh.md)
   * [HTTP API](others/http-api.md)
   * [Information Panel](others/panel.md)
 * Release Note

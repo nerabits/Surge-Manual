@@ -23,6 +23,14 @@ Rule matches if the domain of the request contains the keyword.
 
 #### DOMAIN-SET
 
-Designed for a large number of domain name list file, supports fast search for thousands of records. Each line in the file is a domain name, if a line begins with . matches all sub-domains and the domain name itself. This can be used for ad filtering.
+Designed for a large number of domain name list, supports fast search for thousands of records. Each line in the file is a domain name, if a line begins with . matches all sub-domains and the domain name itself. This can be used for ad filtering.
+
+> The DOMAIN-SET rule doesn't support including an eTLD suffix due to performance optimization.
+> 
+> For example: .github.io won't match example.github.io
+> 
+> Here is the full eTLD list: https://publicsuffix.org/list/
+> 
+> Please use RULE-SET instead if you want to use eTLD as a suffix.
 
 

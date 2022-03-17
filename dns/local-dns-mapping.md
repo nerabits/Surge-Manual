@@ -1,6 +1,6 @@
 # Local DNS Mapping
 
-Surge supports local-customized DNS mapping. It's equivalent to /etc/hosts, but with more powerful features, including wildcard, alias and assigning DNS server.
+Surge supports local-customized DNS mapping. It's equivalent to /etc/hosts, but with more powerful features, including wildcard, alias, and assigning DNS server.
 
 ```
 [Host]
@@ -12,7 +12,7 @@ bar.com = server:8.8.8.8
 
 ## Wildcard
 
-You can use \* prefix to wildcard all sub-domains. Please note that Surge uses a simple string match. For example, \*google.com will match google.com, foo.google.com and bargoogle.com. And \*.google.com will **not** match google.com.
+You can use \* prefix to wildcard all sub-domains. Please note that Surge uses a simple string match. For example, \*google.com will match google.com, foo.google.com, and bargoogle.com. And \*.google.com will **not** match google.com.
 
 ```
 [Host]
@@ -21,7 +21,7 @@ You can use \* prefix to wildcard all sub-domains. Please note that Surge uses a
 
 ## Alias
 
-It's equivalent to CNAME record.
+It's equivalent to a CNAME record.
 
 ```
 [Host]
@@ -37,14 +37,14 @@ You can assign a specified DNS server to one or more domains.
 bar.com = server:8.8.8.8
 ```
 
-Since Surge has its own DNS client implementation, some hostnames may fail to resolve. You can use 'server:system' to let system handle the lookup.
+Since Surge has its own DNS client implementation, some hostnames may fail to resolve. You can use 'server:system' to let the system handle the lookup.
 
 ```
 [Host]
 Macbook = server:system
 ```
 
-By default, all hostnames with suffix '.local' will be resolved by the system.
+By default, all hostnames with the suffix '.local' will be resolved by the system.
 
 ## Combined Usage
 
@@ -55,3 +55,5 @@ All features can be used together. For example:
 *.dev = foo.com
 *.bar.com = server:system
 ```
+
+
