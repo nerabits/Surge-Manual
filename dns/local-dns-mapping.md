@@ -1,6 +1,6 @@
-# Local DNS Mapping
+# 本地 DNS 映射
 
-Surge supports local-customized DNS mapping. It's equivalent to /etc/hosts, but with more powerful features, including wildcard, alias, and assigning DNS server.
+Surge 支持本地自定义的 DNS 映射。它相当于 /etc/hosts，但具有更强大的功能，包括通配符、别名和指定 DNS 服务器。
 
 ```
 [Host]
@@ -10,45 +10,45 @@ foo.com = bar.com
 bar.com = server:8.8.8.8
 ```
 
-## Wildcard
+## 通配符
 
-You can use \* prefix to wildcard all sub-domains. Please note that Surge uses a simple string match. For example, \*google.com will match google.com, foo.google.com, and bargoogle.com. And \*.google.com will **not** match google.com.
+您可以使用 \* 前缀来匹配所有子域名。请注意，Surge 使用简单字符串匹配。例如，\*google.com 将匹配 google.com, foo.google.com 和 bargoogle.com。而 \*.google.com 将**不**匹配 google.com.
 
 ```
 [Host]
 *.dev = 6.7.8.9
 ```
 
-## Alias
+## 别名
 
-It's equivalent to a CNAME record.
+相当于 CNAME 记录。
 
 ```
 [Host]
 foo.com = bar.com
 ```
 
-## Assigning DNS Server
+## 指定 DNS 服务器
 
-You can assign a specified DNS server to one or more domains.
+您可以为一个或多个域名指定一个 DNS 服务器。
 
 ```
 [Host]
 bar.com = server:8.8.8.8
 ```
 
-Since Surge has its own DNS client implementation, some hostnames may fail to resolve. You can use 'server:system' to let the system handle the lookup.
+由于 Surge 有自己的 DNS 客户端实现，一些主机名可能无法解析。你可以使用 "server:system" 来让系统解析。
 
 ```
 [Host]
 Macbook = server:system
 ```
 
-By default, all hostnames with the suffix '.local' will be resolved by the system.
+默认情况下，所有后缀为 '.local' 的主机名都将由系统解析。
 
-## Combined Usage
+## 组合使用
 
-All features can be used together. For example:
+所有功能均可组合使用，例如：
 
 ```
 [Host]

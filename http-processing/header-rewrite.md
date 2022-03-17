@@ -1,10 +1,10 @@
 # Header Rewrite
 
-**This feature is only available in the beta version currently.**
+**此功能目前只在测试版中提供。**
 
-Surge can rewrite request header sent by the clients before they are forwarded to the server.
+Surge 可以在被转发到服务器之前重写由客户端发送的 Request Header。
 
-Example:
+示例:
 
 ```
 [Header Rewrite]
@@ -13,19 +13,19 @@ Example:
 ^http://example.com header-replace User-Agent Unknown
 ```
 
-The rewrite rule consists 4 parts: URL regular expression, action type, header field and value.
+Rewrite 规则包含4个部分：URL 正则表达式、模式、字段和值。
 
 ### header-add
 
-Append an new header line to request header, even the header field already exists.
+在请求头中添加一个新行，即使该字段已经存在。
 
-Example:
+示例:
 
 ```
 [Header Rewrite]
 ^http://example.com header-add DNT 1
 
-Before:
+更改前：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -33,7 +33,7 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/603.1.30
 Accept-Language: en-us
 Accept-Encoding: gzip, deflate
 
-After:
+更改后：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -45,15 +45,15 @@ DNT: 1
 
 ### header-del
 
-Delete a header line from the request header.
+在请求头中删除一行。
 
-Example:
+示例:
 
 ```
 [Header Rewrite]
 ^http://example.com header-del DNT
 
-Before:
+更改前：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -62,7 +62,7 @@ Accept-Language: en-us
 Accept-Encoding: gzip, deflate
 DNT: 1
 
-After:
+更改后：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -73,15 +73,15 @@ Accept-Encoding: gzip, deflate
 
 ### header-replace
 
-Replace a header value in the request header. If the header field doesn't exist, nothing happens.
+在请求头中更改一个 Header 值。当这个字段不存在时，将不处理。
 
-Example:
+示例:
 
 ```
 [Header Rewrite]
 ^http://example.com header-replace DNT 1
 
-Before:
+更改前：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -90,7 +90,7 @@ Accept-Language: en-us
 Accept-Encoding: gzip, deflate
 DNT: 0
 
-After:
+更改后：
 GET /index.html HTTP/1.1
 Host: example.com
 Connection: keep-alive
@@ -100,7 +100,7 @@ Accept-Encoding: gzip, deflate
 DNT: 1
 ```
 
-If you would like to add or replace a header line whenever the field exists. You may use header-add and header-del together.
+如果您想在字段存在的时候添加或替换一个 Header 行，您可以同时使用 header-add 和 header-del。
 
 ```
 [Header Rewrite]

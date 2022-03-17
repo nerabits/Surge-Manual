@@ -1,18 +1,17 @@
 # DNS over HTTPS
+如果配置了 DNS-over-HTTPS，传统 DNS 将仅用作解析 DoH 域名和测试网络连通性。
 
-If DNS-over-HTTPS is configured, the traditional DNS will be used to test the connectivity and resolve the domain in the DOH URL only.
-
-### Use DoH for All Domains
+### 为所有域名使用 DoH
 
 ```
 [General]
 doh-server = https://9.9.9.9/dns-query
 ```
 
-You may specify multiple DNS-over-HTTPS servers here (not recommended).
+您可以在这里指定多个 DNS-over-HTTPS 服务器（不推荐）。
 
 
-### Use DoH for Specified Domains
+### 为特定域名使用 DoH
 
 ```
 [Host]
@@ -20,33 +19,33 @@ example.com = server:https://cloudflare-dns.com/dns-query
 ```
 
 
-### DNS over HTTPS Format
+### DNS over HTTPS 格式
 
-There are two different types of DoH format: JSON and DNS wireformat (RFC1035).
+有两种不同的 DoH 格式：JSON 和 DNS wireformat (RFC1035).
 
-You need to confirm the supported type of your DoH service.
+您需要确定您的 DoH 服务支持的格式。
 
-* Surge iOS 4.1 and below versions / Surge Mac 3.4.1 and below versions: Only JSON format is supported.
+* Surge iOS 4.1 及以下版本 / Surge Mac 3.4.1 及以下版本：仅支持 JSON 格式。
 
-* Surge iOS 4.2 and above versions / and Surge Mac 3.5.0 and above versions: Surge uses DNS wireformat by default. You can also choose to continue using JSON.
+* Surge iOS 4.2 及以上版本 / and Surge Mac 3.5.0 及以上版本：Surge 使用 DNS wireformat 作为默认。 您仍可以继续选择使用 JSON。
 
 	```
 	[General]
 	doh-format=json
 	```
 
-### Use DoH with Proxy
+### 与代理配合使用 DoH
 
-If you want to query DoH servers through a proxy, you can set `doh-follow-outbound-mode` to true.
+如果你想通过代理查询DoH服务器，你可以把 `doh-follow-outbound-mode` 设置为true。
 
 ```
 [General]
 doh-follow-outbound-mode=true
 ```
 
-All the DoH connections will follow the outbound mode settings. Then configure a rule for the DoH hostname to use a proxy.
+所有的 DoH 连接将遵循出站模式的设置。然后为 DoH 主机名配置一个规则来使用代理。
 
-Or, use `PROTOCOL,DOH` rule to match all DoH connections.
+或者，使用 `PROTOCOL,DOH` 规则来匹配所有 DoH 连接。
 
 
 

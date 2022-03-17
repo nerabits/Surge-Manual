@@ -1,13 +1,13 @@
-# DNS Server
+# DNS 服务器
 
-You can use this option to override system's DNS settings.
+您可以使用此选项来覆盖系统的 DNS 设置。
 
 ```
 [General]
 dns-server = 8.8.8.8, 8.8.4.4
 ```
 
-Use keyword 'system' to append additional DNS servers to system's setting. (Duplicate servers will be ignored)
+关键字 'system' 可用于在系统配置中添加额外的 DNS 服务器（重复的服务器将被忽略）。
 
 ```
 [General]

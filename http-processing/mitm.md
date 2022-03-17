@@ -1,11 +1,10 @@
-# HTTPS Decryption (Man-in-the-Middle Attack, MitM)
+# HTTPS 解密 (中间人攻击 Man-in-the-Middle Attack, MitM)
 
-Surge may decrypt HTTPS traffic by MitM. Please see [Wikipedia article](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) for more information.
+Surge 可以使用 MitM 解密 HTTPS 请求。 请参阅 [Wikipedia 文章](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) 获取更多信息。
 
-The certificate generator can help you generate a new CA certificate for debugging and make the certificate trusted by the system. It's available in Surge Dashboard (Mac version) and Surge iOS Config Editor. This certificate is generated locally and only saved in your profile file and the system Keychain. The key of the new certificate is generated randomly using OpenSSL.
+证书生成器可以帮助您生成一个新的CA证书进行调试，并使系统信任此证书。此功能在 Surge 主窗口（Mac版）和 Surge iOS 配置编辑器中可用。这个证书是在本地生成的，只保存在你您的配置文件和系统钥匙串中。新证书的密钥是使用 OpenSSL 随机生成的。
 
-You can also use an existed CA certificate. Export the certificate to PKCS#12 format (.p12) with a passphrase. Please note that the passphrase cannot be empty due to system limitations. Use the "base64" command to encode in base64 string and append these settings below to your config file.
-
+您也可以使用自己的 CA 证书。请将证书转化为含有密码的 PKCS#12 格式 (.p12)。 请注意，由于系统限制，密码不能为空。使用 "base64" 命令编码为 base64 字符串，并将下面这些设置添加到您的配置文件中。
 
 ```
 [MITM]
@@ -15,35 +14,35 @@ ca-passphrase = password
 hostname = *google.com
 ```
 
-Surge only decrypts traffic to hosts declared here.
+Surge 仅会解密这里指定的主机名的请求。
 
-- Wildcard characters * and ? are supported.
-- Use prefix - to exclude a hostname.
-- By default, only the requests to port 443 be decrypted.
-  - Use suffix :port to allow other ports.
-  - Use suffix :0 to allow all ports.
+- 可使用通配符 * 和 ? 。
+- 可使用前缀 - 将特定主机名排除。
+- 默认仅解密发往 443 端口的请求
+  - 可使用后缀 :port 解密特定端口
+  - 可使用后缀 :0 解密所有端口
 
-Example:
-- `-*.apple.com`: Excludes all requests sent to *.apple.com on port 443.
-- `www.google.com`: Allows MitM for www.google.com on port 443.
-- `www.google.com:8080`: Allows MitM for www.google.com on port 8080.
-- `www.google.com:0`: Allows MitM for www.google.com on all ports.
-- `*:0`: Allows MitM for all hostnames on all ports. 
+示例:
+- `-*.apple.com`: 排除所有发往 *.apple.com 端口 443 的请求。
+- `www.google.com`: 允许对 www.google.com 端口 443 进行 MitM。
+- `www.google.com:8080`: 允许对 www.google.com 端口 8080 进行 MitM。
+- `www.google.com:0`: 允许对 www.google.com 的全部端口进行 MitM。
+- `*:0`: 允许对全部主机名和端口进行 MitM。
 
-A general configuration may be like:
+一个一般配置：
 
 `hostname = -*.apple.com, -*.icloud.com, *`
 
-> Some applications have a strict security policy to use pinned certificates or CA. Enabling decryption to these hosts may cause problems.
+> 一些应用具有严格的安全策略，仅信任某些特定的证书，对这些域名启动解密可能导致问题。
 
 
-## Options
+## 选项
 
 ### tcp-connection
 
-By default, only connections that go through Surge HTTP proxy are decrypted with MITM. Enable the option to tell Surge to perform MITM on raw TCP connections that go through Surge VIF (Enhanced Mode). Please notice that you still need to fill the hostnames on the list.
+默认情况仅会对使用 HTTP 代理服务的 HTTPS 请求进行解密。启用该选项，Surge 将对通过 Surge VIF（增强模式）的原始 TCP 连接进行解密。
 
 ### skip-server-cert-verify
 
-Do not verify the certificate of the remote host while performing MITM.
+在执行 MitM 是不验证远程主机的证书。
 
