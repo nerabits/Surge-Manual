@@ -1,8 +1,8 @@
-# URL Rewrite
+# URL 重写
 
-Surge can rewrite the request's URL with 2 different methods, or reject certain requests by URL.
+Surge 可以以两种不同的方式重定向URL，或基于 URL 拒绝特定请求。
 
-Example:
+示例:
 
 ```
 [URL Rewrite]
@@ -11,23 +11,23 @@ Example:
 ^http://ad\.com/ad\.png _ reject
 ```
 
-The rewrite rule consists 3 parts: regular expression, replacement and type.
+Rewrite 规则包含 3 个部分：正则表达式、替代文本和类型。
 
-### Header Mode
-Surge will modify the request header and redirect the request to another host if necessary. The client will not notice this rewrite action. 
+### Header 模式
+Surge 将会修改请求的 Header，客户端将不会感知到这次重定向。
 
-The "Host" field in request header will be modified to match the new URL.
+请求头中的 "Host" 字段将被修改为新的 URL。
 
 ```
 [URL Rewrite]
 ^http://www\.google\.cn http://www.google.com header
 ```
 
-> You can't redirect to a URL with HTTPS scheme. And you can't redirect an HTTPS request.
+> 您不能重定向到一个 HTTPS 标志符的 URL。您也不能重定向一个 HTTPS 请求。
 
 
-### 302 Mode
-Surge will simply return a 302 redirect response. HTTPS requests can be redirected if MitM for the hostname is enabled.
+### 302 模式
+Surge 将简单地返回一个 302 重定向响应。当 HTTPS 解密对对应的主机名开启时，可以对 HTTPS 请求重定向。
 
 ```
 [URL Rewrite]
@@ -35,8 +35,8 @@ Surge will simply return a 302 redirect response. HTTPS requests can be redirect
 ```
 
 
-### Reject Mode
-Reject the request if the pattern is matched. The replacement parameter will be ignored. HTTPS requests will be rejected if MitM for the hostname is enabled.
+### Reject 模式
+当 URL 匹配时拒绝该请求，该规则下替代文本参数无效。当 HTTPS 解密对对应的主机名开启时，可以对 HTTPS 请求使用。
 
 ```
 [URL Rewrite]
