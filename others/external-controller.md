@@ -1,6 +1,6 @@
-# External Controller Access
+# 远程控制器访问
 
-Surge can be managed from remote machine by tools like Surge Dashbaord or Surge CLI. You need to manually enable this function.
+Surge 可以被远程设备使用例如 Surge 请求查看器或 Surge CLI 的工具进行控制。您需要自行开启此功能。
 
 
 ```
@@ -8,6 +8,6 @@ Surge can be managed from remote machine by tools like Surge Dashbaord or Surge 
 external-controller-access = apassword@127.0.0.1:8888
 ```
 
-This parameter consists three parts: password, listen address and port number. No part can be omitted.
+该参数由三部分组成：密码、监听地址和端口号。任何部分都不能省略。
 
-When you use this function in Surge iOS, listening on 127.0.0.1 means only connections from USB cable will be allowed. Listening on 0.0.0.0 means connections from local Wi-Fi network will also be allowed. Connection from cellular network will always be restricted due to a security consideration.
+当你在 Surge iOS 中使用这个功能时，监听 127.0.0.1 意味着只允许来自 USB 电缆的连接。监听 0.0.0.0 意味着也允许来自本地 Wi-Fi 网络的连接。出于安全考虑，来自蜂窝网络的连接将始终受到限制。

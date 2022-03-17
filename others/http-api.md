@@ -1,17 +1,17 @@
 # HTTP API
 
-Starts from Surge iOS 4.4.0 and Surge Mac 4.0.0. You may use HTTP API to control Surge.
+仅Surge iOS 4.4.0 和 Surge Mac 4.0.0 以上版本支持通过 HTTP API 控制 Surge。
 
-## Configuration
+## 配置
 
 ```
 [General]
 http-api = examplekey@0.0.0.0:6171
 ```
 
-## Authentication
+## 身份验证
 
-The API key must be filled in the 'X-Key' header for all requests.
+API key 必须填写在所有请求的 'X-Key' Header 中。
 
 ```
 GET /v1/events
@@ -19,18 +19,18 @@ X-Key: examplekey
 Accept: */*
 ```
 
-## Basic Constraints
+## 基本约束
 
-Only HTTP without TLS is supported currently. Surge only uses GET and POST methods.
+当前版本仅支持未经 TLS 加密的 HTTP 请求。Surge 仅适用 GET 和 POST 方法。
 
-* For GET method, you should use URL queries to send parameters.
-* For POST method, you should use JSON body to send parameters.
+* 对于 GET 请求，应使用 URL 发送参数。
+* 对于 POST 请求，应使用 JSON Body 发送参数。
 
-Surge will always return a JSON body as a response.
+Surge 总会返回 JSON Body 格式的响应。
 
-## Paths
+## 路径
 
-### Toggle capabilities
+### 切换开关功能
 
 * GET /v1/features/mitm
 * POST /v1/features/mitm
@@ -45,73 +45,73 @@ Surge will always return a JSON body as a response.
 * GET /v1/features/enhanced_mode (Surge Mac Only)
 * POST /v1/features/enhanced_mode (Surge Mac Only)
 
-Use GET method to obtain the state of a capability.
+使用 GET 方法获取开关的状态。
 
-GET Response example:
-
-```
-{"enabled":true}
-```
-
-Use POST method to adjust the state of a capability.
-
-POST Request example:
+GET 方法响应示例:
 
 ```
 {"enabled":true}
 ```
 
-### Outbound Mode
+使用 POST 请求调整开关状态。
+
+POST 方法请求示例:
+
+```
+{"enabled":true}
+```
+
+### 出站模式
 
 * GET /v1/outbound
 * POST /v1/outbound
 
-Use GET to obtain the outbound mode, and use POST to change it.
+使用 GET 请求 请求获取状态，使用 POST 请求修改。
 
-GET Response example:
-
-```
-{"mode":"rule"}
-```
-POST Request example:
+GET 方法响应示例：
 
 ```
 {"mode":"rule"}
 ```
+POST 方法请求示例：
 
-Possible modes: direct, proxy, rule
+```
+{"mode":"rule"}
+```
+
+模式的值可能为：direct, proxy, rule
 
 * GET /v1/outbound/global
 * POST /v1/outbound/global
 
-Obtain or change the default policy for global outbound mode.
+获取或更改全局出站模式的默认策略。
 
-GET Response example:
+GET 方法响应示例：
 
 ```
 {"policy":"ProxyA"}
 ```
-POST Request example:
+POST 方法请求示例：
 
 ```
 {"policy":"ProxyB"}
 ```
 
-### Proxy Policy 
+### 代理策略组
 
 * GET /v1/policies
 
-List all policies.
+获取所有策略组。
 
 * GET /v1/policies/detail?policy_name=ProxyNameHere
 
-Obtain the detail of policy.
+获取代理的详细信息。
 
 * POST /v1/policies/test
 
-Test policies with a URL.
+对策略组进行测速。
 
-Request example:
+请求示例：
 
 ```
 {"policy_names": ["ProxyA", "ProxyB"], "url": "http://bing.com"}
@@ -119,17 +119,17 @@ Request example:
 
 * GET /v1/policy_groups
 
-List all policy groups and their options.
+列出所有的策略组及其的选项。
 
 * GET /v1/policy_groups/test_results
 
-Obtain the test result of a url-test/fallback/load-balance group.
+获取 url-test/fallback/load-balance 组的测速结果。
 
 * GET /v1/policy_groups/select?group_name=GroupNameHere
 
-Obtain the option of a select group.
+获取 select 组的选项。
 
-Response example:
+请求示例：
 
 ```
 {"policy": "ProxyA"}
@@ -137,9 +137,9 @@ Response example:
 
 * POST /v1/policy_groups/select
 
-Change the option of a select group.
+改变 select 策略组的选项。
 
-Request example:
+请求示例：
 
 ```
 {"group_name": "GroupA", "policy": "ProxyA"}
@@ -147,15 +147,15 @@ Request example:
 
 * POST /v1/policy_groups/test
 
-Test a group immediately.
+立即测试一个策略组。
 
-Request example:
+请求示例：
 
 ```
 {"group_name": "GroupA"}
 ```
 
-Response example:
+响应示例：
 
 ```
 {
@@ -185,83 +185,83 @@ Response example:
 }
 ```
 
-### Requests
+### 请求
 
 * GET /v1/requests/recent
 
-List recent requests.
+获取最近请求。
 
 * GET /v1/requests/active
 
-List all active requests.
+获取所有活动中的请求。
 
 * POST /v1/requests/kill
 
-Kill an active request.
+中断一个活动请求。
 
-Request example:
+请求示例：
 
 ```
 {"id": 100}
 ```
 
 
-### Profiles
+### 配置文件
 
 * GET /v1/profiles/current?sensitive=0
 
-Obtain the text content of the current profile. If 'sensitive' is false, all passwords field will be masked.
+获取当前配置文件的内容。 如果 "sensitive" 为 false，则所有密码字段都将被屏蔽。
 
 * POST /v1/profiles/reload
 
-Execute profile reloading immediately.
+立即重新载入配置文件。
 
-* POST /v1/profiles/switch (Surge Mac Only)
+* POST /v1/profiles/switch (仅 Surge Mac 可用)
 
-Request example:
+请求示例：
 
 ```
 {"name": "Profile2"}
 ```
 
-Switch to another profile.
+切换到另一个配置。
 
 * GET /v1/profiles (Surge Mac Only, starts from version 4.0.6)
 
-Get all available profile names.
+获取可用的配置文件名。
 
 * POST /v1/profiles/check (Surge Mac Only, starts from version 4.0.6)
 
-Request example:
+请求示例：
 
 ```
 {"name": "Profile2"}
 ```
 
-Check the profile. If the profile is invalid an error will be returned. Otherwise the "error" field will be null.
+检查配置。如果配置文件无效返回错误，否则 "error" 字段为空。
 
 
 ### DNS
 
 * POST /v1/dns/flush
 
-Flush the DNS cache.
+刷新 DNS 缓存。
 
 * GET /v1/dns
 
-Obtain the current DNS cache content.
+获取当前 DNS 缓存内容。
 
 * POST /v1/test/dns_delay
 
-Test the DNS delay.
+测试 DNS 延时。
 
-## Modules
+## 模块
 
 * GET /v1/modules
 
-List the available and enabled modules.
+获取可用和开启的模块。
 
-Response example:
+响应示例：
 
 ```
 {
@@ -279,9 +279,9 @@ Response example:
 
 * POST /v1/modules
 
-Enable or disable modules.
+启动或关闭模块
 
-Request example:
+请求示例：
 
 ```
 {
@@ -290,18 +290,18 @@ Request example:
 }
 ```
 
-### Scripting
+### 脚本
 
 
 * GET /v1/scripting
 
-List all the scripts.
+获取脚本列表。
 
 * POST /v1/scripting/evaluate
 
-Evaluate a script with a mock environment.
+适用 Mock 环境执行脚本。
 
-Request example:
+请求示例：
 
 ```
 {
@@ -313,9 +313,9 @@ Request example:
 
 * POST /v1/scripting/cron/evaluate
 
-Evaluate a cron script immediately.
+立即执行一个定时脚本。
 
-Request example:
+请求示例：
 
 ```
 {
@@ -323,21 +323,21 @@ Request example:
 }
 ```
 
-### Device Management (Surge Mac only, starts from v4.0.6)
+### 设备管理（仅 Surge Mac 4.0.6 以上版本可用）
 
 * GET /v1/devices
 
-Obtain the list of the current active and saved devices.
+获取当前激活和保存的设备列表。
 
 * GET /v1/devices/icon?id={iconID}
 
-Obtain the icon of a device. You may get the iconID from device.dhcpDevice.icon.
+获取设备的图标。你可以从 "device.dhcpDevice.icon" 中获取图标 ID。
 
 * POST /v1/devices
 
-Change the device properties. `physicalAddress` field is required. And you may adjust multiple or one property from `name`, `address`, and `shouldHandledBySurge`.
+改变设备的属性。physicalAddress 字段是必须的，可以从name、address、shouldHandledBySurge 中调整一个或多个属性。
 
-Request example:
+请求示例：
 
 ```
 {
@@ -348,29 +348,29 @@ Request example:
 }
 ```
 
-### Misc
+### 杂项
 
 * POST /v1/stop
 
-Shutdown Surge engine. If Always On is enabled on Surge iOS, the Surge engine will restart.
+停止 Surge。若在 Surge iOS 上开启了 Always On 则会重启。
 
 * GET /v1/events
 
-Obtain the content of the event center.
+获取事件中心的内容。
 
 * GET /v1/rules
 
-Obtain the list of rules.
+获取规则列表。
 
 * GET /v1/traffic
 
-Obtain traffic information.
+获取流量信息。
 
 * POST /v1/log/level
 
-Change the log level for the current session.
+修改当前会话的日志等级。
 
-Request example:
+请求示例：
 
 ```
 {"level": "verbose"}
