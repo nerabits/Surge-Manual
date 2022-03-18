@@ -1,12 +1,12 @@
-# Subnet Settings
+# 子网设置
 
 You may use the [subnet expression](../rule/subnet.md) to match specified networks and apply particular settings. 
 
 > For compatibility reasons. The subnet settings names [SSID Setting] in the profile.
 
-### Suspend
+### 临时禁用
 
-Suspend Surge temporarily under specified networks.
+在连接到指定网络时，自动禁用 Surge。
 
 ```
 [SSID Setting]

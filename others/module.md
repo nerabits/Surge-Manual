@@ -1,4 +1,4 @@
-# Module
+# 模块
 
 Module is a set of settings to override the current profile. You may use modules to:
 
@@ -17,7 +17,7 @@ There are 3 types of modules:
 - Local Modules: .sgmodule files placed in the profile directory.
 - Installed Modules: Modules installed with a URL.
 
-### Write a Module
+### 编写模块
 
 The syntax of a module is the same as the profile. You are allowed to override these sections:
 
@@ -50,7 +50,7 @@ The syntax of a module is the same as the profile. You are allowed to override t
 	#!system=mac
 	```
 
-### Examples:
+### 示例：
 
 ```
 #!name=MitM All Hostnames

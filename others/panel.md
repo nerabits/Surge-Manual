@@ -1,4 +1,4 @@
-# Information Panel
+# 信息面板
 
 Surge iOS 4.9.3 adds an experimental feature that allows users to customize one or more information panels for displaying related information.
 
