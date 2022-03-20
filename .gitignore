@@ -1,2 +1,4 @@
 /_book
 /deploy.sh
+.DS_Store
+others/.DS_Store
