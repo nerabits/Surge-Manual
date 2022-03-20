@@ -1,17 +1,17 @@
 # DNS
 
-Surge uses a customized DNS client to support advanced features. It may behave differently from the DNS client of your operating system.
+Surge 使用自定义的 DNS 客户端，以支持高级特性。它的行为可能与你操作系统的 DNS 客户端不同。
 
-### Upstream DNS Server
+### 上游 DNS 服务器
 
-Surge uses the DNS server addresses from the operating system by default. You can override them using ['dns-server'](/dns-override.md) option.
+Surge 默认使用操作系统的 DNS 服务器地址。你可以使用['dns-server'](/dns-override.md)选项覆盖它们。
 
-### Details
+### 详情
 
-Surge simultaneously queries all DNS servers to improve performance, similar to dnsmasq with '--all-servers' parameter. The first answer from servers will be used. Surge iOS app and Surge Dashboard will show which server responds first. If Surge has not received any answer in 2 seconds, it will query all servers again. After 4 retries, Surge will give up and report DNS error.
+Surge 会并发查询所有的 DNS 服务器，采用返回最快的服务器的查询结果以提高性能，行为类似于使用 '--all-servers' 参数的 dnsmasq。Surge iOS 的 DNS 结果选项，和 macOS 版的 Surge 请求查看器将显示哪个服务器首先响应。如果 Surge 在 2 秒内没有收到任何答复，它将再次查询所有服务器。重试4次后，Surge 将放弃并报告 DNS 错误。
 
-Some domain names may have poorly-performing authoritative name servers, causing upstream DNS servers to return empty answers due to server-side timeout or other connectivity issues. Surge will report empty DNS error if **all** upstream DNS servers explicitly return empty DNS answers, or if some servers return empty answers and others fail to respond in 2 seconds.
+一些域名可能配置了性能不佳的权限域名服务器，导致上游的 DNS 服务器由于服务器端超时或其他连接问题而返回空答案。如果***所有***的上游 DNS 服务器明确返回空的 DNS 查询结果，或者其中一些服务器返回空的查询结果，而其他服务器在 2 秒内没有回应，Surge 将报告空的 DNS 错误。
 
-When IPv6 is available and enabled, Surge DNS client will send both A and AAAA questions to upstream DNS Servers. The first A or AAAA answer returned will be used.
+当 IPv6 可用并启用时，Surge DNS 客户端将发送 A 和 AAAA 问题到上游 DNS 服务器。第一个返回的 A 或 AAAA 查询结果将被使用。
 
 
