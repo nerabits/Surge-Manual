@@ -1,42 +1,42 @@
-# Logical Rule
+# 逻辑规则
 
-Use logical operator rule to combine multiple rules for complex scenarios. You may include logical rule in another logical rule.
+使用逻辑运算符来组合多个规则，以应对复杂的情况。你可以将一个逻辑规则包含在另一个逻辑规则中。
 
 
-#### AND Rule
+#### AND 规则
 
-Rule matches if all sub-rules match.
+如果全部子规则匹配，则该规则匹配。
 
 ```
 AND,((#Rule1), (#Rule2), (#Rule3)...),Policy
 ```
 
-Example:
+示例：
 ```
 AND,((SRC-IP,192.168.1.110), (DOMAIN, example.com)),DIRECT
 ```
 
-#### OR Rule
+#### OR 规则
 
-Rule matches if any sub-rule matches.
+只要有子规则匹配，则该规则匹配。
 
 `OR,((#Rule1), (#Rule2), (#Rule3)...),Policy`
 
-Example:
+示例：
 ```
 OR,((SRC-IP,192.168.1.110), (SRC-IP,192.168.1.111)),DIRECT
 ```
 
-#### NOT Rule
+#### NOT 规则
 
-Reverse the evaluation result of the original rule. 
+反转原始规则的评估结果。
 
 ```
 NOT,((#Rule1)),Policy
 ```
 
 
-Example:
+示例：
 ```
 AND,((NOT,((SRC-IP,192.168.1.110))),(DOMAIN, example.com)),DIRECT
 ```

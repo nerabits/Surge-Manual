@@ -1,6 +1,6 @@
-# HTTP Rule
+# HTTP 规则
 
-There are 2 HTTP rule types. HTTP rule is for HTTP requests or HTTPS requests. It won't effect TCP connections.
+HTTP 规则有 2 种类型。HTTP 规则只针对 HTTP 和 HTTPS 请求，不会影响 TCP 连接。
 
 #### USER-AGENT
 
@@ -8,10 +8,10 @@ There are 2 HTTP rule types. HTTP rule is for HTTP requests or HTTPS requests. I
 USER-AGENT,Instagram*,DIRECT
 ```
 
-Rule matches if the user agent of the request matches. Wildcard characters * and ? are supported.
+此规则用于匹配对应请求的 USER-AGENT。支持通配符 * 和 ?。
 
 #### URL-REGEX
 
 `URL-REGEX,^http://google\.com,DIRECT`
 
-Rule matches if the URL matches the regular expression.
+如果 URL 与正则表达式匹配，则规则匹配。

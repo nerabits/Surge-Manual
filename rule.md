@@ -1,20 +1,20 @@
-# Rule
+# 规则
 
-Surge can forward requests to another proxy server or connect to the host directly, depending on customized rules. 
+Surge 可以依据自定义规则，转发请求到其他代理服务器或直接发送给目标主机。
 
-### Priority
-Rules are matched from the first one to the last one, in the order they appear in the config file. In other words, rules at the top of the list have higher priority than latter ones.
+### 优先级
+Surge 按照配置文件中的顺序，从头到尾匹配规则。换句话说，第一条规则的优先级高于后面的规则。
 
-### Composition
+### 组成
 
-Each rule consists 3 parts: rule type, a traffic matcher (except for FINAL rule), and a proxy policy:
-         TYPE,         VALUE,         POLICY
-Example: DOMAIN-SUFFIX,apple.com,     DIRECT
+每条规则包含三个部分：规则类型、匹配的请求（FINAL 规则除外），和对应的策略：
+         类型,          匹配的请求,     对应的策略
+示例：    DOMAIN-SUFFIX,apple.com,     DIRECT
          IP-CIDR,      192.168.0.0/16,ProxyA
 
-Surge supports 6 different types of rules: DOMAIN, DOMAIN-SUFFIX, DOMAIN-KEYWORD, GEOIP, IP-CIDR, or FINAL. Proxy policy must be named under one of a policy names, including ‘a proxy’, 'a policy group', 'DIRECT', or 'REJECT'. Rules must end with a FINAL rule to define the default behavior.
+Surge 支持 6 种不同类型的规则。DOMAIN、DOMAIN-SUFFIX、DOMAIN-KEYWORD、GEOIP、IP-CIDR 和 FINAL。对于对应的策略，可以是代理服务器配置、策略组配置、"DIRECT" 或 "REJECT"。规则必须以 FINAL 规则结束，以定义默认行为。
 
-Example:
+示例：
 
 ```
 [Rule]
@@ -25,5 +25,5 @@ IP-CIDR,192.168.0.0/16,DIRECT
 FINAL,ProxyB
 ```
 
-DOMAIN, DOMAIN-SUFFIX and DOMAIN-KEYWORD are [domain based rules](/rule/domain-based.md). IP-CIDR and GEOIP are [IP based rules](/rule/ip-based.md).
+DOMAIN, DOMAIN-SUFFIX 和 DOMAIN-KEYWORD 是 [域名规则](/rule/domain-based.md)。 IP-CIDR 和 GEOIP 是 [IP 规则](/rule/ip-based.md)。
 

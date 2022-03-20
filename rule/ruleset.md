@@ -1,16 +1,16 @@
-# Ruleset
+# 规则集
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules from a file or a URL. Surge also provides two internal rulesets.
+从 Surge Mac v3.0 和 Surge iOS v3.4 开始，您可以使用来自文件或URL的规则集。Surge 还提供两个内置规则集。
 
 ## Internal Ruleset
 
-The internal ruleset contents might change with Surge version updates. Please go to the ruleset settings to check the latest sub-rules.
+内部规则集的内容可能随着 Surge 版本的更新而改变。请到规则集设置中查看最新的子规则。
 
 ### SYSTEM
 
 `RULE-SET,SYSTEM,DIRECT`
 
-Includes rules for most requests sent by macOS and iOS itself. The requests sent by App Store, iTunes and other content services are not included.
+包含由 macOS 和 iOS 本身发送的大多数请求的规则。不包括由 App Store、iTunes 和其他内容服务发送的请求。
 
 ```
 USER-AGENT,*com.apple.mobileme.fmip1
@@ -48,14 +48,13 @@ DOMAIN-SUFFIX,ls.apple.com
 PROCESS-NAME,trustd
 ```
 
-> These rules may be updated with Surge updates. Please refer the description in the software to get the latest sub-rules.
-
+> 这些规则可能会随着 Surge 的更新而改变。请参考 App 中的描述，以获得最新的子规则。
 
 ### LAN
 
 `RULE-SET,LAN,DIRECT`
 
-Includes rules for LAN IP addresses and .local suffix. Please notice this ruleset will trigger a DNS lookup.
+包括 LAN IP 地址和 .local 后缀的规则。请注意这个规则集将触发 DNS 查询。
 
 ```
 DOMAIN-SUFFIX,local
@@ -68,11 +67,11 @@ IP-CIDR6,fe80::/10
 ```
 
 
-## External Ruleset
+## 外部规则集
 
-Ruleset from a URL or a local file. The ruleset file should be a text file. Each line contains a rule declaration without the policy.
+从 URL 或本地文件中获取规则集。规则集文件应该是一个文本文件，每一行都包含一个规则声明，没有策略。
 
-Example:
+示例：
 
 ```
 DOMAIN,exampleA.com

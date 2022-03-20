@@ -1,5 +1,5 @@
-# Policy
+# 策略
 
-Surge can forward requests to another proxy server or connect to the host directly, depending on customized rules. A policy indicates how Surge will deal with the requests.
+Surge 可以依据自定义规则，转发请求到其他代理服务器或直接发送给目标主机。策略用于表示 Surge 处理该请求的方式。
 
-There are 3 types of policies: [proxy](/policy/proxy.md), [policy group](/policy/group.md) and [bulit-in policy](/policy/built-in.md).
+策略有三种类型：[代理](/policy/proxy.md)、[策略组](/policy/group.md) 和[内置策略](/policy/built-in.md)。

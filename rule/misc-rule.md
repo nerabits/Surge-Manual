@@ -1,8 +1,8 @@
-# Miscellaneous Rule
+# 其他规则
 
 #### DEST-PORT
 
-Rule matches if the target port of the request matches.
+此规则匹配对应端口的入站请求。
 
 ```
 DEST-PORT,80,DIRECT
@@ -10,7 +10,7 @@ DEST-PORT,80,DIRECT
 
 #### SRC-IP
 
-Rule matches if the client IP address of the request matches. Only for remote machines.
+此规则匹配对应 IP 的入站请求。
 
 ```
 SRC-IP,192.168.20.100,DIRECT
@@ -19,7 +19,7 @@ SRC-IP,192.168.20.100,DIRECT
 
 #### IN-PORT
 
-Rule matches if the incoming port of the request matches. Useful while Surge listening on multiple ports.
+此规则匹配对应端口的出站请求。在Surge监听多个端口时较实用。
 
 ```
 IN-PORT,6152,DIRECT
@@ -28,7 +28,7 @@ IN-PORT,6152,DIRECT
 
 #### PROTOCOL 
 
-Rule matches if the protocol of the request matches. The possible values are HTTP, HTTPS, TCP, UDP, DOH.
+此规则匹配对应请求的协议。可选值：HTTP、HTTPS、TCP、UDP、DOH。
 
 ```
 PROTOCOL,HTTP,DIRECT
@@ -36,25 +36,25 @@ PROTOCOL,HTTP,DIRECT
 
 #### SCRIPT
 
-Use a Javascript script to determine whether it matches.
+使用 JavaScript 脚本判断是否匹配。
 
 ```
 SCRIPT,ScriptName,DIRECT
 ```
 
 
-#### CELLULAR-RADIO (iOS Only)
+#### CELLULAR-RADIO（仅限 iOS）
 
-Rule matches if the cellular radio technology of the current network matches. The possible values are GPRS, Edge, WCDMA, HSDPA, HSUPA, CDMA1x, CDMAEVDORev0, CDMAEVDORevA, CDMAEVDORevB, eHRPD, HRPD, LTE, NRNSA, NR
+此规则匹配当前网络的蜂窝无线电技术。可选值：GPRS, Edge, WCDMA, HSDPA, HSUPA, CDMA1x, CDMAEVDORev0, CDMAEVDORevA, CDMAEVDORevB, eHRPD, HRPD, LTE, NRNSA, NR
 
 ```
 CELLULAR-RADIO,LTE,DIRECT
 ```
 
 
-#### CELLULAR-CARRIER (iOS Only)
+#### CELLULAR-CARRIER（仅限 iOS）
 
-Rule matches if the cellular carrier of the current network matches. The value should be in MCC-MNC code style.
+此规则匹配当前网络的运营商。可选值为 MCC-MNC 移动设备网络代码。
 
 ```
 CELLULAR-CARRIER,289-67,DIRECT
