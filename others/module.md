@@ -1,56 +1,56 @@
 # 模块
 
-Module is a set of settings to override the current profile. You may use modules to:
+Module（模块）是一系列设置的集合，可用于覆盖当前配置的部分设定，有非常多的使用场景：
 
-- Tweak settings in a non-editable profile, such as managed profile and enterprise profile.
-- Change part of settings with one tap. For example, you may use a module to enable MitM for all hostnames and adjust the filter temporarily.
-- Use a module written by others to accomplish a particular task. For example, your co-work may share with you a module that rewrites the API requests to a test server.
-- When you share one profile among devices, some settings might need modifying for different scenarios. The enabling state of modules won't be synced to other devices, so you can use a module to fulfill.
+- 微调不可编辑的配置的设定，如托管配置和企业配置。
+- 快捷的在不同工作环境中切换，比如临时开启对所有域名的 MitM 并调整过滤器。
+- 使用他人编写的模块以完成某些特定任务，比如，你的同事可以编写一个模块将应用的 API 请求重定向至测试服务器。
+- 如果你在多个设备间使用了同一份配置，有可能需要根据设备的使用场景进行微调。模块的开启状态是保存于当前设备的，可以用于在不同设备间的差异性修改。
 
-### Basic Concepts
+### 基本概念
 
-A module is like a patch to the current profile. The settings of modules have a higher priority than the settings of the profile.
+模块相当于给当前配置打补丁，其优先级要高于配置本身的设置。
 
-There are 3 types of modules:
+有三种模块：
 
-- Internal Modules: Provided by Surge itself.
-- Local Modules: .sgmodule files placed in the profile directory.
-- Installed Modules: Modules installed with a URL.
+- 内置模块：Surge 会预置一些模块，随着 Surge 自身更新。
+- 本地模块：放置在配置文件目录中的 .sgmodule 文件。
+- 安装的模块：从某个 URL 安装的模块。
 
 ### 编写模块
 
-The syntax of a module is the same as the profile. You are allowed to override these sections:
+模块的内容和标准配置基本一致，目前支持调整以下段：
 
 * General, Replica, MITM
-  * Override: `key = value`
-  * Append to the original value: `key = %APPEND% value`
-  * Insert in the front of the original value: `key = %INSERT% value`
+  * 直接覆盖原始值：`key = value`
+  * 在原始值的末尾进行追加：`key = %APPEND% value`
+  * 在原始值的开始进行插入：`key = %INSERT% value`
 
-	You can manipulate the 'hostname', 'skip-server-cert-verify', and 'tcp-connection' fields only in a MITM section.
+	你只能在 MITM 段中操作 'hostname'、'skip-server-cert-verify' 和 'tcp-connection' 字段。
 
 
 * Rule, Script, URL Rewrite, Header Rewrite, Host
 
-	The new lines will be inserted at the top of the original content.
+	新加入的定义将会追加在原始内容的顶部。
 	
-	The rules in a module can only use internal policies: DIRECT, REJECT, and REJECT-TINYGIF.
+	模块中的规则只可以使用 DIRECT、REJECT、REJECT-TINYGIF 三个内置策略。
 
-* Metadata
+* 元数据
 
-	You may add metadata in a module file:
+	你可以在模块文件里添加元数据：
 	
 	```
 	#!name=Name Here
 	#!desc=Description Here
 	```
 	
-	You may limit a module to specified platform. (Optional)
+	（可选）你还可以限制模块的使用平台（可取值为 ios 和 mac）：
 	
 	```
 	#!system=mac
 	```
 
-### 示例：
+### 模块样例：
 
 ```
 #!name=MitM All Hostnames

@@ -23,7 +23,7 @@ Surge 将会修改请求的 Header，客户端将不会感知到这次重定向�
 ^http://www\.google\.cn http://www.google.com header
 ```
 
-> 您不能重定向到一个 HTTPS 标志符的 URL。您也不能重定向一个 HTTPS 请求。
+> 你不能重定向到一个 HTTPS 标志符的 URL。你也不能重定向一个 HTTPS 请求。
 
 
 ### 302 模式

@@ -100,7 +100,7 @@ Accept-Encoding: gzip, deflate
 DNT: 1
 ```
 
-如果您想在字段存在的时候添加或替换一个 Header 行，您可以同时使用 header-add 和 header-del。
+如果你想在字段存在的时候添加或替换一个 Header 行，你可以同时使用 header-add 和 header-del。
 
 ```
 [Header Rewrite]

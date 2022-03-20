@@ -1,8 +1,8 @@
 # 子网设置
 
-You may use the [subnet expression](../rule/subnet.md) to match specified networks and apply particular settings. 
+您可以使用 [subnet expression](../rule/subnet.md) 以匹配指定的网络，并应用特定的设置。
 
-> For compatibility reasons. The subnet settings names [SSID Setting] in the profile.
+> 出于兼容性的考虑。配置文件中的子网设置部分的名称为 [SSID Setting]。
 
 ### 临时禁用
 
@@ -13,9 +13,9 @@ You may use the [subnet expression](../rule/subnet.md) to match specified networ
 SSID:MyHome suspend=true
 ```
 
-### Cellular Fallback (iOS Only)
+### 蜂窝网络回落（仅限 iOS）
 
-Control the Wi-Fi assist and Hybrid Network Behaviour for specified Wi-Fi networks.
+在特定 Wi-Fi 网络下，控制增强版 Wi-Fi 助理和混合网络的行为。
 
 ```
 [SSID Setting]
@@ -23,15 +23,15 @@ SSID:MyHome cellular-fallback=off
 ```
 
 - cellular-fallback=default 
-  Use the global Wi-Fi assist and Hybrid Network settings.
+  使用增强版 Wi-Fi 助理和混合网络默认设置。
 - cellular-fallback=off
-  Turn off Wi-Fi assist and Hybrid Network for the network.
+  在指定网络下开启增强版 Wi-Fi 助理和混合网络设置。
 - cellular-fallback=hybrid 
-  Turn on Hybrid Network for the network.
+  在指定网络下关闭增强版 Wi-Fi 助理和混合网络设置。
 - cellular-fallback=wifi-assist
-  Turn on Wi-Fi assist for the network.
+  在指定网络下开启增强版 Wi-Fi 助理。
 
-### TCP Fast Open Behaviour
+### TCP Fast Open 行为
 
 ```
 [SSID Setting]
@@ -39,10 +39,10 @@ SSID:MyHome tfo-behaviour=force-enabled
 ```
 
 - tfo-behaviour=auto
-Use the default TFO behaviour.
+  使用默认 TFO 设置。
 - tfo-behaviour=force-disabled
-Disable TFO for the network completely.
+  在指定网络下完全关闭 TFO。
 - tfo-behaviour=force-enabled
-Forcibly enable TFO for the network. This option will make Surge ignore the system TFO blackhole detecting mechanism.
+  在特定网络下强制开启 TFO。此选项将允许 Surge 忽略系统 TFO 黑洞检测机制。
 
 

@@ -2,7 +2,7 @@
 
 *Surge Mac 3.2.0 / Surge iOS 3.8 及以后版本可用*
 
-您可以使用 JavaScript 来修改 HTTP 响应。
+你可以使用 JavaScript 来修改 HTTP 响应。
 
 ```
 [Script]
@@ -55,7 +55,7 @@ JSON.stringify(obj);
 ## 杂项
 
 - 由于JavaScript的限制，其只支持对UTF-8编码的响应体进行脚本处理。
-- 默认情况下，每个脚本的执行都会被创建一个新的 JS 上下文。您可以配置 "shared-jsvm-context"，让所有脚本共享 JS 上下文，这样可以让脚本共享全局变量的数据。
+- 默认情况下，每个脚本的执行都会被创建一个新的 JS 上下文。你可以配置 "shared-jsvm-context"，让所有脚本共享 JS 上下文，这样可以让脚本共享全局变量的数据。
 
 ```
 [General]
@@ -63,6 +63,6 @@ shared-jsvm-context=true
 ```
 
 - 你可以使用 'console.log' 来记录到 Surge 的日志文件。
-- Surge 请求查看器中的响应头和响应体为修改过的版本。您可以在‘计时 & 日志’标签中检查脚本的执行状态。
+- Surge 请求查看器中的响应头和响应体为修改过的版本。你可以在‘计时 & 日志’标签中检查脚本的执行状态。
 
 

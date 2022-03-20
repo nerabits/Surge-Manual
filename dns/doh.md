@@ -8,7 +8,7 @@
 doh-server = https://9.9.9.9/dns-query
 ```
 
-您可以在这里指定多个 DNS-over-HTTPS 服务器（不推荐）。
+你可以在这里指定多个 DNS-over-HTTPS 服务器（不推荐）。
 
 
 ### 为特定域名使用 DoH
@@ -23,11 +23,11 @@ example.com = server:https://cloudflare-dns.com/dns-query
 
 有两种不同的 DoH 格式：JSON 和 DNS wireformat (RFC1035).
 
-您需要确定您的 DoH 服务支持的格式。
+你需要确定你的 DoH 服务支持的格式。
 
 * Surge iOS 4.1 及以下版本 / Surge Mac 3.4.1 及以下版本：仅支持 JSON 格式。
 
-* Surge iOS 4.2 及以上版本 / and Surge Mac 3.5.0 及以上版本：Surge 使用 DNS wireformat 作为默认。 您仍可以继续选择使用 JSON。
+* Surge iOS 4.2 及以上版本 / and Surge Mac 3.5.0 及以上版本：Surge 使用 DNS wireformat 作为默认。 你仍可以继续选择使用 JSON。
 
 	```
 	[General]

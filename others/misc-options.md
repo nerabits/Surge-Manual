@@ -1,9 +1,9 @@
-# Miscellaneous Options in [General] Section
+# [General] 部分的其他选项
 
-As the options change frequently, you may look up the most up-to-date explanation for the [General] section options within the app.
+由于选项经常变化，你可以在应用程序中查找 [General] 部分选项的最新解释。
 
-- Surge Mac: Main Window Menu -> Help -> Profile Syntax
-- Surge iOS: More Tab -> Help -> Profile Syntax
+- Surge Mac: 主窗口 -> 帮助 -> 配置文件符号
+- Surge iOS: "更多" 标签 -> 帮助 -> 配置文件符号
 
 
 ```
@@ -17,81 +17,81 @@ tun-included-routes = 192.168.1.12/32
 
 ### loglevel
 
-Log level. One of verbose, info, notify, or warning. It's not recommended to enable verbose in daily use because this slows down the performance significantly.
+日志级别。可选值包含 verbose, info, notify 和 warning。不建议在日常使用中启用 verbose 模式，因为会大大降低性能。
 
 ### ipv6
 
-Enable full IPv6 support.
+开启完整 IPv6 支持。
 
 ### dns-server
 
-The IP addresses of upstream DNS servers.
+上级 DNS 服务器的 IP 地址。
 
 ### skip-proxy
 
-In the iOS version, this option forces connection to these domain/IP ranges to be handled by Surge VIF, instead of Surge proxy. In the macOS version, these settings are applied to the system when "Set as System Proxy" is enabled. This option is used to fix compatibility problems with some apps.
+在 iOS 版本中，该选项将使得发往这些域名或者 IP 段的请求由 Surge VIF 进行处理（而不是 Surge Proxy）；在 macOS 版本中，当“设置为系统代理”开启时，该选项中的设置将会被提交到系统。该选项用于修正和某些应用的兼容性问题。
 
-  - To specify a single domain, enter the domain name - for example, apple.com.
+  - 指定单一域名，输入域名 - 例如，apple.com。
 
-  - To specify all websites on a domain, use an asterisk before the domain name - for example, \*apple.com.
+  - 指定一个域名上的所有网站，在域名前使用星号 - 例如，\*apple.com。
 
-  - To specify a specific part of a domain, specify each part - for example, store.apple.com.
+  - 指定一个域的特定子域名，输入完整域名 - 例如，store.apple.com。
 
-  - To specify hosts or networks by IP addresses, enter a specific IP address such as 192.168.2.11 or an address range, such as 192.168.2.\* or 192.168.2.0/24.
+  - 要通过IP地址指定主机或网络，请输入一个特定的IP地址，如 192.168.2.11 或一个地址范围，如 192.168.2.* 或 192.168.2.0/24。
 
-Notice: If you enter an IP address or address range, you are only able to bypass the proxy when you connect to that host using that address, not when you connect to the host by a domain name that resolves to that address.
+注意：如果你指定了 IP 地址或地址范围，你只能在使用该地址或地址范围直接连接到该主机时绕过代理；而在使用这些IP或IP段对应的域名连接时，则不能绕过代理。
 
 ### exclude-simple-hostnames
 
-Just like the skip-proxy parameter. This option lets requests using simple hostnames (without dot) handled by Surge VIF instead of Surge proxy.
+和 skip-proxy 参数类似，该选项允许使用简单的主机名（没有.）的请求由 Surge VIF 而不是 Surge Proxy 进行处理。
 
 ### external-controller-access
 
-This option allows an external controller to control Surge, such as Surge Dashboard (macOS) and Surge iOS Remote Controller (iOS). E.g.: key@0.0.0.0:6165
+该选项允许外部控制器来控制 Surge，例如 Surge 请求查看器（macOS）和 Surge iOS 远程控制器（iOS）。例如：key@0.0.0.0:6165
 
 ### http-api
 
-This option allows using HTTP APIs to control Surge. E.g.: key@0.0.0.0:6166
+该选项允许使用 HTTP API 来控制 Surge。例如：key@0.0.0.0:6166
 
 ### http-api-tls
 
-Use HTTPS protocol instead of HTTP. The MitM CA certificate must be configured first. You need to install the certificate on the client device manually.
+使用 HTTPS 协议替代HTTP。必须先配置 MitM CA 证书。你需要在客户端设备上手动安装该证书。
 
 ### http-api-web-dashboard
 
-You may control Surge via a web browser after enabling this.
+你可以在启用该功能后，使用浏览器控制 Surge。
 
 ### show-error-page-for-reject
 
-Show an error webpage for REJECT policy if the request is a plain HTTP request.
+如果请求时普通的 HTTP 请求，则为 REJECT 策略显示一个错误网页。
 
 ### tun-excluded-routes
 
-Surge VIF can only process TCP and UDP protocols. Use this option to bypass specific IP ranges to allow all traffic to pass through.
+Surge VIF 仅可处理 TCP 和 UDP 协议。使用此功能来绕过特定的 IP 范围，来允许所有流量通过。
 
-Notice: This option only works for Surge VIF. Requests handled by Surge Proxy Server aren't affected. Combine 'skip-proxy' and 'tun-excluded-routes' to make sure that specific HTTP traffic bypasses Surge.
+注意。这个选项只适用于Surge VIF。由 Surge Proxy 处理的请求不受影响。你可以结合 "skip-proxy" 和 "tun-excluded-routes" 选项来确保特定的 HTTP 流量绕过 Surge。
 
 ### tun-included-routes
 
-By default, Surge VIF interface declares itself as the default route. However, since the Wi-Fi interface has a smaller route, some traffic may not go through Surge VIF interface. Use this option to add a smaller route.
+默认情况下，Surge VIF 将自己定义为默认路由。然而，由于 Wi-Fi 网卡有一个较小的路由，一些流量可能不会通过 Surge VIF。使用这个选项可以添加一个较小的路由。
 
 ### internet-test-url
 
-The URL for the Internet connectivity testing. Also the testing URL for DIRECT policy.
+用于测试互联网连接性的 URL，同时也用于 DIRECT 策略的网络测试。
 
 ### proxy-test-url
 
-The default testing URL for proxy policies.
+代理策略的默认测试 URL。
 
 ### test-timeout
 
-The connectivity testing timeout.
+连接测试的超时时间。
 
 ### always-real-ip
 
-This option asks Surge to return a real IP address instead of a fake IP address when Surge VIF handles a DNS question.
+当 Surge VIF 处理 DNS 查询时，该选项要求 Surge 返回真实的 IP 地址，而不是 fake IP。
 
-The DNS packet will be forwarded to upstream DNS servers.
+DNS 数据包将被转发至上游 DNS 服务器。
 
 ### hijack-dns
 

@@ -1,4 +1,4 @@
-# Profile
+# 配置文件
 
 The core functionality of Surge is controlled by the profile. Basically, all content of the profile can be adjusted by the user interface. But some experimental features may not have the view to configure yet. When you encounter some special requirements, you might need to edit the profile manually to achieve it.
 
@@ -75,7 +75,7 @@ Some additional notes.
 
 
 
-### Modules
+### 模块
 
 The Detached Profile Section feature is used to split a single profile into multiple files, while modules are patches to the profile, each module file is used to tune various parts of the profile to achieve a specific task.
 
@@ -92,7 +92,7 @@ However
 The module description is available at: https://manual.nssurge.com/others/module.html
 
 
-### Comment
+### 注释
 
 Surge profile supports comment line, starts with '#', ';' and '//'. Comment inline will also be supported with separation of '//'. 
 

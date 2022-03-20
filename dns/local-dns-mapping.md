@@ -12,7 +12,7 @@ bar.com = server:8.8.8.8
 
 ## 通配符
 
-您可以使用 \* 前缀来匹配所有子域名。请注意，Surge 使用简单字符串匹配。例如，\*google.com 将匹配 google.com, foo.google.com 和 bargoogle.com。而 \*.google.com 将**不**匹配 google.com.
+你可以使用 \* 前缀来匹配所有子域名。请注意，Surge 使用简单字符串匹配。例如，\*google.com 将匹配 google.com, foo.google.com 和 bargoogle.com。而 \*.google.com 将**不**匹配 google.com.
 
 ```
 [Host]
@@ -30,7 +30,7 @@ foo.com = bar.com
 
 ## 指定 DNS 服务器
 
-您可以为一个或多个域名指定一个 DNS 服务器。
+你可以为一个或多个域名指定一个 DNS 服务器。
 
 ```
 [Host]
