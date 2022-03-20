@@ -2,7 +2,7 @@
 
 The core functionality of Surge is controlled by the profile. Basically, all content of the profile can be adjusted by the user interface. But some experimental features may not have the view to configure yet. When you encounter some special requirements, you might need to edit the profile manually to achieve it.
 
-### Profile content
+### 配置文件目录
 
 The format of the profile follows the format of the INI file, with [Section] segments, which are used to divide the different paragraphs and separate the settings.
 
@@ -16,7 +16,7 @@ key = value
 In these paragraphs, the order of the configuration lines has no effect. However, in paragraphs such as [Rule], the order of the configuration lines up and down is very important.
 
 
-### Classification of configuration files
+### 配置文件类型
 
 Configuration files are divided into three categories.
 1. Normal profile: created manually or used by default.
@@ -24,7 +24,7 @@ Configuration files are divided into three categories.
 3. Enterprise profile: Enterprise version only, cannot be modified or viewed, and cannot be copied.
 
 
-### Detached Profile Section
+### 配置段分离
 
 To meet the complexity of various usage scenarios, Surge Mac 4.1.0 Beta / Surge iOS Beta 1903 starts to support the separation of one section of the profile into another file.
 

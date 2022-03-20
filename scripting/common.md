@@ -1,8 +1,8 @@
-_Scripting requires Surge iOS 4 or Surge Mac 3.3.0_
+_脚本功能需要 Surge iOS 4 或 Surge Mac 3.3.0以上版本_
 
-# Scripting
+# 脚本
 
-You may use JavaScript to extend the ability of Surge as your wish.
+使用 JavaScript 随心所欲地拓展 Surge 功能。
 
 ## Script Section
 

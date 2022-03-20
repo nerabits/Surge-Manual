@@ -1,4 +1,4 @@
-### rule
+### 规则
 
 Uses a script as a rule. The value field will be used as a name.
 

@@ -1,4 +1,4 @@
-### http-request
+### HTTP 请求
 
 Uses a script to modify the HTTP request. The value field is a regular expression to match the request URLs.
 
@@ -26,7 +26,7 @@ Some limitations in the current version:
 * The request body may not be overwritten when using chunked encoding.
 * The request body may not be overwritten when 'Expect: 100-continue' exists in the header.
 
-A simple example:
+一个简单的示例：
 
 ```
 let headers = $request.headers;

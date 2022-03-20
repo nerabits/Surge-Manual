@@ -1,4 +1,4 @@
-### http-response
+### HTTP 响应
 
 Use a script to modify the HTTP response. The value field is a regular expression to match the request URLs.
 

@@ -1,10 +1,10 @@
-### event
+### 事件
 
 Evaluates script while the specified event occurs. The value is the event name. Only one event is supported currently: network-changed.
 
 Please invoke $done() to complete.
 
-A simple example:
+一个简单的示例：
 
 ```
 // event network-changed script-path=network-changed.js

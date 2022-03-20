@@ -1,4 +1,4 @@
-### policy-group
+### 策略组
 
 Uses a script as a policy group. The value field will be used as a name.
 

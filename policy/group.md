@@ -1,132 +1,132 @@
 # 策略组
 
-A policy group may contain multiple policies. It can be a proxy policy, another policy group or a built-in policy \(DIRECT and REJECT\).
+一个策略组可以包含多个策略，其中的策略可以是代理策略、其他策略组或内置策略 \(DIRECT 和 REJECT\)。
 
-There are three group types: ‘select‘, ’url-test‘, ’fallback‘, ’load-balance‘ and ’ssid‘. Section \[Proxy Group\] declares policy group.
+策略组有五个类型：‘select‘、’url-test‘、’fallback‘、’load-balance‘ 和 ’ssid‘。片段 \[Proxy Group\] 用于声明策略组。
 
-## Manual Select Group
+## 手动选择策略组
 
-Select which policy will be used on the user interface.
+在图形界面中选择将要使用的策略。
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 
-> In iOS version. You may use Today Widget to quickly switch policy for the first 'select' group. 
-> In macOS version. You may switch the policy in the menubar menu.
+> 在 iOS 版本中，你可以使用小组件来快速选择第一个手动选择策略组中的策略。
+> 在 macOS 版本中，你可以在菜单栏的下拉菜单中选择策略。
 
-## Auto URL Test Group
+## URL 自动测试策略组
 
-Automatically select which policy will be used by benchmarking the latency to the testing URL. You change the testing URL in the general settings, or override the testing URL for a policy.
+通过对测试URL的延迟进行基准测试，自动选择使用的策略。你可以在一般设置中更改测试 URL，或者覆盖某个策略的测试 URL。
 
 `AutoTestGroup = url-test, ProxySOCKS5, ProxySOCKS5TLS`
 
-### Parameters
+### 参数
 
-#### interval: Optional, second \(Default: 600s\).
+#### interval：可选，单位为秒 \(默认：600秒\).
 
-The benchmark result will be discarded after the interval time. A retest will happen if the policy group is used.
+超过此时间间隔，将不再测试。除非重新使用此策略组。
 
-#### tolerance: Optional, millisecond \(Default: 100ms\).
+#### tolerance：可选，单位为毫秒 \(默认：100毫秒\).
 
-Policy will be changed only when the new winner has a higher score than the old winner's score plus the tolerance.
+每次重新测试时，当此次测试延迟最低的策略比上一组的最低延迟少对应的设置值时，才会应用新策略。
 
-#### timeout: Optional, second \(Default: 5s\).
+#### timeout：可选，单位为秒 \(默认：5秒\).
 
-Abandon a policy if not finished in timeout.
+测试时在超过设定时间仍无响应，则自动放弃对应策略。
 
-## Fallback Group
+## Fallback 策略组
 
-Select an available policy by priority. The availability is tested by accessing a URL, just like an auto URL test group. The policy defined in the front has a high priority.
+按优先级选择一个可用的策略，通过访问一个URL来测试其可用性，就像 URL 自动测试策略组一样。优先级从前到后依次降低。
 
 `FallbackGroup = fallback, ProxySOCKS5, ProxySOCKS5TLS`
 
-### Parameters
+### 参数
 
-#### interval: Optional, s \(Default: 600s\).
+#### interval：可选，单位为秒 \(默认：600秒\).
 
-Determine how long the benchmark result will be discarded.
+超过此时间间隔，将不再测试。除非重新使用此策略组。
 
-#### timeout: Optional, s \(Default: 5s\).
+#### timeout：可选，单位为秒 \(默认：5秒\).
 
-Abandon a policy if it is not finished until timeout.
+测试时在超过设定时间仍无响应，则自动放弃对应策略。
 
-## Load Balance Group
+## 负载均衡策略组
 
-A load-balancing group is randomly selected from the sub-policies to use.
+在该组中随机选用一个策略。
 
-When the url parameter is configured, availability is checked against the behavior of the fallback group and then only a random selection is made from the available sub-policies.
+当配置了 url 参数时，会按照 Fallback 组的行为检查策略可用性，然后只从可用的子策略中随机选择。
 
-In addition to the url, timeout, and interval, there is one other parameter.
-
-
-### Parameters
-
-#### persistent: Optional
-
-When persistent=true, the same policy will be used as much as possible for the same target hostname. Avoid triggering risk controls on the target site due to different egress IPs. However, a policy change may occur when availability changes.
+除了url、interval 和 timeout 之外，还有一个参数。
 
 
-## SSID Group
+### 参数
 
-Although still called the SSID Policy Group, it has been expanded to include the ability to select sub-policies based on the current network’s SSID, BSSID, routed IP address, etc. The iOS version can also specify policies for data networks.
+#### persistent：可选
+
+当 persistent=true，尽可能对同一目标主机名使用相同的策略。避免因出口 IP 不同而触发目标站点的风险控制。但是，当可用性发生变化时，策略可能会发生变化。
+
+
+## SSID 策略组
+
+虽然仍被称为 SSID 策略组，但它已经扩展到包括根据当前网络的 SSID、BSSID、路由 IP 地址等选择子策略的能力。iOS 版本还可以为数据网络指定策略。
 
 `SSIDGroup = ssid, default = ProxyHTTP, cellular = ProxyHTTP, SSIDName = ProxySOCKS5`
 
-### Parameters
+### 参数
 
-#### default: Required
+#### default：必需
 
-The policy when no matched SSID option has been found.
+没有找到匹配的SSID选项时的策略。
 
-#### cellular: Optional
+#### cellular：可选
 
-The policy under cellular network. If not provided, the default policy will be used.
+蜂窝网络下的策略。如果没有提供，将使用默认策略。
 
-## External Group
+## 外置策略组
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policies defined in an external file or from a URL.
+从 Surge Mac v3.0 和 Surge iOS v3.4 开始，可向策略组中导入在外部文件或 URL 中定义的策略。
 
 `egroup = select, policy-path=proxies.txt`
 
-This file contains a list of policies, just like the definition lines in the main profile
+该文件包含一个策略列表，就像主配置文件中的定义一样。
 
 ```
 Proxy-A = https, example1.com, 443
 Proxy-B = https, example2.com, 443
 ```
 
-#### update-interval: Optional, second
+#### update-interval: 可选，单位为秒
 
-The update interval if the path is a URL.
+如果路径是一个URL，则为更新间隔。
 
-#### policy-regex-filter: Optional
+#### policy-regex-filter: 可选，
 
-Only use the lines in the external file that the regex matches.
+只选用外部文件中与正则表达式匹配的行。
 
-## Other Common Parameters
+## 其他通用参数
 
 #### no-alert
 
-Do not show the policy change notification for this group.
+不显示该组策略变化通知。
 
 #### hidden
 
-Do not show the group in the menu (Surge Mac) and the policy selection view (Surge iOS).
+不要在菜单（Surge Mac）和策略组标签（Surge iOS）中显示该组。
 
 
-## Policy Including
+## 策略包含
 
-Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can use include-all-proxies and include-other-group to include all proxies or reuse defines from another group.
+从 Surge iOS 4.12.0 和 Surge Mac 4.5.0 开始，你可以使用 include-all-proxies 和 include-other-group 参数来包含全部代理策略或重用其他策略组的定义的策略。
 
 #### include-all-proxies
 
-Parameter include-all-proxies=true includes all proxy policies defined in the [Proxy] section and can be used with the policy-regex-filter parameter for filtering.
+参数 include-all-proxies=true 包含在 [Proxy] 段中定义的全部代理策略。可使用 policy-regex-filter 参数对策略进行筛选。
 
 #### include-other-group
 
-Parameter include-other-group="group1,group2" includes policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the policy-regex-filter parameter for filtering.
+参数 include-other-group="group1,group2" 包含其他策略组中的策略，可以包含多个策略组（使用逗号分隔），也可使用 policy-regex-filter 参数对策略进行筛选。
 
-Some Notes:
-- include-all-proxies, include-other-group, and policy-path parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
-- There is an order of precedence among the policy groups for the include-other-group parameter, but there is no order of precedence among the include-all-proxies, include-other-group, and policy-path parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with include-other-group.
+一些说明：
+- include-all-proxies、include-other-group 和 policy-path 参数允许同时在一个策略组中使用。policy-regex-filter 参数适用于以上所有参数。
+- 对于 include-other-group 参数，各策略组之间有优先顺序。但 include-all-proxies、include-other-group 和 policy-path 参数之间没有优先顺序。对于子策略的顺序有意义的情况（例如，Fallback 策略组），则可使用该策略组与 include-other-group 嵌套。
 
 

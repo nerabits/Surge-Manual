@@ -1,6 +1,6 @@
-### dns
+### DNS
 
-Uses a script as a DNS resolver. The value field will be used as a name.
+使用脚本作为 DNS 解析器。此类型中，Value（第二个参数）为脚本名。
 
 `dns dnspod script-path=dnspod.js`
 

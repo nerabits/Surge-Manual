@@ -4,7 +4,7 @@
 
 ## Surge Mac V4
 
-### Version 4.4.0
+### 版本 4.4.0
 
 - Uses Surge as a WireGuard client, converting L3 VPN as an outbound proxy policy. More information: https://manual.nssurge.com/policy/wireguard.html
 - Supports VmessAEAD. (Policy parameter: vmess-aead = true)
@@ -16,7 +16,7 @@
 
 https://dl.nssurge.com/mac/v4/Surge-4.4.0-1521-a0024e9fbe33f5ccaa41316d63cdefee.zip
 
-### Version 4.3.1
+### 版本 4.3.1
 
 - Snell Protocol v3, which brings UDP over TCP relay support
   - Optimized for high throughput.
@@ -26,7 +26,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.4.0-1521-a0024e9fbe33f5ccaa41316d63cdefee.
 
 https://dl.nssurge.com/mac/v4/Surge-4.3.1-1461-829471a307259fe1729cf06a7cd13d06.zip
 
-### Version 4.3.0
+### 版本 4.3.0
 - Surge Dashboard now supports managing DHCP devices. All of the properties (name, icon, static IP address, gateway mode) can be edited locally and remotely.
 - The traffic statistics data is now persistent between sessions. And you may use Dashboard to view all the detailed statistical data.
 - The statistics data range is extended to 24 hours.
@@ -35,7 +35,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.3.1-1461-829471a307259fe1729cf06a7cd13d06.
 
 https://dl.nssurge.com/mac/v4/Surge-4.3.0-1430-bde27671bfdadfab143338a7cd5b2fa3.zip
 
-### Version 4.2.5
+### 版本 4.2.5
 
 - Performance improvements.
 - Supports remote rule editing for Surge iOS remote controller.
@@ -46,7 +46,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.3.0-1430-bde27671bfdadfab143338a7cd5b2fa3.
 
 https://dl.nssurge.com/mac/v4/Surge-4.2.5-1414-764146258a319c307056593a1309cf89.zip
 
-### Version 4.2.4
+### 版本 4.2.4
 
 - New option: Menubar icon display mode. You can now hide the icon and display the real-time speed only, to save the precious menubar space.
 - New HTTP API: GET /policies/benchmark_results
@@ -59,13 +59,13 @@ https://dl.nssurge.com/mac/v4/Surge-4.2.5-1414-764146258a319c307056593a1309cf89.
 
 https://dl.nssurge.com/mac/v4/Surge-4.2.4-1399-4f3c53abfe45fce5646d84af11e589c4.zip
 
-### Version 4.2.3
+### 版本 4.2.3
 
 - Bug fixes.
 
 https://dl.nssurge.com/mac/v4/Surge-4.2.3-1357-0803594c82248360a95722089650f7f7.zip
 
-### Version 4.2.2
+### 版本 4.2.2
 - Supports binary mode for http-request and http-response scripts.
 - DHCP can detect if a device is private address enabled now.
 - Surge won't reload the profile automatically if the new profile is invalid.
@@ -73,7 +73,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.2.3-1357-0803594c82248360a95722089650f7f7.
 
 https://dl.nssurge.com/mac/v4/Surge-4.2.2-1351-5dc813192d6e37fdb0895034ebc90b57.zip
 
-### Version 4.2.1
+### 版本 4.2.1
 
 #### External IP
 - You may now check the external IP address in the interfaces view.
@@ -86,7 +86,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.2.2-1351-5dc813192d6e37fdb0895034ebc90b57.
 
 https://dl.nssurge.com/mac/v4/Surge-4.2.1-1333-14f7cb7cd943be7e4b3cecfb3fcd8ba3.zip
 
-### Version 4.2.0
+### 版本 4.2.0
 
 #### Web Dashboard
 - The community project YASD is now part of Surge. You can now control Surge via a web browser on local or remote devices. (Licensed by author @geekdada)
@@ -108,7 +108,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.2.1-1333-14f7cb7cd943be7e4b3cecfb3fcd8ba3.
 https://dl.nssurge.com/mac/v4/Surge-4.2.0-1321-d4d84696bb58cf8be0189b59ccbe926b.zip
 
 
-### Version 4.1.0
+### 版本 4.1.0
 
 #### Scripting
 - You may configure and edit scripts with UI now.
@@ -132,7 +132,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.2.0-1321-d4d84696bb58cf8be0189b59ccbe926b.
 
 https://dl.nssurge.com/mac/v4/Surge-4.1.0-1298-f07b1b8713b2397518f4b252b5786452.zip
 
-### Version 4.0.5
+### 版本 4.0.5
 
 #### Policy Group
 In this release, we completely refactored the policy group functionality, bringing the following changes: 
@@ -153,12 +153,12 @@ You can receive the notifications on iOS devices. Enable this option first and t
 
 https://dl.nssurge.com/mac/v4/Surge-4.0.5-1262-db70f680cd0f15236c8415ec7b804c3a.zip
 
-### Version 4.0.4
+### 版本 4.0.4
 * Bug fixes.
 
 https://dl.nssurge.com/mac/v4/Surge-4.0.4-1227-9acb8b9e3f39e9048fc82e427184a4af.zip
 
-### Version 4.0.3
+### 版本 4.0.3
 
 * You may override the testing URL of a policy for network diagnostics and activity cards.
 * The GeoIP database can be updated automatically in the background.
@@ -166,7 +166,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.0.4-1227-9acb8b9e3f39e9048fc82e427184a4af.
 
 https://dl.nssurge.com/mac/v4/Surge-4.0.3-1224-4ef8ae10c8a74c395bb4b6c3f6af6af6.zip
 
-### Version 4.0.2
+### 版本 4.0.2
 
 * You may now customize the GeoIP database updating URL.
 * tun-excluded-routes and tun-included-routes are now available for Surge Mac.
@@ -174,14 +174,14 @@ https://dl.nssurge.com/mac/v4/Surge-4.0.3-1224-4ef8ae10c8a74c395bb4b6c3f6af6af6.
 
 https://dl.nssurge.com/mac/v4/Surge-4.0.2-1219-dbd08724b90aa8b444cd6d0679a245b5.zip
 
-### Version 4.0.1
+### 版本 4.0.1
 * You may configure the proxy chain with the UI now.
 * Fixed some visual inconsistency under reducing transparency mode.
 * Bug fixes.
 
 https://dl.nssurge.com/mac/v4/Surge-4.0.1-1207-ee7bea1b244950c82a6f90e060fa2d89.zip
 
-### Version 4.0.0
+### 版本 4.0.0
 
 * The first version of 4.0.0.
 
@@ -189,19 +189,19 @@ https://dl.nssurge.com/mac/v4/Surge-4.0.0-1191-d8140b0084223fd3fc4335e4414c0884.
 
 ## Surge Mac V3
 
-### Version 3.5.8
+### 版本 3.5.8
 
 * Bug fixes
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.8-1130.zip
 
-### Version 3.5.7
+### 版本 3.5.7
 
 * Bug fixes
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.7-1129.zip
 
-### Version 3.5.5
+### 版本 3.5.5
       
 #### Minor Changes
 * All URL resources now support URLs with a username and password (e.g. https://user:pass@example.com), including managed profile, external resources, and importing profile form URL.
@@ -210,7 +210,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.7-1129.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.5-1123.zip
 
-### Version 3.5.4
+### 版本 3.5.4
       
 #### Changes in Policy Group
 
@@ -223,7 +223,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.5-1123.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.4-1119.zip
 
-### Version 3.5.3
+### 版本 3.5.3
 
 #### New Parameter: use-local-host-item-for-proxy
 
@@ -246,7 +246,7 @@ If use-local-host-item-for-proxy is true, Surge sends the proxy request with the
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.3-1094.zip
 
-### Version 3.5.2
+### 版本 3.5.2
 
 #### SSID Suspend
 * Surge Mac supports SSID suspend now. The system proxy and enhanced mode will be temporarily suspended under specified SSIDs.
@@ -261,7 +261,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.3-1094.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.2-1082.zip
 
-### Version 3.5.1
+### 版本 3.5.1
 
 #### New rule type: DOMAIN-SET
 * DOMAIN-SET is just like RULE-SET. But it is designed a large number of rules and highly efficient.
@@ -291,7 +291,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.2-1082.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.1-1069.zip
 
-### Version 3.5.0
+### 版本 3.5.0
 
 * New feature: Module, which can override the current profile with a set of settings. Highly flexible for diverse purposes. See the post in the community for more information: https://community.nssurge.com/d/225-module.
 * You may enable modules in the menu now.
@@ -305,7 +305,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.1-1069.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.5.0-1039.zip
 
-### Version 3.4.0
+### 版本 3.4.0
 
 * Snell protocol now upgrade to version 2, supporting to reuse TCP connections to improve performance. https://github.com/surge-networks/snell/releases
 * Supports a new proxy protocol: Trojan.
@@ -317,7 +317,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.5.0-1039.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.4.0-989.zip
 
-### Version 3.3.3
+### 版本 3.3.3
 
 * Fixed a bug which causes TFO failed.
 * You may use a profile which stores in a subdirectory of the profile directory.
@@ -327,7 +327,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.4.0-989.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.3.3-939.zip
 
-### Version 3.3.2
+### 版本 3.3.2
 
 * Supports MITM on non-standard port for TCP mode.
 * Proxy editing view now supports VMess protocol and all misc options.
@@ -336,7 +336,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.3.3-939.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.3.2-925.zip
 
-### Version 3.3.1
+### 版本 3.3.1
 
 * Supports VMess proxy protocol.
   * vmess-proxy= vmess, example.com, 443, username = 12345678-abcd-1234-1234-47ffca0ce229, ws=true, tls=true, ws-path=/v2, ws-headers=X-Header-1:value|X-Header-2:value
@@ -347,7 +347,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.3.2-925.zip
 https://dl.nssurge.com/mac/v3/Surge-3.3.1-906.zip
 
 
-### Version 3.3.0
+### 版本 3.3.0
 
 * The scripting has been rewritten totally. The old scripts are not compatible with this version. See https://community.nssurge.com/d/33-scripting/3
 * Added support for TLS 1.3. Append 'tls13=true' to the proxy line to enable it. (Requires macOS 10.14 or above)
@@ -362,14 +362,14 @@ https://dl.nssurge.com/mac/v3/Surge-3.3.1-906.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.3.0-893.zip
 
-### Version 3.2.1
+### 版本 3.2.1
 
 * Fixed a bug that Handoff doesn't work between Surge iOS and Dashboard.
 * Fixed a bug that 'Update All Remote Resources' may not work.
 
 https://dl.nssurge.com/mac/v3/Surge-3.2.1-863.zip
 
-### Version 3.2.0
+### 版本 3.2.0
 
 **Scripting**
 
@@ -400,13 +400,13 @@ hostname = -*.apple.com, -*.icloud.com, *
 
 https://dl.nssurge.com/mac/v3/Surge-3.2.0-860.zip
 
-### Version 3.1.1
+### 版本 3.1.1
 
 * Bug fixes.
 
 https://dl.nssurge.com/mac/v3/Surge-3.1.1-811.zip
 
-### Version 3.1.0
+### 版本 3.1.0
 
 * Added more feature to the main menu.
 * Dashboard now supports to export all requests to an archive file for opening later or sharing.
@@ -420,7 +420,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.1.1-811.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.1.0-807.zip
 
-### Version 3.0.6
+### 版本 3.0.6
 
 * Optimizations for no network error handling.
 * Reduces CPU usage on idle.
@@ -430,7 +430,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.1.0-807.zip
 https://dl.nssurge.com/mac/v3/Surge-3.0.6-781.zip
 
 
-### Version 3.0.5
+### 版本 3.0.5
 
 * CPU usage optimizations (50% reduced for high throughout).
 * Enabled Hardened Runtime to get enhanced security protections in macOS Mojave.
@@ -440,7 +440,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.0.6-781.zip
 https://dl.nssurge.com/mac/v3/Surge-3.0.5-773.zip
 
 
-### Version 3.0.4
+### 版本 3.0.4
           
 * Added a new option 'hijack-dns' to hijack DNS queries to other DNS servers with fake IP addresses. See manual for more information: https://manual.nssurge.com/others/misc-options.html.
 * Bug fixes
@@ -448,7 +448,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.0.5-773.zip
 https://dl.nssurge.com/mac/v3/Surge-3.0.4-759.zip
 
 
-### Version 3.0.3
+### 版本 3.0.3
 
 * Supports new iCloud container for Surge iOS migration.
 * The MitM feature is now compatible with Android system. Please regenerate an new CA certificate before using with Android.
@@ -461,7 +461,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.0.4-759.zip
                 
 https://dl.nssurge.com/mac/v3/Surge-3.0.3-754.zip
 
-### Version 3.0.2
+### 版本 3.0.2
 
 * Allows import the profile from a URL.
 * Fixed an issue that the HTTP capture button may show wrong state in Dashboard.
@@ -472,7 +472,7 @@ https://dl.nssurge.com/mac/v3/Surge-3.0.3-754.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.0.2-736.zip
 
-### Version 3.0.1
+### 版本 3.0.1
 
 * Fixed an issue that TFO option will not be saved.
 * Fixed an issue that UDP relay option shows wrong state.
@@ -483,39 +483,39 @@ https://dl.nssurge.com/mac/v3/Surge-3.0.2-736.zip
 
 https://dl.nssurge.com/mac/v3/Surge-3.0.1-711.zip
 
-### Version 3.0.0
+### 版本 3.0.0
 
 https://dl.nssurge.com/mac/v3/Surge-3.0.0-702.zip
 
 ## Surge Mac V2
 
-### Version 2.6.7
+### 版本 2.6.7
 
 * Fixed a compatibility issue with 304 response.
 * Fixed a Dashboard crash.
 
 https://dl.nssurge.com/mac/Surge-2.6.7-656.zip
 
-### Version 2.6.6
+### 版本 2.6.6
 
 * Fixed a compatibility issue with 304 response.
 * Fixed an issue that Dashboard may not use the correct encoding to decode text body.
 
 https://dl.nssurge.com/mac/Surge-2.6.6-654.zip
 
-### Version 2.6.5
+### 版本 2.6.5
 
 * Bug fixes.
 
 https://nssurge.com/mac/Surge-2.6.5-652.zip
 
-### Version 2.6.4
+### 版本 2.6.4
 
 * Bug fixes.
 
 https://nssurge.com/mac/Surge-2.6.4-647.zip
 
-### Version 2.6.3
+### 版本 2.6.3
 
 * New Features: External Proxy Provider. See https://medium.com/@Blankwonder/surge-mac-new-features-external-proxy-provider-375e0e9ea660 for more information.
 * Surge will automatically track system proxy settings now. When Surge is no longer the default proxy, the status icon will turn grey and a notification will raise.
@@ -523,14 +523,14 @@ https://nssurge.com/mac/Surge-2.6.4-647.zip
 
 https://nssurge.com/mac/Surge-2.6.3-637.zip
 
-### Version 2.6.2
+### 版本 2.6.2
 
 * Fixed an issue that the UDP mode with AEAD ciphers doesn't work.
 * Bug fixes.
 
 https://nssurge.com/mac/Surge-2.6.2-618.zip
 
-### Version 2.6.1
+### 版本 2.6.1
 
 * Surge now allows expired DNS answers for performance reasons. See 'Optimistic DNS' section in https://developer.apple.com/videos/play/wwdc2018/714/ for more information.
 * Performance improvements.
@@ -540,7 +540,7 @@ https://nssurge.com/mac/Surge-2.6.2-618.zip
 
 https://nssurge.com/mac/Surge-2.6.1-612.zip
 
-### Version 2.6.0
+### 版本 2.6.0
 
 * Supports using Surge Mac as a gateway.
 * A new setup guide view.
@@ -552,7 +552,7 @@ https://nssurge.com/mac/Surge-2.6.1-612.zip
 
 https://nssurge.com/mac/Surge-2.6.0-596.zip
 
-### Version 2.5.3
+### 版本 2.5.3
 
 * Supports UDP relay for shadowsocks protocol. A brief introduction in Chinese: https://trello.com/c/ugOMxD3u.
 * You may use Dashboard to view UDP conversations.
@@ -563,7 +563,7 @@ https://nssurge.com/mac/Surge-2.6.0-596.zip
 
 https://nssurge.com/mac/Surge-2.5.3-563.zip
 
-### Version 2.5.2
+### 版本 2.5.2
 
 * You may toggle the hidden state of columns in Dashboard now.
 * Supports to export selected rows to csv file.
@@ -575,14 +575,14 @@ https://nssurge.com/mac/Surge-2.5.3-563.zip
 
 https://nssurge.com/mac/Surge-2.5.2-544.zip
 
-### Version 2.5.1
+### 版本 2.5.1
 
 * The MitM enabling switch has been moved to the main menu and isolated from profile.
 * Bug fixes.
 
 http://dl.nssurge.com/mac/Surge-2.5.1-528.zip
 
-### Version 2.5.0
+### 版本 2.5.0
 
 * Added Outbound Mode options: Direct Outbound, Global Proxy and By Rule.
 * Added options for all policy to specify outgoing interface: 'interface' and 'allow-other-interface'.
@@ -594,7 +594,7 @@ http://dl.nssurge.com/mac/Surge-2.5.1-528.zip
                 
 http://dl.nssurge.com/mac/Surge-2.5.0-520.zip
 
-### Version 2.4.6
+### 版本 2.4.6
 
 * Supports xchacha20-ietf-poly1305.
 * Bug fixes.
@@ -606,7 +606,7 @@ http://dl.nssurge.com/mac/Surge-2.5.0-520.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.6-490.zip
 
-### Version 2.4.5
+### 版本 2.4.5
 
 * Bug fixes.
 * Improved performance for high concurrency.
@@ -615,7 +615,7 @@ http://dl.nssurge.com/mac/Surge-2.4.6-490.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.5-468.zip
 
-### Version 2.4.4
+### 版本 2.4.4
 
 * Supports obfs=tls for shadowsocks protocol.
 * Refined the proxy edit panel.
@@ -623,7 +623,7 @@ http://dl.nssurge.com/mac/Surge-2.4.5-468.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.4-459.zip
 
-### Version 2.4.3
+### 版本 2.4.3
 
 * Supports obfs=tls for shadowsocks protocol.
 * Refined the proxy edit panel.
@@ -631,7 +631,7 @@ http://dl.nssurge.com/mac/Surge-2.4.4-459.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.3-457.zip
 
-### Version 2.4.2
+### 版本 2.4.2
 
 * Fixed an issue that enhanced mode may not be closed properly when switching to a profile without dns-server.
 * Fixed an issue that managed profile updating and license info are unavailable while enhanced mode enabled.
@@ -642,13 +642,13 @@ http://dl.nssurge.com/mac/Surge-2.4.3-457.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.2-445.zip
 
-### Version 2.4.1
+### 版本 2.4.1
 
 * Bug fixes.
 
 http://dl.nssurge.com/mac/Surge-2.4.1-439.zip
 
-### Version 2.4.0
+### 版本 2.4.0
 
 * Supports enterprise license and profile management.
 * Fixed a bug that some fields are unavailable in the configuration panel in some cases.
@@ -660,14 +660,14 @@ http://dl.nssurge.com/mac/Surge-2.4.1-439.zip
 
 http://dl.nssurge.com/mac/Surge-2.4.0-429.zip
 
-### Version 2.3.2
+### 版本 2.3.2
 
 * Added a option to control whether show proxy error notification.
 * Fixed a problem that Dashboard show data doesn't exist error.
 
 http://dl.nssurge.com/mac/Surge-2.3.2-421.zip
 
-### Version 2.3.1
+### 版本 2.3.1
 
 * Added a wizard to install CA’s root certificate for iOS simulator.
 * Connectivity quality is now an option. (Not show by default)
@@ -678,7 +678,7 @@ http://dl.nssurge.com/mac/Surge-2.3.2-421.zip
 
 http://dl.nssurge.com/mac/Surge-2.3.1-420.zip
 
-### Version 2.3.0
+### 版本 2.3.0
 
 * Completely redesign the configure interface. You may configure every function with UI now.
 * Proxy benchmark is now moved to main application from Dashboard.
@@ -687,7 +687,7 @@ http://dl.nssurge.com/mac/Surge-2.3.1-420.zip
 
 http://dl.nssurge.com/mac/Surge-2.3.0-416.zip
 
-### Version 2.2.4
+### 版本 2.2.4
 
 * Notifications presented by Surge will be removed from Notification Center automatically.
 * The interval of attempts to refresh managed config changes to one hour from one minute. (After config expired)
@@ -699,13 +699,13 @@ http://dl.nssurge.com/mac/Surge-2.3.0-416.zip
 
 http://dl.nssurge.com/mac/Surge-2.2.4-394.zip
 
-### Version 2.2.2
+### 版本 2.2.2
 
 * Fixed a bug when using SOCKS5 without authorization.
 
 http://dl.nssurge.com/mac/Surge-2.2.2-375.zip
 
-### Version 2.2.1
+### 版本 2.2.1
 
 * You may use Dashboard to benchmark proxies now.
 * Fixed "Too many open files" error by raising limit to 2048.
@@ -714,7 +714,7 @@ http://dl.nssurge.com/mac/Surge-2.2.2-375.zip
 
 http://dl.nssurge.com/mac/Surge-2.2.1-374.zip
 
-### Version 2.2.0
+### 版本 2.2.0
 
 * Map local function is now available.
 * Adds notifications when proxy encounters errors.
@@ -733,7 +733,7 @@ http://dl.nssurge.com/mac/Surge-2.2.1-374.zip
 
 http://dl.nssurge.com/mac/Surge-2.2.0-368.zip
 
-### Version 2.1.4
+### 版本 2.1.4
 
 * Fixed a bug that helper may crash on macOS 10.10.
 * Add a option to remove Surge helper for troubleshooting.
@@ -741,7 +741,7 @@ http://dl.nssurge.com/mac/Surge-2.2.0-368.zip
 
 http://dl.nssurge.com/mac/Surge-2.1.4-362.zip
 
-### Version 2.1.3
+### 版本 2.1.3
 
 * Fixed a bug that helper may crash on macOS 10.10.
 * Add a option to remove Surge helper for troubleshooting.
@@ -749,7 +749,7 @@ http://dl.nssurge.com/mac/Surge-2.1.4-362.zip
 
 http://dl.nssurge.com/mac/Surge-2.1.3-337.zip
 
-### Version 2.1.2
+### 版本 2.1.2
 
 * New option: Collapse policy group items in menu
 * Fixed a bug that enhanced mode DNS settings may not be reverted.
@@ -758,7 +758,7 @@ http://dl.nssurge.com/mac/Surge-2.1.3-337.zip
 
 http://dl.nssurge.com/mac/Surge-2.1.2-327.zip
 
-### Version 2.1.0
+### 版本 2.1.0
 
 * New feature: Enhanced Mode
 
@@ -772,14 +772,14 @@ http://dl.nssurge.com/mac/Surge-2.1.2-327.zip
 
 http://dl.nssurge.com/mac/Surge-2.1.0-318.zip
 
-### Version 2.0.13
+### 版本 2.0.13
 * Dashboard supports to use ⌘ + 1,2,3,4 to switch panel.
 * Dashboard Supports handoff with Surge iOS.
 * Fixed a bug that Dashboard may show incorrect process name.
 
 http://dl.nssurge.com/mac/Surge-2.0.13-304.zip
 
-### Version 2.0.12
+### 版本 2.0.12
 
 * Bug fixes.
 * Supported SNI while performing MitM.
@@ -787,7 +787,7 @@ http://dl.nssurge.com/mac/Surge-2.0.13-304.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.12-295.zip
 
-### Version 2.0.11
+### 版本 2.0.11
 
 * Rule test cache will be flushed after network switching now.
 * Added a option 'Grey icon if set as system proxy is disabled'.
@@ -795,7 +795,7 @@ http://dl.nssurge.com/mac/Surge-2.0.12-295.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.11-289.zip
 
-### Version 2.0.10
+### 版本 2.0.10
 
 * Surge talks to HTTP proxies with a plain HTTP method for non-HTTPS requests now, instead of CONNECT.
 * Improved compatibility with some HTTP server.
@@ -803,7 +803,7 @@ http://dl.nssurge.com/mac/Surge-2.0.11-289.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.10-280.zip
 
-### Version 2.0.9
+### 版本 2.0.9
 
 * Dashborad: The height of the detail panel will not change now while switching pages.
 * A notification will show when proxy client access from other machine.
@@ -812,7 +812,7 @@ http://dl.nssurge.com/mac/Surge-2.0.10-280.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.9-273.zip
 
-### Version 2.0.8
+### 版本 2.0.8
  
 * Add a new option 'exclude-simple-hostnames' in the gereral section.
 * Dashborad: Selected row will not be lost while the filter or sort column changed.
@@ -820,13 +820,13 @@ http://dl.nssurge.com/mac/Surge-2.0.9-273.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.8-260.zip
  
-### Version 2.0.5
+### 版本 2.0.5
  
 * Bug fixes.
 
 http://dl.nssurge.com/mac/Surge-2.0.5-255.zip
 
-### Version 2.0.3
+### 版本 2.0.3
 
 * New feature: Show connectivity quality in menu.
 
@@ -837,14 +837,14 @@ http://dl.nssurge.com/mac/Surge-2.0.5-255.zip
 
 http://dl.nssurge.com/mac/Surge-2.0.3-250.zip
  
-### Version 2.0.2
+### 版本 2.0.2
 
 * Dashboard will no longer display process icon in remote mode.
 * Fixes a bug: "Set as System Proxy" option does not work properly if only SOCKS service is enabled.
 * Fixes a bug: Dashboard can't add a rule with no-resolve option on and comment not empty.
 * Minor bug fixes.
 
-### Version 2.0.1
+### 版本 2.0.1
 
 * Bug fixes
 

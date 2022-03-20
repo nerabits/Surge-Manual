@@ -1,4 +1,4 @@
-### cron
+### 计划任务
 
 Evaluates script at specified times. The value should be a cron expression, which is a string consisting of five or six subexpressions (fields) that describe individual details of the schedule. 
 
@@ -8,7 +8,7 @@ Some cron expression examples:
 * on every minutes: * * * * *
 * on every seconds: * * * * * *
 * on every Sunday at 5 PM: 0 17 * * sun
-* every 10 minutes: */10 * * * *
+* every 10 minutes: \*/10 * * * *
 
 Just one incoming parameter: $cronexp.
 
