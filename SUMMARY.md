@@ -9,7 +9,7 @@
   * [HTTP 规则](rule/http.md)
   * [进程规则](rule/process.md)
   * [逻辑规则](rule/logical-rule.md)
-  * [子网表示方法和规则](rule/subnet.md)
+  * [子网表达式和规则](rule/subnet.md)
   * [其他规则](rule/misc-rule.md)
   * [规则集](rule/ruleset.md)
   * [Final 规则](rule/final.md)
