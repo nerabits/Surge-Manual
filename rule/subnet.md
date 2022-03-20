@@ -1,25 +1,25 @@
-# Subnet Rule
+# 子网规则
 
-### Subnet Expression
+### 子网表达式
 
-A subnet expression can be one of these:
-  - Use SSID:value to match the Wi-Fi SSID, wildcard character is allowed.
-  - Use BSSID:value to match the Wi-Fi BSSID, wildcard character is allowed.
-  - Use ROUTER:value to match the router IP address.
-  - Use TYPE:WIFI to match all Wi-Fi networks.
-  - Use TYPE:WIRED to match all wired networks.
-  - Use TYPE:CELLULAR to match all cellular networks.
-  - Use MCCMNC:100-200 to match a cellular network
-  - If no prefix is provided, it tries to match SSID/BSSID/Router for the legacy version compatibility.
+子网表达式可以表示为如下形式：
+  - 使用 SSID:value 匹配 Wi-Fi SSID，支持通配符。
+  - 使用 BSSID:value 匹配 Wi-Fi BSSID，支持通配符。
+  - 使用 ROUTER:value 匹配路由器 IP 地址。
+  - 使用 TYPE:WIFI 匹配全部 Wi-Fi 网络。
+  - 使用 TYPE:WIRED 匹配全部有线网络。
+  - 使用 TYPE:CELLULAR 匹配全部蜂窝网络。
+  - 使用 MCCMNC:100-200 匹配特定蜂窝网络。
+  - 如果没有提供前缀，为保证兼容性，Surge 将尝试匹配 SSID/BSSID/ROUTER 规则。
 
 
 
-#### SUBNET
+#### SUBNET 规则
 
-Rule matches if the subnet expression matches.
+如果子网表达式匹配，则规则匹配。
 
 ```
-SUBNET,TYEP:WIRED,DIRECT
+SUBNET,TYPE:WIRED,DIRECT
 SUBNET,SSID:MyHome,Proxy
 ```
 
