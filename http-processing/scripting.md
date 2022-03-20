@@ -36,10 +36,10 @@ Surge 会将几个全局变量传递给JS上下文。
 
 Surge 使用脚本生成的最后一个值作为结果。以下是对结果类型的定义：
 
-- String: 使用它作为新的响应体。
-- Null: 中止请求。
-- undefined: 不处理相映。
-- Object: 复杂修改
+- String：使用它作为新的响应体。
+- Null：中止请求。
+- undefined：不处理响应。
+- Object：复杂修改
     - 如果 'body' 属性存在，就用其作为新的响应体。
     - 如果 'headers' 属性存在，则使用它们作为新的响应头。请注意，"Content-Length"、"Transfer-Encoding "和 "Content-Encoding "不能被改写。
     - 如果'status' 属性存在，则将其作为新的HTTP状态码。
@@ -52,9 +52,9 @@ obj['surge'] = 'OK';
 JSON.stringify(obj);
 ```
 
-## 杂项
+## 其他
 
-- 由于JavaScript的限制，其只支持对UTF-8编码的响应体进行脚本处理。
+- 由于 JavaScript 的限制，其只支持对 UTF-8 编码的响应体进行脚本处理。
 - 默认情况下，每个脚本的执行都会被创建一个新的 JS 上下文。你可以配置 "shared-jsvm-context"，让所有脚本共享 JS 上下文，这样可以让脚本共享全局变量的数据。
 
 ```

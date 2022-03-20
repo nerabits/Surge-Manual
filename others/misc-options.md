@@ -95,81 +95,81 @@ DNS 数据包将被转发至上游 DNS 服务器。
 
 ### hijack-dns
 
-By default, Surge only returns fake IP addresses for DNS queries sent to Surge DNS address (198.18.0.2). Queries sent to a standard DNS will be forwarded.
+默认情况下，Surge 只返回发送至 Surge DNS 地址（198.18.0.2）的 DNS 查询的虚假 IP 地址。发送到标准 DNS 的查询将被转发。
 
-Some devices or software always use a hardcoded DNS server. (For example, Google Speakers always use 8.8.8.8). You may use this option to hijack the query to get a fake address.
+有些设备或软件总是使用一个固定的的 DNS 服务器 (例如，Google Speakers 总是使用8.8.8.8）。你可以使用这个选项来劫持查询，以获得一个虚假地址。
 
-You may use hijack-dns = \*:53 to hijack all DNS queries.
+你可以使用 hijack-dns = \*:53 来劫持全部 DNS 查询。
 
 ### network-framework
 
-Uses Network.framework to utilize userspace network stack, which can improve throughput, reduce latency and enable cutting edge features such as Multipath TCP. (Manual restart is required)
+使用 Network.framework 来利用用户空间的网络堆栈，这可以提高吞吐量，减少延迟，并实现最先进的功能，如多路径TCP。(需手动重启)
 
-Experimental features may be unstable, and may even cause the system to become frozen.
+实验性功能可能是不稳定的，甚至可能导致系统故障。
 
 ### force-http-engine-hosts
 
-Make Surge treat TCP connections as HTTP requests. Surge HTTP engine will process the requests, and all advanced features will be available, such as capturing, rewrite and scripting.
+使 Surge 将 TCP 连接视为 HTTP 请求。Surge HTTP 引擎将处理这些请求，所有的高级功能都可以使用，如抓取流量、Rewrite 和脚本。
 
-Wildcard characters \* and ? are supported.
+支持通配符 \* 和 ?。
 
-  - Use prefix - to exclude a hostname.
+  - 使用前缀 - 来排除一个主机名。
 
-  - By default, only the requests to port 80 are decrypted.
+  - 默认情况下，只有对80端口的请求才会被解密。
 
-  - Use suffix :port to allow other ports.
+  - 使用后缀 :port 来允许其他端口。
 
-  - Use suffix :0 to allow all ports.
+  - 使用后缀 :0 来允许全部端口
 
 Example:
 
-  - -\*.apple.com: Excludes all requests sent to \*.apple.com on port 80.
+  - -\*.apple.com: 排除所有发送到80端口的 \*.apple.com 的请求。
 
-  - www.google.com: Uses forced HTTP processing for www.google.com on port 80.
+  - www.google.com: 对80端口的 www.google.com 请求采用强制HTTP处理。
 
-  - www.google.com:8080: Uses forced HTTP processing for www.google.com on port 8080.
+  - www.google.com:8080: 对8080端口的 www.google.com 请求采用强制HTTP处理。
 
-  - www.google.com:0: Uses forced HTTP processing for www.google.com on all ports.
+  - www.google.com:0: 对全部端口的 www.google.com 请求采用强制HTTP处理。
 
-  - \*:0: Uses forced HTTP processing for all hostnames on all ports.
+  - \*:0: 对所有端口上的所有主机名使用强制HTTP处理。
 
 ### tls-provider
 
-Available values: secure-transport, openssl, network-framework
+可用值：secure-transport, openssl, network-framework
 
-Choose OpenSSL or Network.Framework to utilize TLS 1.3. OpenSSL is more stable but Network Framework can provide more cutting-edge features but very unstable.
+选择 OpenSSL 或 Network.Framework 以支持 TLS 1.3。OpenSSL 更稳定，但 Network Framework 可以提供更多先进的功能，但非常不稳定。
 
 ### debug-cpu-usage
 
-Enable CPU debug mode. This may slow down the performance.
+启用CPU调试模式。这可能会降低性能。
 
 ### debug-memory-usage
 
-Enable memory debug mode. This may slow down the performance.
+启用内存调试模式。这可能会降低性能。
 
 ### doh-format
 
-Available values: wireformat, json. Default: wireformat
+可用值：wireformat, json。默认：wireformat
 
 ### doh-follow-outbound-mode
 
-By default, the DOH lookup uses the direct outbound. Enabling the option makes the DOH follow the outbound mode settings and rules.
+默认情况下，Surge 直接连接到 DoH 服务器进行查询。启用该选项使 DoH 遵循出站模式的设置和规则。
 
 ### doh-server
 
-The URL of the DNS-over-HTTPS server.
+DNS-over-HTTPS 服务器的 URL。
 
 ### use-local-host-item-for-proxy
 
-By default, DNS lookup is always performed on the remote server if a proxy policy is used. After enabling this option, Surge uses the IP address instead of the domain to set up the proxy connection if the local DNS mapping result of the target domain exists.
+默认情况下，如果使用代理策略，DNS 查询总是在远程服务器上进行。启用此选项后，如果目标域的本地 DNS 映射结果存在，Surge 会使用 IP 地址而不是域名来建立代理连接。
 
 ### geoip-maxmind-url
 
-The URL of the GeoIP database for updating.
+用于更新 GeoIP 数据库的URL。
 
 ### disable-geoip-db-auto-update
 
-Disable the auto-updating for the GeoIP database.
+关闭 GeoIP 数据库的自动更新。
 
 ### allow-dns-svcb
 
@@ -177,78 +177,78 @@ iOS system might perform an SVCB record DNS lookup instead of a standard A recor
 
 ### udp-policy-not-supported-behaviour
 
-The fallback behavior when UDP traffic matches a policy that doesn't support UDP relay. Possible values: DIRECT, REJECT.
+当 UDP 流量符合某项代理策略，而该代理不支持 UDP 转发时的回退行为。可用值：DIRECT, REJECT。
 
 ### proxy-test-udp
 
 (null)
 
-### compatibility-mode (iOS Only)
+### compatibility-mode（仅限 iOS）
 
-Not available
+不适用
 
-### allow-wifi-access (iOS Only)
+### allow-wifi-access（仅限 iOS）
 
-Allow Surge proxy services access from other devices in the LAN.
+允许从局域网中的其他设备访问 Surge 代理服务。
 
-### wifi-access-http-port (iOS Only)
+### wifi-access-http-port（仅限 iOS）
 
-The port number of Surge HTTP proxy service.
+Surge HTTP 代理服务的端口号。
 
-### wifi-access-socks5-port (iOS Only)
+### wifi-access-socks5-port（仅限 iOS）
 
-The port number of Surge SOCKS5 proxy service.
+Surge SOCKS5 代理服务的端口号。
 
-### wifi-access-http-auth (iOS Only)
+### wifi-access-http-auth（仅限 iOS）
 
-Require authentication for Surge HTTP proxy service. E.g.: username:password
+对 Surge HTTP 代理服务进行认证。例如：username:password
 
-### include-all-networks (iOS Only)
+### include-all-networks（仅限 iOS）
 
-By default, some requests might not be taken over by Surge. For example, apps can bind to the physical network interface to bypass Surge VIF. Enabling the Include All Networks option to make sure all requests are handled by Surge without leaking. This option is useful when you use Surge as a firewall. (Requires iOS 14.0 or above)
+在默认情况下，一些请求可能不会被 Surge 接管。例如，应用程序可以绑定到物理网络接口，以绕过 Surge VIF。启用包括所有网络的选项，以确保所有的请求都由 Surge 处理而不泄漏。当你使用 Surge 作为防火墙时，这个选项很有用。(需要iOS 14.0或以上版本)
 
-Enabling this option may cause AirDrop and Xcode debugging issues, Surge Dashboard via USB not working, and other unexpected side effects. Use with caution.
+启用该选项可能会导致 AirDrop 和 Xcode 调试问题，在使用 USB 连接到 Surge 请求查看器时不工作，以及其他意想不到的副作用。请慎重使用。
 
-### include-local-networks (iOS Only)
+### include-local-networks（仅限 iOS）
 
-Enable this option to make Surge VIF handle requests sent to LAN. (Requires iOS 14.2 or above)
+启用此选项，允许 Surge VIF 处理发送到局域网的请求。(需要iOS 14.2或以上版本)
 
-Enabling this option may cause AirDrop and Xcode debugging issues, Surge Dashboard via USB not working, and other unexpected side effects. Use with caution.
+启用该选项可能会导致 AirDrop 和 Xcode 调试问题，在使用 USB 连接到 Surge 请求查看器时不工作，以及其他意想不到的副作用。请慎重使用。
 
-### wifi-assist (iOS Only)
+### wifi-assist（仅限 iOS）
 
-Enable Wi-Fi assist.
+开启增强版 Wi-Fi 助理。
 
-### hide-vpn-icon (iOS Only)
+### hide-vpn-icon（仅限 iOS）
 
-Hide the VPN icon in the status bar.
+隐藏状态栏的 VPN 图标。
 
-### ipv6-vif (iOS Only)
+### ipv6-vif（仅限 iOS）
 
-Allow the IPv6 through Surge VIF. Useful when you want Surge to handle raw TCP connections connecting to IPv6 addresses.
+允许 IPv6 通过 Surge VIF。当你想让 Surge 处理连接到 IPv6 地址的原始 TCP 连接时很有用。
 
-### all-hybrid (iOS Only)
+### all-hybrid（仅限 iOS）
 
-Not available
+不适用
 
-### allow-hotspot-access (iOS Only)
+### allow-hotspot-access（仅限 iOS）
 
-Allow Surge proxy services access from other devices while Personal Hotspot is on.
+当个人热点开启时，允许从其他设备访问 Surge 代理服务。
 
-### use-default-policy-if-wifi-not-primary (macOS Only)
+### use-default-policy-if-wifi-not-primary（仅限 macOS）
 
-If disabled, SSID/BSSID patterns can still match even when Wi-Fi is not the primary network interface.
+如果禁用，即使 Wi-Fi 不是主网络接口，SSID/BSSID 模式仍然可以匹配。
 
-### read-etc-hosts (macOS Only)
+### read-etc-hosts（仅限 macOS）
 
-Follow local DNS mapping items in /etc/hosts.
+遵循 /etc/hosts 中的本地 DNS 映射项。
 
-### http-listen (macOS Only)
+### http-listen（仅限 macOS）
 
-The HTTP proxy service listen parameter. E.g.: 0.0.0.0:6152
+HTTP 代理服务的监听参数。例如：0.0.0.0:6152
 
-### socks5-listen (macOS Only)
+### socks5-listen（仅限 macOS）
 
-The SOCKS5 proxy service listen parameter. E.g.: 0.0.0.0:6153
+SOCKS5 代理服务的监听参数。例如：0.0.0.0:6153
 
 
