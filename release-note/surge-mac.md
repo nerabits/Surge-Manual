@@ -1,6 +1,6 @@
 # Surge Mac 更新日志
 
-Starting from Surge Mac v4.4.0, you may get the most up-to-date release notes within the app: Main Window Menu -> Help -> Release Note.
+从 Surge Mac v4.4.0开始，您可以在 App 内查看多数到当前时间的更新日志：主窗口 -> 帮助 -> 更新日志。
 
 ## Surge Mac V4
 

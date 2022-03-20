@@ -1,4 +1,4 @@
-# Proxy Policy
+# 代理策略
 
 A proxy policy indicates forwarding the request to another proxy server. Surge supports HTTP/HTTPS/SOCKS5/SOCKS5-TLS proxy protocols.
 

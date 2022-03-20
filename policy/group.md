@@ -1,4 +1,4 @@
-# Policy Group
+# 策略组
 
 A policy group may contain multiple policies. It can be a proxy policy, another policy group or a built-in policy \(DIRECT and REJECT\).
 

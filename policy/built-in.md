@@ -1,10 +1,10 @@
-# Built-in Policy
+# 内置策略
 
-There are two built-in policies: DIRECT and REJECT. DIRECT means the request should be sent to the host directly. REJECT means the request should be rejected.
+Surge 支持两种内置策略：DIRECT 和 REJECT。配置为 DIRECT 时，Surge 会将请求直接发送到服务端。配置为 REJECT 时，Surge 会直接拒绝请求。
 
-DIRECT and REJECT can be used in rules and policy groups directly. You can also define an alias in the proxy section.
+DIRECT 和 REJECT 可直接用于规则和策略组。或者您也可以使用别名来定义这两个内置策略。
 
-### Alias
+### 别名
 
 ```
 [Proxy]
@@ -12,5 +12,5 @@ On = direct
 Off = reject
 ```
 
-Then you can use 'On' and 'Off' as policy names in rules and policy groups.
+之后，您就可以使用 'On' 和 'Off' 作为规则和策略组的策略名。
 
