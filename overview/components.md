@@ -13,7 +13,7 @@ Surge 的核心组成部分。Surge 代理服务器是一个高性能高稳定�
 Surge VIF 在 Surge iOS 版本中默认启用。你可以通过开启增强模式来在 Surge Mac 中启用 Surge VIF。
 
 Surge iOS 的架构如下：
-![](../Surge-Architecture.png)
+![](../Surge-Architecture-zh_CN.png)
 
 ### Surge 请求查看器（仅限 Mac 版本）
 Surge Dashboard 是一个图形用户界面，用于审查和检查请求，以及列出 DNS 缓存。它可以连接到本地的 Surge 实例，或者在设置了外部控制器访问时连接到远程实例。
