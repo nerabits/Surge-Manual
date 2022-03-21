@@ -4,7 +4,7 @@ _脚本功能需要 Surge iOS 4 或 Surge Mac 3.3.0以上版本_
 
 使用 JavaScript 随心所欲地拓展 Surge 功能。
 
-## Script Section
+## Script 配置段
 
 ```
 [Script]

@@ -4,7 +4,7 @@ Uses a script as a policy group. The value field will be used as a name.
 
 `policy-group jsgroup script-path=group.js`
 
-Then add a line in [Policy Group] section:
+Then add a line in [Policy Group] 配置段：
 
 ```
 [Policy Group]

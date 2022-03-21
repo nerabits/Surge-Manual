@@ -4,7 +4,7 @@ Uses a script as a rule. The value field will be used as a name.
 
 `rule ssid-rule script-path=ssid-rule.js`
 
-Then add a line in [Rule] section:
+Then add a line in [Rule] 配置段：
 
 `SCRIPT,ssid-rule,DIRECT`
 

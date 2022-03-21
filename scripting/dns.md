@@ -4,7 +4,7 @@
 
 `dns dnspod script-path=dnspod.js`
 
-Then add a line in [Host] section:
+Then add a line in [Host] 配置段：
 
 ```
 [Host]

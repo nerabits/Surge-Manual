@@ -16,4 +16,4 @@ Surge iOS 的架构如下：
 ![](../Surge-Architecture-zh_CN.png)
 
 ### Surge 请求查看器（仅限 Mac 版本）
-Surge Dashboard 是一个图形用户界面，用于审查和检查请求，以及列出 DNS 缓存。它可以连接到本地的 Surge 实例，或者在设置了外部控制器访问时连接到远程实例。
+Surge Dashboard 是一个图形用户界面，用于审查和检查请求，以及列出 DNS 缓存。它可以连接到本地的 Surge 实例，或者在其他设备设置了 external-controller-access（外部控制器访问）时连接到远程实例。

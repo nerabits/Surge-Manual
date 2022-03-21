@@ -26,7 +26,7 @@ panel = script-path=panel.js,type=generic
 ### 版本 10 (Surge iOS 4.9.3 和 Surge Mac 4.2.2 之后的全部版本)
 
 - 支持脚本类型 'generic'。
-- 支持新的配置文件章节 [Panel]。 (Surge 不会解析未知的配置文件章节，因此不需要声明配置文件版本)
+- 支持新的配置段 [Panel]。 (Surge 不会解析未知的配置文件章节，因此不需要声明配置文件版本)
 
 ### 版本 11 (Surge iOS 4.11.0 和 Surge Mac 4.4.0 之后的全部版本)
 

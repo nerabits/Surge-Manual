@@ -2,7 +2,7 @@
 
 代理策略表示将请求转发到其他代理服务器。Surge 支持 HTTP/HTTPS/SOCKS5/SOCKS5-TLS/Vmess/Trojan/Shadowsocks 代理协议。
 
-配置文件的 [Proxy] 部分代理策略。你可以为不同规则创建多个代理策略。
+配置段 [Proxy] 用于声明代理策略。你可以为不同规则创建多个代理策略。
 
 配置行示例：
 
