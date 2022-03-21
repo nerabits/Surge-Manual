@@ -14,94 +14,93 @@ scropt3 = type=http-request,pattern=^http://httpbin.org script-path=http-request
 scropt4 = type=dns,script-path=dns.js,debug=true
 ```
 
-Each line has two components: script name, and parameters. 
-Common parameters: 
+每行配置含有两个部分：脚本名和参数。
+常见参数：
  
-* `type`: The type of script: `http-request`, `http-response`, `cron`, `event`, `dns`, `rule`, `generic`.
-* `script-path`: The path of the script, can be a relative path to the profile, an absolute path, or a URL.
-* `script-update-interval`: The update interval while using an URL for script-path, in second. 
-* `debug`: Enabling debug mode. The script is loaded from the filesystem every time before evaluating it.
-* `timeout`: The longest-running time for the script. The default value is 10s.
-* `argument`: The script may fetch the value with $argument.
+* `type`：脚本的类型：`http-request`, `http-response`, `cron`, `event`, `dns`, `rule`, `generic`。
+* `script-path`：脚本所在目录，可以是配置文件的相对路径、绝对路径，或一个 URL。
+* `script-update-interval`：使用URL作为脚本路径时的更新间隔，以秒为单位。
+* `debug`：启用调试模式。每次在评估脚本之前，都会从文件系统中加载该脚本。
+* `timeout`：脚本的最长运行时间，默认值为 10 秒。
+* `argument`：脚本可以用 $argument 来取值。
 
-Parameters for `http-request` and `http-response`:
+`http-request` 和 `http-response` 脚本类型的参数：
 
-* `pattern`: The regex pattern to match URL.
+* `pattern`：用于匹配 URL 的正则表达式。
 
-* `requires-body`: Allows the script to modify request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
+* `requires-body`：允许脚本修改请求/响应 Body，默认值为 false。此行为开销较大，建议仅在必要时启用。
 
-* `max-size`: The maximum allowed size for the request/response body. Default value is 131072 (128KB).
+* `max-size`：表示该脚本最大允许处理的 body 大小，若超过则放弃处理，默认值为 131072 (128KB)。
 
-* `binary-mode`: Only available in iOS 15 and macOS. The raw binary body data will be passed to the script in Uint8Array instead of a string value.
+* `binary-mode`：仅在 iOS 15 和 macOS 上生效。原始的二进制 body 数据将以 Uint8Array 的形式传递给脚本，而非字符串值。
 
-Scripting requires Surge to load the entire response body data to memory. A huge response body may cause Surge iOS crash since the iOS system limits the maximum amount of memory that the Network Extension can occupy.
+脚本需要 Surge 将整个 body 数据加载到内存。因为 iOS 系统限制了网络扩展所能占用的最大内存量，所以一个巨大的 body 可能会导致 Surge iOS 崩溃。
 
-Please only enable scripting for necessary URLs.
+请只对必要的 URL 启用脚本。
 
-If the response body size exceeds `max-size` value, Surge fallbacks to passthrough mode and skip scripting for this request.
+如果响应 body 超过了 `max-size` 值，Surge 将回退到直通模式，并跳过此请求对应脚本的执行。
 
-## Basic Constraints
+## 基本定义
 
-Scripts allow asynchronous operations. $done(value<Object>) should be invoked to indicate completion, even for the scripts which don't require a result. Otherwise, the script gets a warning because of a timeout. 
+所有脚本允许异步操作，使用 $done(value<Object>) 方法表示完成并返回相应结果。即使是不要求返回结果的脚本类型也应当在完成任务后调用 $done() 退出，否则脚本会因为超时而产生警告。
 
-## Performances
+## 性能
 
-You don't need to worry about the performance of scripting. The JavaScript core is notably effective. 
+JS Script 的执行效率极高，不必担心因使用脚本而带来性能问题。
 
-## Public API
+## 公共 API
 
-### Basic Information
+### 基本信息
 
 * **`$network`**
 
-The object contains the detail of the network environment.
+此对象包含当前网络状态的基本信息。
 
 * **`$script`**
 
-  - `$script.name<String>`: The script name which is being evaluating.
-  - `$script.startTime<Date>`: The time when the current script starts.
-  - `$script.type<String>`: The type of the current script.
+  - `$script.name<String>`：当前执行的脚本的文件名
+  - `$script.startTime<Date>`：当前执行的脚本的开始时间
+  - `$script.type<String>`：当前脚本类型
 
 * **`$environment`**
 
-  - `$environment.system<String>`: iOS or macOS.
-  - `$environment.surge-build<String>`: The build number of Surge.
-  - `$environment.surge-version<String>`: The short version number of Surge.
-  - `$environment.language<String>`: The cuurent UI langauge of Surge.
+  - `$environment.system<String>`：iOS 或 macOS
+  - `$environment.surge-build<String>`：Surge 当前的 build 编号
+  - `$environment.surge-version<String>`：Surge 当前的版本号
+  - `$environment.language<String>`：Surge 当前的图形界面语言
 
-### Persistent Store
+### 持久化保存
 
 * **`$persistentStore.write(data<String>, [key<String>])`**
 
-Save data permanently. Only a string is allowed. Return true if successes.
+持久化保存数据，返回 bool 值表示是否成功，仅支持传入 string。
 
 * **`$persistentStore.read([key<String>])`**
 
-Get the saved data. Return a string or Null.
+读取保存的持久化数据，返回 string 或 Null。
 
-If the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+不传入 key 时，同一个 script-path 的脚本共享一个存储池。可传入一个固定的 key 以在多个脚本间共享数据。
 
-### Control Surge
+### 控制 Surge
 
 * **`$httpAPI(method<String>, path<String>, callback<Function>(result<Object>))`**
 
-You may use $httpAPI to call all HTTP APIs to control Surge's functions. No authentication parameters are required. See the HTTP API section for the available abilities.
+你可以使用 $httpAPI 来调用所有的 HTTP API 来控制 Surge 的功能。不需要认证参数。关于可用的功能，见 HTTP API 部分。
 
 
-### Utilities
-
+### 工具
 
 * **`console.log(message<String>)`**
 
-Log to Surge logfile.
+记录到 Surge 日志文件中。
 
 * **`setTimeout(function[, delay])`**
 
-Same as the setTimeout in browsers.
+与浏览器中的 setTimeout 相同。
 
 * **`$httpClient.post(URL<String> or options<Object>, callback<Function>)`**
 
-Start an HTTP POST request. The first parameter can be a URL or object. An example object may look like that. 
+执行一个 HTTP POST 请求，第一位参数可以是一个 URL，或者参数表，参数表为
 
 ```
 {
@@ -113,28 +112,27 @@ Start an HTTP POST request. The first parameter can be a URL or object. An examp
 }
 ```
 
-When using an object as an option list. `url` is required. If `headers` exists, it overwrites all existing header fields. `body` can be a string or object. When presenting an object, it is encoded to JSON string, and the 'Content-Type' is set to `application/json`.
+当使用参数表时，`url` 参数必填，其余选填，`headers` 字段存在将覆盖默认的所有 headers，`body` 可以为 string 或者 object，为 object 时将自动进行 JSON 编码并设置 Content-Type 为 `application/json`。
 
-callback: callback(error<String>, response<Object>, data<String>)
+callback 定义为 callback(error<String>, response<Object>, data<String>)
 
-When successful, the error is Null, and the response contains 'status' and 'headers'.
+error 为 Null 表示请求成功，response 包含 status 和 headers 两个字段。
 
-Similar function: **$httpClient.get**, **$httpClient.put**，**$httpClient.delete**, **$httpClient.head**, **$httpClient.options**, **$httpClient.patch**.
+其余类似的方法有：**$httpClient.get**, **$httpClient.put**，**$httpClient.delete**, **$httpClient.head**, **$httpClient.options**, **$httpClient.patch**.
 
-The timeout of a request is 5 seconds.
+请求超时时间为 5 秒。
 
 * **`$notification.post(title<String>, subtitle<String>, body<String>)`**
 
-Post a notification. 
+向通知中心发送通知，Surge iOS 上需开启通知总开关。
 
 * **`$utils.geoip(ip<String>)`**
 
-Perform a GeoIP lookup. Results are in ISO 3166 code.
+进行 GeoIP 查询，返回结果为 ISO 3166 的国家编码
 
+### 手动触发
 
-### Manually Trigger
+你可以通过长按脚本或使用系统的快捷指令 App 在 Surge iOS 上手动触发一个脚本。
 
-You can manually trigger a script on Surge iOS, by long pressing on the script or using the system Shortcuts.app.
-
-If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script, use `$intent.parameter` to retrieve it.
+如果你使用快捷指令来触发一个脚本，可以选择将参数传递给脚本，使用 `$intent.parameter` 来检索它。
 

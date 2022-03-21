@@ -1,16 +1,16 @@
 ### 规则
 
-Uses a script as a rule. The value field will be used as a name.
+使用脚本进行规则判定，该类型下第二参数为规则名
 
 `rule ssid-rule script-path=ssid-rule.js`
 
-Then add a line in [Rule] 配置段：
+然后在 [Rule] 配置段中加入规则：
 
 `SCRIPT,ssid-rule,DIRECT`
 
-The script should return an object with property 'matched'<Boolean> to indicate if matched.
+脚本返回一个词典，字段 'matched'<Boolean> 表示是否匹配该规则。
 
-The incoming parameters are：
+传入参数有：
 
 * `$request.hostname<String>`
 * `$request.destPort<Number>`
@@ -21,13 +21,13 @@ The incoming parameters are：
 * `$request.listenPort<Number>`
 * `$request.dnsResult<Object>`
 
-By default, the SCRIPT rule doesn't trigger a DNS lookup. You may use the 'requires-resolve' option to change it.
+默认情况下，SCRIPT 规则不会触发 DNS 解析，如果需要进行 DNS 解析，可使用 requires-resolve 修饰规则
 
 `SCRIPT,ssid-rule,DIRECT,requires-resolve`
 
-The DNS result presents in $request.dnsResult.
+DNS 结果将出现在 $request.dnsResult 字段。
 
-A simple example:
+一个简单样例：
 
 ```
 var hostnameMatched = ($request.hostname === 'home.com');

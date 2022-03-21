@@ -1,34 +1,34 @@
 # 配置文件
 
-The core functionality of Surge is controlled by the profile. Basically, all content of the profile can be adjusted by the user interface. But some experimental features may not have the view to configure yet. When you encounter some special requirements, you might need to edit the profile manually to achieve it.
+Surge 的核心功能由配置文件控制。基本上，配置文件的全部内容均可由用户在图形界面调整。但是，图形界面不支持部分实验性功能的设置。因此，当你遇到一些特殊的需求时，你需要编辑配置文件来实现它。
 
 ### 配置文件目录
 
-The format of the profile follows the format of the INI file, with [Section] segments, which are used to divide the different paragraphs and separate the settings.
+配置文件的格式遵循 INI 文件的配置标准，其中的 [section] 段用于划分不同的配置段。
 
-The configuration lines of each section have their own specific syntax, such as [General], [Replica], and [MITM] sections are simply of the form key = value
+每个配置段均有其特定的配置行语法，如 [general]、[replica] 和 [MITM] 的配置均为简单的 key = value 形式。
 
 ```
 [General]
 key = value
 ```
 
-In these paragraphs, the order of the configuration lines has no effect. However, in paragraphs such as [Rule], the order of the configuration lines up and down is very important.
+在这些配置段中，配置行的顺序对 Surge 的运行没有影响。然而，在 [rule] 等配置段中，配置行的顺序非常重要。
 
 
 ### 配置文件类型
 
-Configuration files are divided into three categories.
-1. Normal profile: created manually or used by default.
-2. Managed profile: usually provided by the enterprise administrator or service provider. The managed profile cannot be modified locally because they can be updated remotely. If you want to make changes, you should first create a copy to transfer it to a normal configuration.
-3. Enterprise profile: Enterprise version only, cannot be modified or viewed, and cannot be copied.
+配置文件被分为三种类型：
+1. 普通配置：手动创建，或默认使用的配置。
+2. 托管配置：通常由企业管理员或服务提供商提供。托管配置不能在本地修改，因为它们可以被远程更新。如果你想进行修改，你应该首先创建一个副本，将其转换成普通配置。
+3. 企业配置：仅限企业版本，不能被查看和更改，也无法被复制。
 
 
 ### 配置段分离
 
-To meet the complexity of various usage scenarios, Surge Mac 4.1.0 Beta / Surge iOS Beta 1903 starts to support the separation of one section of the profile into another file.
+为了满足各种使用场景的复杂性，Surge Mac 4.1.0 Beta / Surge iOS Beta 1903 开始支持将配置的一个段分离至另一个文件中。
 
-For example.
+如：
 
 Main.conf
 ```
@@ -36,7 +36,7 @@ Main.conf
 #!include Proxy.dconf
 ```
 
-The other file referenced therein must contain the [] declaration of the corresponding section. Thus, the file can be either a file containing only some of the sections (one or more), or a complete configuration.
+其中所引用的另一个文件，必须包含对应段的 [] 声明。因此，该文件既可以是一个只包含部分段的文件（一个或多个），也可以是一个完整的配置。
 
 Proxy.dconf
 ```
@@ -44,10 +44,9 @@ Proxy.dconf
 ProxyA = http, 1.2.3.4, 80
 ```
 
-Using this function, you can.
-1. Reference the [Proxy], [Proxy Group], [Rule] paragraphs of a managed configuration, and write other paragraphs yourself. This allows you to enjoy proxy-related content updates of the managed configuration without affecting other features adjusted through the UI.
-2. Share the content of certain sections among multiple configurations. For example, when using Surge on both iOS and macOS, the contents of the [Proxy], [Proxy Group], [Rule], etc. sections are often the same, but the contents of [General] may be very different. You can create two configurations, iOS.conf and macOS.conf, and place the duplicate sections in another file.
-
+使用该功能，你可以：
+1. 引用托管配置的 [Proxy]、[Proxy Group]、[Rule] 段，自行编写其他段。这样既可以享受托管配置的代理相关的内容更新，也不影响通过 UI 调整其他的功能。
+2. 在多个配置间共享某几个段的内容。比如同时在 iOS 和 macOS 上使用 Surge 时，[Proxy]、[Proxy Group]、[Rule] 等段的内容往往是一样的，但是 [General] 的内容却可能大不相同。可建立 iOS.conf 和 macOS.conf 两个配置，将重复的部分放置于另一个文件中。
 ```
 [Proxy]
 #!include Forwarding.dconf
@@ -59,14 +58,14 @@ Using this function, you can.
 #!include Forwarding.dconf
 ```
 
-This way, when adjusting the [General] section on iOS, it does not affect macOS and avoids the hassle of maintaining two sets of proxy configurations. It also does not interfere at all with the configuration using the UI.
+这样，当调整 iOS 上 [General] 段相关内容时，并不会影响 macOS 端，也避免了维护两套代理配置的麻烦。同时完全不妨碍使用 UI 进行配置。
 
-Some additional notes.
-- After modifying the configuration via the UI, the configuration is written to the corresponding detached configuration segment file according to the include statement. If the file contains other paragraphs that are not used, the write will only modify the paragraphs in question.
-- If a managed configuration is referenced, the configuration associated with that segment cannot be edited but does not affect the adjustment of other segments.
-- To complement this feature, all installed managed configurations will be checked for updates periodically in the new version of Surge Mac, whereas in the old version only the currently active configuration was checked for updates.
-- The filename suffix is not required, if it is a complete configuration you can continue to use the conf suffix, if it is not a complete configuration it is recommended to use another suffix to avoid being displayed in the configuration list.
-- Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can include multiple detached profiles in one section. But the section will be marked read-only and can't be edited with UI.
+一些补充说明：
+- 在通过 UI 修改配置后，会按照 include 的声明将配置写入对应的分离配置段文件。如果该文件包含其他未用到的段落，写入时只会修改涉及的段落。
+- 如果引用的是一个托管配置，则和该段相关的配置不可被编辑，但是不影响其他段的调整。
+- 为了配合该功能的使用，Surge Mac 新版中将对所有已安装的托管配置定期检查更新，旧版本中仅对当前使用中的配置检查更新。
+- 文件名的后缀并没有要求，如果是一个完整配置可继续使用 conf 后缀，如果并非一个完整配置建议使用其他后缀，以避免被显示在配置列表中。
+- Surge iOS 4.12.0 & Surge Mac 4.5.0 开始，你可以在一个段中包含多个分离的配置文件。但此配置段将被标记为制度，无法通过 UI 编辑该段。
 
 ```
 [Proxy]
@@ -74,25 +73,24 @@ Some additional notes.
 ```
 
 
-
 ### 模块
 
-The Detached Profile Section feature is used to split a single profile into multiple files, while modules are patches to the profile, each module file is used to tune various parts of the profile to achieve a specific task.
+配置段分离功能用于将单个配置文件拆分为多个文件，而模块则是对配置文件的补丁，每个模块文件用于对配置文件的各个部分进行微调，以实现某个特定的任务。
 
-Modules can be:
-- Flexibility to turn on and off.
-- Tuning of multiple segments within the same file.
-- Installed and kept up to date via URL.
+模块可以：
+- 灵活地开启和关闭。
+- 在同一文件中对对多个段进行调整。
+- 可通过 URL 进行安装并保持更新。
 
-However
-- Module can not adjust the content of [Proxy], [Proxy Group], [Rule] sections.
-- The module cannot adjust the CA certificate of MITM.
-- The settings of the module override the main profile, so they cannot be adjusted via the UI.
+然而：
+- 模块不可以调整 [Proxy]、[Proxy Group]、[Rule] 段内容。
+- 模块不能调整 MitM 的 CA 证书。
+- 模块的设置覆盖于主配置之上，因此不可以通过 UI 进行调整。
 
-The module description is available at: https://manual.nssurge.com/others/module.html
+模块的说明详见：https://manual.nssurge.com/others/module.html
 
 
 ### 注释
 
-Surge profile supports comment line, starts with '#', ';' and '//'. Comment inline will also be supported with separation of '//'. 
+Surge 配置文件支持注释行，这类注释以 '#'、';' 和 '//' 开头。同时，也支持行内使用 '//' 进行注释。
 

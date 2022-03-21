@@ -1,10 +1,10 @@
 ### 事件
 
-Evaluates script while the specified event occurs. The value is the event name. Only one event is supported currently: network-changed.
+在发生特定事件时执行脚本，该类型下第二参数为事件名称，目前只有 network-changed 一个事件。
 
-Please invoke $done() to complete.
+脚本任务执行完毕后请调用 $done() 退出。
 
-一个简单的示例：
+一个简单样例：
 
 ```
 // event network-changed script-path=network-changed.js

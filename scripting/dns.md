@@ -1,10 +1,10 @@
 ### DNS
 
-使用脚本作为 DNS 解析器。此类型中，Value（第二个参数）为脚本名。
+使用脚本去执行 DNS 解析操作，该类型下第二参数为脚本名。
 
 `dns dnspod script-path=dnspod.js`
 
-Then add a line in [Host] 配置段：
+之后需要在 [Host] 中对相应域名进行配置。
 
 ```
 [Host]
@@ -12,18 +12,18 @@ example.com = script:dnspod
 *.example.com = script:dnspod
 ```
 
-The incoming parameter is $domain.
+传入参数为 $domain，当前查询的域名。
 
-The script should return **one** of the followings:
+返回结果可为以下结果中的任意一个：
 
-* `address<String>`: Use this IP address as a result. It must be a valid IPv4/IPv6 address in string.
-* `addresses<Array>`: Use multiple IP addresses as a result.
-* `server<String>`: Ask Surge to lookup the domain via a specified upstream DNS server. It must be a valid IPv4/IPv6 address in string.
-* `servers<Array>`: Ask Surge to lookup the domain via multiple specified upstream DNS servers.
+* `address<String>`：直接使用该 IP 地址作为结果，必须是一个有效的 IPv4 或 IPv6 地址的字符串表示。
+* `addresses<Array>`：使用多个 IP 地址作为结果。
+* `server<String>`：表示 Surge 应交给特定的一个 DNS 服务器进行查询，必须是一个有效的 IPv4 或 IPv6 地址的字符串表示。
+* `servers<Array>`：表示 Surge 应交给特定的多个 DNS 服务器进行查询。
 
-When returning `address<String>` or `addresses<Array>`, an additional 'ttl' can also be returned, to add the result to cache and avoid repeated lookup. The unit is second.
+当返回 `address<String>` 或 `addresses<Array>`时，可以额外返回 ttl 字段，将本次的结果记入 DNS 缓存避免重复查询，单位为秒。
 
-Here is example, which uses the public HTTP DNS API of DNSPod as a resolver for Surge:
+以下样例使用了 DNSPod 的公开 HTTP DNS API，通过脚本扩展的方式让 Surge 可以随意支持各种协议的 DNS 查询
 
 ```
 $httpClient.get('http://119.29.29.29/d?dn=' + $domain, function(error, response, data){

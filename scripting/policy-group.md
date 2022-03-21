@@ -1,18 +1,18 @@
 ### 策略组
 
-Uses a script as a policy group. The value field will be used as a name.
+使用脚本去决定 policy-group，该类型下第二参数为脚本名。
 
 `policy-group jsgroup script-path=group.js`
 
-Then add a line in [Policy Group] 配置段：
+然后在 [Policy Group] 配置段中加入规则：
 
 ```
 [Policy Group]
 sgroup = script, policyA, policyB, policyC, script-name=jsgroup
 ```
 
-The incoming parameter is $policyNames<Array>, which is an array of available policy names.
+传入参数为 $policyNames<Array>，指定的可用策略名数组。
 
-The script should return a policy name like this: {selected: "policy-name"}
+返回结果为 {selected: "policy-name"}，选定的策略名称。
 
 
