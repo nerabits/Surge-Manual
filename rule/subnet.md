@@ -19,7 +19,7 @@ A subnet expression can be one of these:
 Rule matches if the subnet expression matches.
 
 ```
-SUBNET,TYEP:WIRED,DIRECT
+SUBNET,TYPE:WIRED,DIRECT
 SUBNET,SSID:MyHome,Proxy
 ```
 

@@ -19,6 +19,7 @@
   * [Common Policy Parameters](policy/parameters.md)
   * [Policy Group](policy/group.md)
   * [WireGuard](policy/wireguard.md)
+  * [External Proxy](policy/external-proxy.md)
 * [DNS](dns.md)
   * [DNS Server](dns/dns-override.md)
   * [Local DNS Mapping](dns/local-dns-mapping.md)
@@ -47,6 +48,7 @@
   * [Information Panel](others/panel.md)
 * Release Note
   * [Surge Mac](release-note/surge-mac.md)
+  * [Surge iOS](release-note/surge-ios.md)
   * [Profile Version](release-note/profile-version.md)
 
 

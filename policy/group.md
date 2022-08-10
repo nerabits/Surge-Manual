@@ -1,8 +1,8 @@
 # Policy Group
 
-A policy group may contain multiple policies. It can be a proxy policy, another policy group or a built-in policy \(DIRECT and REJECT\).
+A policy group may contain multiple policies. It can be a proxy policy, another policy group, or a built-in policy \(DIRECT and REJECT\).
 
-There are three group types: ‘select‘, ’url-test‘, ’fallback‘, ’load-balance‘ and ’ssid‘. Section \[Proxy Group\] declares policy group.
+There are three group types: ‘select‘, ’url-test‘, ’fallback‘, ’load-balance‘ and ’subnet‘. Section \[Proxy Group\] declares policy group.
 
 ## Manual Select Group
 
@@ -10,12 +10,12 @@ Select which policy will be used on the user interface.
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 
-> In iOS version. You may use Today Widget to quickly switch policy for the first 'select' group. 
+> In iOS version. You may use Today Widget to quickly switch the policy for the first 'select' group. 
 > In macOS version. You may switch the policy in the menubar menu.
 
 ## Auto URL Test Group
 
-Automatically select which policy will be used by benchmarking the latency to the testing URL. You change the testing URL in the general settings, or override the testing URL for a policy.
+Automatically select which policy will be used by benchmarking the latency to the testing URL. You change the testing URL in the general settings or override the testing URL for a policy.
 
 `AutoTestGroup = url-test, ProxySOCKS5, ProxySOCKS5TLS`
 
@@ -27,7 +27,9 @@ The benchmark result will be discarded after the interval time. A retest will ha
 
 #### tolerance: Optional, millisecond \(Default: 100ms\).
 
-Policy will be changed only when the new winner has a higher score than the old winner's score plus the tolerance.
+The policy will be changed only when the new winner has a higher score than the old winner's score plus the tolerance.
+
+This option prevents policies with similar scores from constantly alternating.
 
 #### timeout: Optional, second \(Default: 5s\).
 
@@ -35,7 +37,7 @@ Abandon a policy if not finished in timeout.
 
 ## Fallback Group
 
-Select an available policy by priority. The availability is tested by accessing a URL, just like an auto URL test group. The policy defined in the front has a high priority.
+Select an available policy by priority and availability. The availability is tested by accessing a URL, just like an auto URL test group. The policy defined in the front has a high priority.
 
 `FallbackGroup = fallback, ProxySOCKS5, ProxySOCKS5TLS`
 
@@ -51,33 +53,30 @@ Abandon a policy if it is not finished until timeout.
 
 ## Load Balance Group
 
-A load-balancing group is randomly selected from the sub-policies to use.
-
-When the url parameter is configured, availability is checked against the behavior of the fallback group and then only a random selection is made from the available sub-policies.
-
-In addition to the url, timeout, and interval, there is one other parameter.
-
+A load-balancing group randomly selects a policy from the available sub-policies to use.
 
 ### Parameters
 
 #### persistent: Optional
 
-When persistent=true, the same policy will be used as much as possible for the same target hostname. Avoid triggering risk controls on the target site due to different egress IPs. However, a policy change may occur when availability changes.
+When persistent=true, the same policy will be used for the same target hostname. Avoid triggering risk controls on the target site due to different egress IPs. However, a policy change may occur when availability changes.
 
 
-## SSID Group
+## Subnet Group
 
-Although still called the SSID Policy Group, it has been expanded to include the ability to select sub-policies based on the current network’s SSID, BSSID, routed IP address, etc. The iOS version can also specify policies for data networks.
+Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0. The SSID group is now renamed to Subnet Group. You can use [subnet expression](../rule/subnet.md) as a condition.
 
-`SSIDGroup = ssid, default = ProxyHTTP, cellular = ProxyHTTP, SSIDName = ProxySOCKS5`
+`Subnet Group = subnet, default = ProxyHTTP, TYPE:WIFI = ProxyHTTP, SSID:MyHome = ProxySOCKS5`
+
+The legacy syntax of SSID Group is still supported. You may use the group type keyword `subnet` or `ssid` for compatibility.
 
 ### Parameters
 
 #### default: Required
 
-The policy when no matched SSID option has been found.
+The policy when no subnet expression is matched.
 
-#### cellular: Optional
+#### cellular: Optional (Deprecated, use TYPE:CELLULAR instead)
 
 The policy under cellular network. If not provided, the default policy will be used.
 
@@ -100,7 +99,7 @@ The update interval if the path is a URL.
 
 #### policy-regex-filter: Optional
 
-Only use the lines in the external file that the regex matches.
+Only use the policies in the external file that the regex matches the policy name.
 
 ## Other Common Parameters
 

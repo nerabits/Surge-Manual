@@ -20,11 +20,11 @@ Crop-VPN = direct, interface = utun0
 WiFi = direct, interface = en2, allow-other-interface=true
 ```
 
-Please make sure the interface has a valid route table for the destination address.
+Please ensure the interface has a valid route table for the destination address.
 
 #### allow-other-interface
 
-When the option is true, if the desired interface is not available, Surge is allowed to use the default interface to bind the connection. Otherwise, the connection fails directly.
+When the option is true, if the desired interface is unavailable, Surge is allowed to use the default interface to bind the connection. Otherwise, the connection fails directly.
 
 ```
 ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other-interface=true
@@ -32,9 +32,9 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 #### ip-version
 
-Choose the behavior between IPv4 and IPv6 protocol.
+Choose the behavior between IPv4 and IPv6 protocols.
 
-- dual (Default, use the faster link)
+- dual (Default, use the fastest link)
 - v4-only
 - v6-only
 - prefer-v4
@@ -47,10 +47,6 @@ Setup the connection with cellular data and Wi-Fi simultaneously, then use the f
 #### tfo (Boolean, Default: off)
 
 Enable TCP Fast Open.
-
-#### mptcp (Boolean, iOS Only, Default: off)
-
-Enable MultiPath TCP. (Requires Network.framework enabled)
 
 #### tos (Decimal or Hexadecimal, Default: 0)
 

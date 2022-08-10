@@ -20,15 +20,17 @@ Common parameters:
 * `type`: The type of script: `http-request`, `http-response`, `cron`, `event`, `dns`, `rule`, `generic`.
 * `script-path`: The path of the script, can be a relative path to the profile, an absolute path, or a URL.
 * `script-update-interval`: The update interval while using an URL for script-path, in second. 
-* `debug`: Enabling debug mode. The script is loaded from the filesystem every time before evaluating it.
+* `debug`: Enabling the debug mode, which has several effects:
+   1. The script is loaded from the filesystem every time before evaluating it.
+   2. For `http-request` and `http-response` scripts, when you use `console.log()` to log messages, the messages also appear in the request's notes.
 * `timeout`: The longest-running time for the script. The default value is 10s.
-* `argument`: The script may fetch the value with $argument.
+* `argument`: The script may fetch the value with `$argument`.
 
 Parameters for `http-request` and `http-response`:
 
 * `pattern`: The regex pattern to match URL.
 
-* `requires-body`: Allows the script to modify request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
+* `requires-body`: This allows the script to modify the request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
 
 * `max-size`: The maximum allowed size for the request/response body. Default value is 131072 (128KB).
 
@@ -38,7 +40,7 @@ Scripting requires Surge to load the entire response body data to memory. A huge
 
 Please only enable scripting for necessary URLs.
 
-If the response body size exceeds `max-size` value, Surge fallbacks to passthrough mode and skip scripting for this request.
+If the response body size exceeds `max-size` value, Surge fallbacks to passthrough mode and skips scripting for this request.
 
 ## Basic Constraints
 
@@ -79,11 +81,13 @@ Save data permanently. Only a string is allowed. Return true if successes.
 
 Get the saved data. Return a string or Null.
 
-If the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+Suppose the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+
+Tips: Surge Mac writes the $persistentStore data to directory `~/Library/Application Support/com.nssurge.surge-mac/SGJSVMPersistentStore/`. You may edit the files here directly for debugging.
 
 ### Control Surge
 
-* **`$httpAPI(method<String>, path<String>, callback<Function>(result<Object>))`**
+* **`$httpAPI(method<String>, path<String>, body<String>, callback<Function>(result<Object>))`**
 
 You may use $httpAPI to call all HTTP APIs to control Surge's functions. No authentication parameters are required. See the HTTP API section for the available abilities.
 
@@ -113,11 +117,11 @@ Start an HTTP POST request. The first parameter can be a URL or object. An examp
 }
 ```
 
-When using an object as an option list. `url` is required. If `headers` exists, it overwrites all existing header fields. `body` can be a string or object. When presenting an object, it is encoded to JSON string, and the 'Content-Type' is set to `application/json`.
+When using an object as an option list. `url` is required. If `headers` field exists, it overwrites all existing header fields. `body` can be a string or object. When presenting an object, it is encoded to JSON string, and the 'Content-Type' is set to `application/json`.
 
 callback: callback(error<String>, response<Object>, data<String>)
 
-When successful, the error is Null, and the response contains 'status' and 'headers'.
+When successful, the error is null, and the response object contains `status` and `headers` properties.
 
 Similar function: **$httpClient.get**, **$httpClient.put**，**$httpClient.delete**, **$httpClient.head**, **$httpClient.options**, **$httpClient.patch**.
 
@@ -129,12 +133,24 @@ Post a notification.
 
 * **`$utils.geoip(ip<String>)`**
 
-Perform a GeoIP lookup. Results are in ISO 3166 code.
+Perform a GeoIP lookup. Results are in the ISO 3166 code.
+
+* **`$utils.ipasn(ip<String>)`** {{book.BETA}}
+
+Lookup the ASN of the IP address.
+
+* **`$utils.ipaso(ip<String>)`** {{book.BETA}}
+
+Lookup the ASO of the IP address.
+
+* **`$utils.ungzip(binary<Uint8Array>)`** {{book.BETA}}
+
+Decompress gzip data. The result is also a Uint8Array.
 
 
 ### Manually Trigger
 
 You can manually trigger a script on Surge iOS, by long pressing on the script or using the system Shortcuts.app.
 
-If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script, use `$intent.parameter` to retrieve it.
+If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script, and use `$intent.parameter` to retrieve it.
 

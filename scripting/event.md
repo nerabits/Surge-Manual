@@ -1,15 +1,28 @@
 ### event
 
-Evaluates script while the specified event occurs. The value is the event name. Only one event is supported currently: network-changed.
+Evaluates a script while the specified event occurs. The value is the event name. Only one event is supported currently: network-changed.
 
 Please invoke $done() to complete.
 
-A simple example:
+
+#### Event Types
+
+- `network-changed`: Triggered when the system network changes.
 
 ```
-// event network-changed script-path=network-changed.js
+// network-changed = script-path=network-changed.js,type=event,event-name=network-changed
 
 $notification.post('DNS Update', $network.dns.join(', '));
+
+$done();
+```
+
+- `notification`: Triggered when Surge shows a notification. The script can still get the message even if the notification's category is off. {{book.BETA}}
+
+```
+// notification = script-path=notification.js,type=event,event-name=notification
+
+console.log($event.data);
 
 $done();
 ```
