@@ -17,7 +17,7 @@ $notification.post('DNS Update', $network.dns.join(', '));
 $done();
 ```
 
-- `notification`: Triggered when Surge shows a notification. The script can still get the message even if the notification's category is off. {{book.BETA}}
+- `notification`: Triggered when Surge shows a notification. The script can still get the message even if the notification's category is off. 
 
 ```
 // notification = script-path=notification.js,type=event,event-name=notification

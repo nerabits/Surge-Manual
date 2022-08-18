@@ -1,5 +1,38 @@
 # Surge iOS Release Note
 
+### Version 5.0.0 (Aug 10, 2022)
+
+Surge 5.0 comes with a brand new UI design, including a brand new policy group selection view, a new Start tab, and a new icon.
+
+And now you can try all the features for free for seven days before you purchase.
+
+#### New Features:
+- DNS over QUIC and DNS over HTTP3 support
+- Real-Time View: Show live speed or request list floating window when using other applications.
+- Subnet Setting: Override global settings under specified networks.
+
+#### Minor updates:
+- Comprehensive UI improvements.
+- New contextual menu in the tab bar items.
+- Fixed a bug that encrypted-dns-skip-cert-verification may not work
+- MITM hostname and force-http-engine-hosts now support keywords: `<ip-address>`, `<ipv4-address>`, and `<ipv6-address>`.
+- Script added function `$utils.ipasn(ipAddress:<String>)` to lookup ASN.
+- Script added function `$utils.ipaso(ipAddress:<String>)` to lookup ASO
+- Script added function `$utils.ungzip(ipAddres:<Uint8Array>)` for gzip decompression.
+- Bug fixes.
+
+### Version 4.15.0 (Jun 30, 2022)
+
+#### MITM over HTTP/2
+
+- Surge now supports performing MITM with HTTP/2 protocol to improve concurrent performance.
+- Surge now supports performing MITM on WebSocket connections.
+
+#### Others
+
+- You may use `doh-skip-cert-verification=true` to disable server certificate verification for DNS-over-HTTPS.
+- Bug fixes.
+
 ### Version 4.14.0 (Jun 1, 2022)
 
 #### SSH Proxy Support

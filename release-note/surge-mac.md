@@ -4,9 +4,48 @@ Starting from Surge Mac v4.4.0, you may get the most up-to-date release notes wi
 
 ## Surge Mac V4
 
+### Version 4.8.0
+
+#### Experimental function: DNS over QUIC and DNS over HTTP/3
+- Surge now supports DNS over QUIC. (e.g.: `encrypted-dns-server = quic://example.com`)
+- Surge now supports DNS over HTTP/3. (e.g.: `encrypted-dns-server = h3://example.com/dns-query`)
+- Parameter `doh-server` renames to `encrypted-dns-server`.
+- Parameter `doh-follow-outbound-mode` renames to `encrypted-dns-follow-outbound-mode`.
+- Parameter `doh-skip-cert-verification` renames to `encrypted-dns-skip-cert-verification`.
+- The DNS relay (`always-real-ip` and non-A/AAAA record lookup) in the Enhanced Mode now uses the encrypted DNS servers.
+- You may use `encrypted-dns-skip-cert-verification=true` to disable server certificate verification for DNS-over-HTTPS.
+
+#### Scripting
+- New helper functions: `$utils.ipasn(ipAddress<String>)`, `$utils.ipaso(ipAddress<String>)` and `$utils.ungzip(binary<Uint8Array>)`.
+- New subtype of the event script: `notification`. You may use a script to forward Surge notifications to a third-party message service.
+
+#### Others
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.8.0-1788-3b96ac4d92f39b6a4a8e195708aae8d8.zip
+
+
+### Version 4.7.0
+
+#### MITM over HTTP/2
+- Surge now supports performing MITM with HTTP/2 protocol to improve concurrent performance.
+- Surge now supports performing MITM on WebSocket connections.
+
+#### Others
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.7.0-1757-0b3d1ec3c3f7067386361dd582ad964a.zip
+
+      
+### Version 4.6.1
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.6.1-1718-a39555f74c3f6d43fdcaa8501d55d26a.zip
+
+
 ### Version 4.6.0
 
-## SSH Proxy Support
+#### SSH Proxy Support
 - You can use SSH protocol as a proxy protocol. The feature is equivalent to the `ssh -D` command.
 - Both password and public key authentications are supported.
 - All the four types of private keys, RSA/ECDSA/ED25519/DSA, are supported.

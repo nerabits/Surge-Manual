@@ -35,6 +35,7 @@ Parameters for `http-request` and `http-response`:
 * `max-size`: The maximum allowed size for the request/response body. Default value is 131072 (128KB).
 
 * `binary-mode`: Only available in iOS 15 and macOS. The raw binary body data will be passed to the script in Uint8Array instead of a string value.
+* `ability`: Some script APIs must be predeclared. {{book.BETA}}
 
 Scripting requires Surge to load the entire response body data to memory. A huge response body may cause Surge iOS crash since the iOS system limits the maximum amount of memory that the Network Extension can occupy.
 
@@ -69,7 +70,7 @@ The object contains the detail of the network environment.
   - `$environment.system<String>`: iOS or macOS.
   - `$environment.surge-build<String>`: The build number of Surge.
   - `$environment.surge-version<String>`: The short version number of Surge.
-  - `$environment.language<String>`: The cuurent UI langauge of Surge.
+  - `$environment.language<String>`: The current UI language of Surge.
 
 ### Persistent Store
 
@@ -119,6 +120,12 @@ Start an HTTP POST request. The first parameter can be a URL or object. An examp
 
 When using an object as an option list. `url` is required. If `headers` field exists, it overwrites all existing header fields. `body` can be a string or object. When presenting an object, it is encoded to JSON string, and the 'Content-Type' is set to `application/json`.
 
+You may specify a policy to perform the request:
+  - `policy`: Use an existing policy with its name. {{book.BETA}}
+  - `policy-descriptor`: Use a temporary policy with a full descriptor. {{book.BETA}}
+
+You must predeclare `ability=http-client-policy` to use this option.
+
 callback: callback(error<String>, response<Object>, data<String>)
 
 When successful, the error is null, and the response object contains `status` and `headers` properties.
@@ -135,15 +142,15 @@ Post a notification.
 
 Perform a GeoIP lookup. Results are in the ISO 3166 code.
 
-* **`$utils.ipasn(ip<String>)`** {{book.BETA}}
+* **`$utils.ipasn(ip<String>)`
 
 Lookup the ASN of the IP address.
 
-* **`$utils.ipaso(ip<String>)`** {{book.BETA}}
+* **`$utils.ipaso(ip<String>)`** 
 
 Lookup the ASO of the IP address.
 
-* **`$utils.ungzip(binary<Uint8Array>)`** {{book.BETA}}
+* **`$utils.ungzip(binary<Uint8Array>)`** 
 
 Decompress gzip data. The result is also a Uint8Array.
 
