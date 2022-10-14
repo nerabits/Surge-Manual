@@ -19,7 +19,7 @@
   * [公共策略参数](policy/parameters.md)
   * [策略组](policy/group.md)
   * [WireGuard](policy/wireguard.md)
-  * [External Proxy](policy/external-proxy.md)
+  * [外部代理](policy/external-proxy.md)
 * [DNS](dns.md)
   * [DNS 服务器](dns/dns-override.md)
   * [本地 DNS 映射](dns/local-dns-mapping.md)
