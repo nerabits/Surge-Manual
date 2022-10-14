@@ -4,6 +4,156 @@
 
 ## Surge Mac V4
 
+### Version 4.8.0
+
+#### Experimental function: DNS over QUIC and DNS over HTTP/3
+- Surge now supports DNS over QUIC. (e.g.: `encrypted-dns-server = quic://example.com`)
+- Surge now supports DNS over HTTP/3. (e.g.: `encrypted-dns-server = h3://example.com/dns-query`)
+- Parameter `doh-server` renames to `encrypted-dns-server`.
+- Parameter `doh-follow-outbound-mode` renames to `encrypted-dns-follow-outbound-mode`.
+- Parameter `doh-skip-cert-verification` renames to `encrypted-dns-skip-cert-verification`.
+- The DNS relay (`always-real-ip` and non-A/AAAA record lookup) in the Enhanced Mode now uses the encrypted DNS servers.
+- You may use `encrypted-dns-skip-cert-verification=true` to disable server certificate verification for DNS-over-HTTPS.
+
+#### Scripting
+- New helper functions: `$utils.ipasn(ipAddress<String>)`, `$utils.ipaso(ipAddress<String>)` and `$utils.ungzip(binary<Uint8Array>)`.
+- New subtype of the event script: `notification`. You may use a script to forward Surge notifications to a third-party message service.
+
+#### Others
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.8.0-1788-3b96ac4d92f39b6a4a8e195708aae8d8.zip
+
+
+### Version 4.7.0
+
+#### MITM over HTTP/2
+- Surge now supports performing MITM with HTTP/2 protocol to improve concurrent performance.
+- Surge now supports performing MITM on WebSocket connections.
+
+#### Others
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.7.0-1757-0b3d1ec3c3f7067386361dd582ad964a.zip
+
+
+### Version 4.6.1
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.6.1-1718-a39555f74c3f6d43fdcaa8501d55d26a.zip
+
+
+### 版本 4.6.0
+
+#### SSH Proxy Support
+- You can use SSH protocol as a proxy protocol. The feature is equivalent to the `ssh -D` command.
+- Both password and public key authentications are supported.
+- All the four types of private keys, RSA/ECDSA/ED25519/DSA, are supported.
+- Surge only supports `curve25519-sha256` as the kex algorithm and `aes128-gcm` as the encryption algorithm. The SSH server must use OpenSSH v7.3 or above. (It should not be a problem since OpenSSH 7.3 was released on 2016-08-01.)
+
+#### Keystore
+- You may now save sensitive keystore items to the system keychain. (More, Profile, Manage Keystore)
+
+#### Others
+- New rule type: IP-ASN. You may use the rule to match the autonomous system number of the remote address.
+- Dashboard now shows more details about the remote address, including the ASN.
+- Surge will try to fix the system proxy settings after applying fails.
+- You can now enable/disable the rewrite rules and DNS local mapping items.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.6.0-1708-9ef4eecae3a0cc5dfebd74e5e850cb2f.zip
+
+### 版本 4.5.2
+
+#### Dashboard
+- You can now export HTTP/HTTPS requests to a HAR file, which is a standard format and can be opened by many web analysis tools
+
+#### Proxy
+- New parameter `server-cert-fingerprint-sha256` for TLS proxy policies. Use a pinned server certificate instead of the standard X.509 validation.
+- `tls-engine` option is now deprecated. OpenSSL is now the only TLS engine.
+- You may use `%PROFILE_DIR%` in the external proxy arguments, which will be replaced to the path of the profile directory.
+- You can now use a full profile as the external policy group (policy-path). All proxies in the [Proxy] section will be used.
+
+#### DHCP Server
+- Surge DNS is now integrated with the DHCP device management. You can use a device name to get the IP address directly. Reverse IP lookup is also supported.
+- The helper upgrade is now optional to prevent the interrupt after an auto-upgrade. 
+- Surge now can relaunch itself after a crash.
+
+#### CLI
+- surge-cli just got a refresh. Use `surge-cli --help` to know what you can do with it.
+
+#### Others
+- Header rewrite now supports using the regex to replace the value.
+- Header rewrite now supports modifying the response headers.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.5.2-1663-d480512b326806e7e850f98efe875bec.zip
+
+### 版本 4.5.1
+
+- There is a kernel bug in macOS 12.3, which significantly degrades performance of the Enhanced Mode and Router Mode. A workaround is deployed in this version.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.5.1-1621-c2a973ddb992df5c34757daacc632598.zip
+
+### 版本 4.5.0
+
+#### WireGuard
+- WireGuard supports multiple peers.
+- The allowed-ips now support multiple IP ranges.
+- WireGuard supports preshared-key and keepalive.
+- WireGuard supports peers with IPv6 endpoints. (But still no IPv6 tunnel support)
+- WireGuard and shadowsocks policy now support underlying-proxy.
+- The raw TCP connections are now relayed on the L3 layer if no high-level features are used.
+
+#### Detached Profile
+- You can now include multiple detached profiles into one section. But the section will be marked read-only and can't be edited with UI.
+
+`#!include A.dconf, B.dconf`
+
+#### Policy Group
+- You can now temporarily override an auto test group or an SSID group's optimal option, until Surge restart or reload.
+- The new parameter include-all-proxies=true is added to the policy group, which will include all proxy policies defined in the [Proxy] section, and can be used with the policy-regex-filter parameter for filtering.
+- The new parameter include-other-group="group1,group2" is added to include policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the policy-regex-filter parameter for filtering.
+- include-all-proxies, include-other-group, and policy-path parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
+- There is an order of precedence among the policy groups for the include-other-group parameter, but there is no order of precedence among the include-all-proxies, include-other-group, and policy-path parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with include-other-group.
+
+#### Subnet expression
+- SSID Group is now upgraded to Subnet Group, which supports subnet expression.
+- SSID Setting now supports subnet expression.
+- The SUBNET rule now supports subnet expression.
+- A subnet expression can be one of these:
+  - Use SSID:value to match the Wi-Fi SSID, wildcard character is allowed. 
+  - Use BSSID:value to match the Wi-Fi BSSID, wildcard character is allowed. 
+  - Use ROUTER:value to match the router IP address. 
+  - Use TYPE:WIFI to match all Wi-Fi networks. 
+  - Use TYPE:WIRED to match all wired networks.
+  - Use TYPE:CELLULAR to match all cellular networks. (iOS Only)
+  - Use MCCMNC:100-200 to match a cellular network. (iOS Only)
+- The [SSID Setting] can control the TCP Fast Open behavior now. Read the manual for more information. 
+
+#### Others
+- Performance improvements.
+- The default timeout of $httpClient is 5 seconds now.
+- New Official Module: Block HTTP3/QUIC
+- You can now adjust the effective order among modules.
+- Modules allow to modify the skip-server-cert-verify and tcp-connection parameters of [MITM].
+- The client will get an ICMP connection refused message instead of TCP RST if a REJECT policy matches.
+- Supports IPv6 addresses with scope ID.
+- The Network diagnostics can test proxy UDP relay now.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.5.0-1618-5d2042223762269c5322520810dd7e0c.zip
+
+
+### 版本 4.4.1
+
+- You may click a proxy of a select group in the main menu with holding the Option key, to test the proxy alone.
+- Fixed a bug that UDP NAT can't be released if a REJECT policy is matched.
+- Other bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.4.1-1532-abe4b5471dcb3eaeec51fcda768cc635.zip
+
 ### 版本 4.4.0
 
 - Uses Surge as a WireGuard client, converting L3 VPN as an outbound proxy policy. More information: https://manual.nssurge.com/policy/wireguard.html

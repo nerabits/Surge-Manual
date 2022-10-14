@@ -2,7 +2,7 @@
 
 一个策略组可以包含多个策略，其中的策略可以是代理策略、其他策略组或内置策略 \(DIRECT 和 REJECT\)。
 
-策略组有五个类型：‘select‘、’url-test‘、’fallback‘、’load-balance‘ 和 ’ssid‘。片段 \[Proxy Group\] 用于声明策略组。
+策略组有五个类型：‘select‘、’url-test‘、’fallback‘、’load-balance‘ 和 ’subnet‘。片段 \[Proxy Group\] 用于声明策略组。
 
 ## 手动选择策略组
 
@@ -27,7 +27,9 @@
 
 #### tolerance：可选，单位为毫秒 \(默认：100毫秒\).
 
-每次重新测试时，当此次测试延迟最低的策略比上一组的最低延迟少对应的设置值时，才会应用新策略。
+每次重新测试时，当此次测试的最低延迟比上一组测试的最低延迟少对应的设置值时，才会应用新策略。
+
+此选项可防止具有相似延迟的策略不断自动切换。
 
 #### timeout：可选，单位为秒 \(默认：5秒\).
 
@@ -35,7 +37,7 @@
 
 ## Fallback 策略组
 
-按优先级选择一个可用的策略，通过访问一个URL来测试其可用性，就像 URL 自动测试策略组一样。优先级从前到后依次降低。
+按优先级和可用性来选择一个可用的策略，通过访问一个URL来测试其可用性，就像 URL 自动测试策略组一样。优先级从前到后依次降低。
 
 `FallbackGroup = fallback, ProxySOCKS5, ProxySOCKS5TLS`
 
@@ -51,11 +53,7 @@
 
 ## 负载均衡策略组
 
-在该组中随机选用一个策略。
-
-当配置了 url 参数时，会按照 Fallback 组的行为检查策略可用性，然后只从可用的子策略中随机选择。
-
-除了url、interval 和 timeout 之外，还有一个参数。
+负载均衡组从可用的子策略中随机选择一个策略来使用。
 
 
 ### 参数
@@ -65,19 +63,23 @@
 当 persistent=true，尽可能对同一目标主机名使用相同的策略。避免因出口 IP 不同而触发目标站点的风险控制。但是，当可用性发生变化时，策略可能会发生变化。
 
 
-## SSID 策略组
+## Subnet 策略组
+
+自 Surge iOS 4.12.0 和 Surge Mac 4.5.0，SSID 策略组被重命名为 Subnet 策略组。在此情况下，你可以使用 [subnet expression](../rule/subnet.md) 
 
 虽然仍被称为 SSID 策略组，但它已经扩展到包括根据当前网络的 SSID、BSSID、路由 IP 地址等选择子策略的能力。iOS 版本还可以为数据网络指定策略。
 
-`SSIDGroup = ssid, default = ProxyHTTP, cellular = ProxyHTTP, SSIDName = ProxySOCKS5`
+`Subnet Group = subnet, default = ProxyHTTP, cellular = ProxyHTTP, SSIDName = ProxySOCKS5`
+
+目前仍然支持 SSID 组的旧语法。您可以使用组类型关键字 `subnet` 或 `ssid` 来实现多版本兼容。
 
 ### 参数
 
 #### default：必需
 
-没有找到匹配的SSID选项时的策略。
+没有找到匹配的 subnet 选项时的策略。
 
-#### cellular：可选
+#### cellular：可选 (已废弃，使用 TYPE:CELLULAR 替代)
 
 蜂窝网络下的策略。如果没有提供，将使用默认策略。
 
@@ -100,7 +102,7 @@ Proxy-B = https, example2.com, 443
 
 #### policy-regex-filter: 可选，
 
-只选用外部文件中与正则表达式匹配的行。
+使用正则表达式与外部文件中的策略名匹配后，仅使用匹配的策略。
 
 ## 其他通用参数
 

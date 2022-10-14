@@ -19,6 +19,7 @@
   * [公共策略参数](policy/parameters.md)
   * [策略组](policy/group.md)
   * [WireGuard](policy/wireguard.md)
+  * [External Proxy](policy/external-proxy.md)
 * [DNS](dns.md)
   * [DNS 服务器](dns/dns-override.md)
   * [本地 DNS 映射](dns/local-dns-mapping.md)
@@ -47,6 +48,7 @@
   * [信息面板](others/panel.md)
 * 更新日志
   * [Surge Mac](release-note/surge-mac.md)
+  * [Surge iOS](release-note/surge-ios.md)
   * [配置文件版本](release-note/profile-version.md)
 
 

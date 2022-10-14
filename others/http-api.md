@@ -159,29 +159,10 @@ POST 方法请求示例：
 
 ```
 {
-    "results": [
-        {
-            "data": {
-                "ProxyA": {
-                    "tcp": 48,
-                    "rtt": 45,
-                    "receive": 273,
-                    "available": 213
-                },
-                "ProxyB": {
-                    "tcp": 48,
-                    "tfo": false,
-                    "receive": 164,
-                    "rtt": 51,
-                    "available": 48
-                },
-                "ProxyC": {}
-            },
-            "time": 1595510609.6405091
-        }
+    "available": [
+        "ProxyA",
+        "ProxyB"
     ],
-    "time": 1595510609.6405091,
-    "winner": "ProxyA"
 }
 ```
 

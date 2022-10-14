@@ -6,5 +6,8 @@
     "sidebar": {
         "Back to Surge Website": "http://nssurge.com"
     }
+  },
+  "variables": {
+    "BETA": "<img src='../beta@2x.png' width='80' />"
   }
 }

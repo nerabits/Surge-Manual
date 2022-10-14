@@ -20,9 +20,11 @@ scropt4 = type=dns,script-path=dns.js,debug=true
 * `type`：脚本的类型：`http-request`, `http-response`, `cron`, `event`, `dns`, `rule`, `generic`。
 * `script-path`：脚本所在目录，可以是配置文件的相对路径、绝对路径，或一个 URL。
 * `script-update-interval`：使用URL作为脚本路径时的更新间隔，以秒为单位。
-* `debug`：启用调试模式。每次在评估脚本之前，都会从文件系统中加载该脚本。
+* `debug`：启用调试模式，启用后将产生以下影响：
+  1. 每次在评估脚本之前，都会从文件系统中加载该脚本。
+  2. 对于 `http-request` 和 `http-response` 脚本，当您使用 `console.log()` 记录消息时，这些消息也会出现在请求的提示中。
 * `timeout`：脚本的最长运行时间，默认值为 10 秒。
-* `argument`：脚本可以用 $argument 来取值。
+* `argument`：脚本可以用 `$argument` 来取值。
 
 `http-request` 和 `http-response` 脚本类型的参数：
 
@@ -81,9 +83,11 @@ JS Script 的执行效率极高，不必担心因使用脚本而带来性能问�
 
 不传入 key 时，同一个 script-path 的脚本共享一个存储池。可传入一个固定的 key 以在多个脚本间共享数据。
 
+提示：Surge Mac 写入 $persistentStore 数据到目录 `~/Library/Application Support/com.nssurge.surge-mac/SGJSVMPersistentStore/`。您可以直接在此处编辑文件以进行调试。
+
 ### 控制 Surge
 
-* **`$httpAPI(method<String>, path<String>, callback<Function>(result<Object>))`**
+* **`$httpAPI(method<String>, path<String>, body<String>, callback<Function>(result<Object>))`**
 
 你可以使用 $httpAPI 来调用所有的 HTTP API 来控制 Surge 的功能。不需要认证参数。关于可用的功能，见 HTTP API 部分。
 
@@ -114,9 +118,15 @@ JS Script 的执行效率极高，不必担心因使用脚本而带来性能问�
 
 当使用参数表时，`url` 参数必填，其余选填，`headers` 字段存在将覆盖默认的所有 headers，`body` 可以为 string 或者 object，为 object 时将自动进行 JSON 编码并设置 Content-Type 为 `application/json`。
 
+你可以指定执行请求的策略：
+   - `policy`：使用现有策略及其名称。 {{book.BETA}}
+   - `policy-descriptor`：使用具有完整描述符的临时策略。 {{book.BETA}}
+
+你必须预先声明 `ability=http-client-policy` 才能使用此选项。
+
 callback 定义为 callback(error<String>, response<Object>, data<String>)
 
-error 为 Null 表示请求成功，response 包含 status 和 headers 两个字段。
+error 为 null 表示请求成功，response 对象包含 status 和 headers 两个字段。
 
 其余类似的方法有：**$httpClient.get**, **$httpClient.put**，**$httpClient.delete**, **$httpClient.head**, **$httpClient.options**, **$httpClient.patch**.
 
@@ -128,11 +138,23 @@ error 为 Null 表示请求成功，response 包含 status 和 headers 两个字
 
 * **`$utils.geoip(ip<String>)`**
 
-进行 GeoIP 查询，返回结果为 ISO 3166 的国家编码
+进行 GeoIP 查询，返回结果为 ISO 3166 的国家编码。
+
+* **`$utils.ipasn(ip<String>)`**
+
+查询 IP 地址的 ASN。
+
+* **`$utils.ipaso(ip<String>)`**
+
+查询 IP 地址的 ASO。
+
+* **`$utils.ungzip(binary<Uint8Array>)`**
+
+解压 gzip 数据。结果也是一个 Uint8Array。
 
 ### 手动触发
 
 你可以通过长按脚本或使用系统的快捷指令 App 在 Surge iOS 上手动触发一个脚本。
 
-如果你使用快捷指令来触发一个脚本，可以选择将参数传递给脚本，使用 `$intent.parameter` 来检索它。
+如果你使用快捷指令来触发一个脚本，可以选择将参数传递给脚本，并且使用 `$intent.parameter` 来检索它。
 

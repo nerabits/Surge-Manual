@@ -48,10 +48,6 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 启用 TCP Fast Open。
 
-#### mptcp （布尔型，仅限 iOS，默认值：off）
-
-启用 MultiPath TCP。（需要启用 Network.framework）
-
 #### tos （十进制或十六进制，默认：0）
 
 自定义 IP TOS 值。
