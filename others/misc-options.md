@@ -23,13 +23,22 @@ Log level. One of verbose, info, notify, or warning. It's not recommended to ena
 
 Enable full IPv6 support.
 
+
+### ipv6-vif {{book.BETA}}
+
+Allow the IPv6 through Surge VIF. Useful when you want Surge to handle raw TCP connections connecting to IPv6 addresses.
+
+- `off`: Never set up the Surge VIF with IPv6.
+- `auto`: Only set up the Surge VIF with IPv6 if the local network has a valid IPv6 network.
+- `always`: Always set up the Surge VIF with IPv6.
+
 ### dns-server
 
 The IP addresses of upstream DNS servers.
 
 ### skip-proxy
 
-In the iOS version, this option forces connection to these domain/IP ranges to be handled by Surge VIF, instead of Surge proxy. In the macOS version, these settings are applied to the system when "Set as System Proxy" is enabled. This option is used to fix compatibility problems with some apps.
+In the iOS version, this option forces connection to these domain/IP ranges to be handled by Surge VIF instead of Surge proxy. In the macOS version, these settings are applied to the system when "Set as System Proxy" is enabled. This option is used to fix compatibility problems with some apps.
 
   - To specify a single domain, enter the domain name - for example, apple.com.
 
@@ -43,7 +52,7 @@ Notice: If you enter an IP address or address range, you are only able to bypass
 
 ### exclude-simple-hostnames
 
-Just like the skip-proxy parameter. This option lets requests using simple hostnames (without dot) handled by Surge VIF instead of Surge proxy.
+Just like the skip-proxy parameter. This option lets requests use simple hostnames (without dot) handled by Surge VIF instead of Surge proxy.
 
 ### external-controller-access
 
@@ -55,7 +64,7 @@ This option allows using HTTP APIs to control Surge. E.g.: key@0.0.0.0:6166
 
 ### http-api-tls
 
-Use HTTPS protocol instead of HTTP. The MitM CA certificate must be configured first. You need to install the certificate on the client device manually.
+Use HTTPS protocol instead of HTTP. The MitM CA certificate must be configured first. You need to install the certificate on the client's device manually.
 
 ### http-api-web-dashboard
 
@@ -63,7 +72,7 @@ You may control Surge via a web browser after enabling this.
 
 ### show-error-page-for-reject
 
-Show an error webpage for REJECT policy if the request is a plain HTTP request.
+Show an error webpage for the REJECT policy if the request is a plain HTTP request.
 
 ### tun-excluded-routes
 
@@ -77,7 +86,7 @@ By default, Surge VIF interface declares itself as the default route. However, s
 
 ### internet-test-url
 
-The URL for the Internet connectivity testing. Also the testing URL for DIRECT policy.
+The URL for the Internet connectivity testing. Also, the testing URL for DIRECT policy.
 
 ### proxy-test-url
 
@@ -99,17 +108,11 @@ By default, Surge only returns fake IP addresses for DNS queries sent to Surge D
 
 Some devices or software always use a hardcoded DNS server. (For example, Google Speakers always use 8.8.8.8). You may use this option to hijack the query to get a fake address.
 
-You may use hijack-dns = \*:53 to hijack all DNS queries.
-
-### network-framework
-
-Uses Network.framework to utilize userspace network stack, which can improve throughput, reduce latency and enable cutting edge features such as Multipath TCP. (Manual restart is required)
-
-Experimental features may be unstable, and may even cause the system to become frozen.
+You may use `hijack-dns = \*:53` to hijack all DNS queries.
 
 ### force-http-engine-hosts
 
-Make Surge treat TCP connections as HTTP requests. Surge HTTP engine will process the requests, and all advanced features will be available, such as capturing, rewrite and scripting.
+Make Surge treat TCP connections as HTTP requests. Surge HTTP engine will process the requests, and all advanced features will be available, such as capturing, rewriting and scripting.
 
 Wildcard characters \* and ? are supported.
 
@@ -117,9 +120,9 @@ Wildcard characters \* and ? are supported.
 
   - By default, only the requests to port 80 are decrypted.
 
-  - Use suffix :port to allow other ports.
+  - Use suffix:port to allow other ports.
 
-  - Use suffix :0 to allow all ports.
+  - Use suffix:0 to allow all ports.
 
 Example:
 
@@ -133,12 +136,6 @@ Example:
 
   - \*:0: Uses forced HTTP processing for all hostnames on all ports.
 
-### tls-provider
-
-Available values: secure-transport, openssl, network-framework
-
-Choose OpenSSL or Network.Framework to utilize TLS 1.3. OpenSSL is more stable but Network Framework can provide more cutting-edge features but very unstable.
-
 ### debug-cpu-usage
 
 Enable CPU debug mode. This may slow down the performance.
@@ -146,10 +143,6 @@ Enable CPU debug mode. This may slow down the performance.
 ### debug-memory-usage
 
 Enable memory debug mode. This may slow down the performance.
-
-### doh-format
-
-Available values: wireformat, json. Default: wireformat
 
 ### doh-follow-outbound-mode
 
@@ -177,15 +170,11 @@ iOS system might perform an SVCB record DNS lookup instead of a standard A recor
 
 ### udp-policy-not-supported-behaviour
 
-The fallback behavior when UDP traffic matches a policy that doesn't support UDP relay. Possible values: DIRECT, REJECT.
+The fallback behavior when UDP traffic matches a policy that doesn't support the UDP relay. Possible values: DIRECT, REJECT.
 
 ### proxy-test-udp
 
-(null)
-
 ### compatibility-mode (iOS Only)
-
-Not available
 
 ### allow-wifi-access (iOS Only)
 
@@ -223,13 +212,8 @@ Enable Wi-Fi assist.
 
 Hide the VPN icon in the status bar.
 
-### ipv6-vif (iOS Only)
-
-Allow the IPv6 through Surge VIF. Useful when you want Surge to handle raw TCP connections connecting to IPv6 addresses.
-
 ### all-hybrid (iOS Only)
 
-Not available
 
 ### allow-hotspot-access (iOS Only)
 

@@ -16,44 +16,38 @@ ProxySOCKS5TLS = socks5-tls, 1.2.3.4, 443, username, password, skip-common-name-
 
 ## Proxy Type
 
-Surge supports multiple standard proxy protocols.
+Surge supports the most common standard proxy protocols.
 
 * HTTP Proxy: `ProxyHTTP = http, 1.2.3.4, 443, username, password`
 * HTTPS Proxy (HTTP Proxy via TLS): `ProxyHTTPS = https, 1.2.3.4, 443, username, password`
 * SOCKS5: `ProxySOCKS5 = socks5, 1.2.3.4, 443, username, password`
 * SOCKS5 via TLS: `ProxySOCKS5TLS = socks5-tls, 1.2.3.4, 443, username, password`
 
-Surge also supports multiple non-standard proxy protocols.
+Surge also supports several non-standard proxy protocols.
 
-* Snell: `ProxySnell = snell, 1.2.3.4, 8000, psk=password`
-* Shadowsocks: `ProxySS = ss, 1.2.3.4, 8000, encrypt-method=chacha20-ietf-poly1305, password=abcd1234`
-* VMess: `ProxyVMess = vmess, 1.2.3.4, 8000, username=0233d11c-15a4-47d3-ade3-48ffca0ce119`
-* Trojan: `ProxyTrojan = trojan, 192.168.20.6, 443, password=password1`
+* Snell: `Proxy-Snell = snell, 1.2.3.4, 8000, psk=password, version=4`
+* Shadowsocks: `Proxy-SS = ss, 1.2.3.4, 8000, encrypt-method=chacha20-ietf-poly1305, password=abcd1234`
+* VMess: `Proxy-VMess = vmess, 1.2.3.4, 8000, username=0233d11c-15a4-47d3-ade3-48ffca0ce119`
+* Trojan: `Proxy-Trojan = trojan, 192.168.20.6, 443, password=password1`
+* TUIC: `Proxy-TUIC = tuic, 192.168.20.6, 443, token=pwd, alpn=h3`
 
-Snell is a lightweight encryption proxy protocol developed by ourselves. You may get the server-side binary from https://github.com/surge-networks/snell.
-
-Surge supports UDP relay of Snell V3, Shadowsocks, and Trojan protocols. The UDP relay support for shadowsocks proxies should be turned on manually by adding the parameter `udp-relay=true` since the shadowsocks server may not support the UDP relay.
+Surge supports UDP relay of Snell V3/V4, Shadowsocks, Trojan, WireGuard, and TUIC protocols. The UDP relay support for shadowsocks proxies should be turned on manually by adding the parameter `udp-relay=true` since the shadowsocks server may not support the UDP relay.
 
 ## Parameters
 
 #### Parameters for all proxy types
 
-* no-error-alert
+All parameters in [Common Policy Parameters](parameters.md) are also available for proxy policies.
+
+* `no-error-alert`
 
 Do not show error alerts for this policy.
 
-* underlying-proxy
+* `underlying-proxy`
 
 Use a proxy to connect another proxy, aka proxy chain.
 
-* test-url
-
-Example:
-`test-url=http://google.com`
-
-Override the global `proxy-test-url` settings for the proxy. Surge test and benchmark the proxy by performing an HTTP HEAD request to the URL.
-
-* test-udp
+* `test-udp`
 
 Example:
 `test-udp=google.com@1.1.1.1`
@@ -61,60 +55,90 @@ Example:
 Override the global `proxy-test-udp` settings for the proxy. Surge test and benchmark the UDP relay by performing a DNS lookup.
 
 
-#### Parameter for proxy via TLS (HTTP, SOCKS5-TLS, VMess, Trojan)
+#### Parameter for proxy via TLS (HTTP, SOCKS5-TLS, VMess, Trojan, TUIC)
 
-* skip-cert-verify: Optional, "true" or "false" (Default: false).
+* `skip-cert-verify`: Optional, "true" or "false" (Default: false).
   
 	If this option is enabled, Surge will not verify the server's certificate.
 
-* sni (Default: the proxy hostname)
+* `sni`: The default value is the proxy hostname
 
 	You may customize the Server Name Indication (SNI) during the TLS handshake. Use sni=off to turn off SNI completely. By default, Surge sends the SNI using the hostname like most browsers.
 	
 #### Parameter for HTTP/HTTPS protocol
 
-* always-use-connect
+* `always-use-connect`: Optional.
 
 Always use the HTTP CONNECT method to relay, even for plain HTTP requests.
 
 
 #### Parameter for protocols that support obfuscating (Shadowsocks, Snell)
 
-* obfs
-* obfs-host
-* obfs-uri
+* `obfs`: Optional. `http` or tls`
+* `obfs-host`: Optional.
+* `obfs-uri`: Optional.
 
 #### Parameter for Snell protocol
 
-* psk
-* version
+See [Snell Protocol](../others/snell.md) for more information.
 
+* `psk`: Required.
+* `version`: Required.
+* `reuse`: Optional. Connection reuse is an optional feature for Snell V4.
 
 #### Parameter for Shadowsocks protocol
 
-* udp-relay
+* `udp-relay`: Optional. Since the UDP relay is optional for the shadowsocks server. You must enable UDP relay explicitly.
 
 #### Parameter for VMess protocol
 
-* ws
-* ws-path
-* ws-headers
-* encrypt-method
+* `ws`: Optional. Use the Web Socket transport layer.
+* `ws-path`: Optional.
+* `ws-headers`: Optional.
+* `encrypt-method`: Optional.
 
 #### Parameter for Trojan protocol
 
-* ws
-* ws-path
-* ws-headers
+* `ws`: Optional. Use the Web Socket transport layer.
+* `ws-path`: Optional.
+* `ws-headers`: Optional.
+
+#### Parameter for TUIC  {{book.BETA}}
+
+* `token`: Required.
+* `alpn`: Optional. Must match the server's ALPN setting.
 
 
 ## Client Certificate for TLS Proxy
 
-Surge supports client certificate verification for TLS based proxies.
+Surge supports client certificate verification for TLS-based proxies.
 
+Example: 
+
+```
 [Proxy]
 Proxy = https, example.com, 443, client-cert=cert1
 
 [Keystore]
 cert1 = base64=<P12 base64 string here>, password=123456
+```
+
+## Shadow TLS  {{book.BETA}}
+
+Shadow TLS is a proxy obfuscator and can be used with any TCP-based proxy. (https://github.com/ihciah/shadow-tls)
+
+Starting from Surge iOS 5.2.0 & Surge Mac 4.10.0, Surge supports Shadow TLS V2 protocol. Append `shadow-tls-password` to any proxy declaration to utilize it.
+
+Example: 
+
+```
+[Proxy]
+STLS-SNELL = snell, 1.2.3.4, 443, psk=pwd1, version=4, reuse=true, shadow-tls-password=pwd2
+```
+
+#### Parameters
+
+* `shadow-tls-password`: Required. Must match the server's setting.
+* `shadow-tls-sni`: Optional. The SNI will be sent to the server during the TLS handshake in plain. If not set, no SNI will be sent.
+
 

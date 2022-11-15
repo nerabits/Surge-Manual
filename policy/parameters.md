@@ -32,7 +32,7 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 #### ip-version
 
-Choose the behavior between IPv4 and IPv6 protocols.
+Choose the behavior between IPv4 and IPv6 protocols. The option just affects the connection to the proxy server. Therefore it only makes sense when the proxy server's hostname is a domain. If the underlying proxy is configured, this option has no effect since the DNS resolution happens remotely.
 
 - dual (Default, use the fastest link)
 - v4-only
@@ -42,7 +42,7 @@ Choose the behavior between IPv4 and IPv6 protocols.
 
 #### hybrid (Boolean, iOS Only, Default: off)
 
-Setup the connection with cellular data and Wi-Fi simultaneously, then use the faster link.
+Set up the connection with cellular data and Wi-Fi simultaneously, then use the faster link.
 
 #### tfo (Boolean, Default: off)
 
@@ -54,11 +54,16 @@ Customize the IP TOS value.
 
 ### Testing
 
-#### test-url
+#### `test-url`
 
-Override the global testing URL. The URL is used for availability and latency testing.
+Example:
+`test-url=http://google.com`
 
-#### test-timeout (In seconds)
+Override the global testing URL. The URL is used for availability and latency testing. Surge test and benchmark the proxy by performing an HTTP HEAD request to the URL.
+
+
+#### `test-timeout` (In seconds)
  
 Override the global testing timeout.
+
 

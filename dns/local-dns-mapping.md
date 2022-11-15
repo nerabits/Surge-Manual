@@ -21,7 +21,7 @@ You can use \* prefix to wildcard all sub-domains. Please note that Surge uses a
 
 ## Alias
 
-It's equivalent to a CNAME record.
+It's just like a CNAME record.
 
 ```
 [Host]
@@ -46,14 +46,17 @@ Macbook = server:system
 
 By default, all hostnames with the suffix '.local' will be resolved by the system.
 
-## Combined Usage
 
-All features can be used together. For example:
+## Use Local DNS Item Even For Proxies
 
 ```
-[Host]
-*.dev = foo.com
-*.bar.com = server:system
+[General]
+use-local-host-item-for-proxy=true
 ```
 
+By default, the DNS resolve always happens on the remote proxy server since Surge always sends proxy requests with domains.
+
+After enabling this option, for the requests that match a local DNS mapping record, Surge sends proxy requests with the local IP addresses instead of the original domains.
+
+It only works for local DNS mapping records using an IP address.
 

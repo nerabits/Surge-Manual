@@ -1,52 +1,42 @@
-# DNS over HTTPS
+# Encrypted DNS
 
-If DNS-over-HTTPS is configured, the traditional DNS will be used to test the connectivity and resolve the domain in the DOH URL only.
+If encrypted DNS is configured, the traditional DNS will only be used to test the connectivity and resolve the domain in the encrypted DNS URL.
 
-### Use DoH for All Domains
+Supported Protocol:
+
+- DNS over HTTPS: https://example.com
+- DNS over HTTP/3: h3://example.com
+- DNS over QUIC: quic://example.com
+
+### Use Encrypted DNS for All Domains
 
 ```
 [General]
-doh-server = https://9.9.9.9/dns-query
+encrypted-dns-server = https://8.8.8.8/dns-query
 ```
 
-You may specify multiple DNS-over-HTTPS servers here (not recommended).
+You may specify multiple encrypted servers here, separated by commas.
 
 
-### Use DoH for Specified Domains
+### Use Encrypted DNS for Specified Domains
 
 ```
 [Host]
 example.com = server:https://cloudflare-dns.com/dns-query
 ```
 
+### Use Encrypted DNS with Proxy
 
-### DNS over HTTPS Format
-
-There are two different types of DoH format: JSON and DNS wireformat (RFC1035).
-
-You need to confirm the supported type of your DoH service.
-
-* Surge iOS 4.1 and below versions / Surge Mac 3.4.1 and below versions: Only JSON format is supported.
-
-* Surge iOS 4.2 and above versions / and Surge Mac 3.5.0 and above versions: Surge uses DNS wireformat by default. You can also choose to continue using JSON.
-
-	```
-	[General]
-	doh-format=json
-	```
-
-### Use DoH with Proxy
-
-If you want to query DoH servers through a proxy, you can set `doh-follow-outbound-mode` to true.
+If you want to query DoH servers through a proxy, you can set `encrypted-dns-follow-outbound-mode` to true.
 
 ```
 [General]
-doh-follow-outbound-mode=true
+encrypted-dns-follow-outbound-mode=true
 ```
 
-All the DoH connections will follow the outbound mode settings. Then configure a rule for the DoH hostname to use a proxy.
+All the encrypted DNS connections will follow the outbound mode settings. Then configure a rule for the DoH hostname to use a proxy.
 
-Or, use `PROTOCOL,DOH` rule to match all DoH connections.
+Or, use `PROTOCOL,DOH`, `PROTOCOL,DOH3` or `PROTOCOL,DOQ` rule to match all encrypted DNS connections.
 
 
 

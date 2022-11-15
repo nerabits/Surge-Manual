@@ -20,10 +20,10 @@
   * [Policy Group](policy/group.md)
   * [WireGuard](policy/wireguard.md)
   * [External Proxy](policy/external-proxy.md)
-* [DNS](dns.md)
+* DNS
   * [DNS Server](dns/dns-override.md)
   * [Local DNS Mapping](dns/local-dns-mapping.md)
-  * [DNS over HTTPS](dns/doh.md)
+  * [Encrypted DNS](dns/doh.md)
 * HTTP Processing
   * [HTTPS Decryption](http-processing/mitm.md)
   * [URL Rewrite](http-processing/url-rewrite.md)
@@ -42,7 +42,7 @@
   * [Enhanced Mode](others/enhanced-mode.md)
   * [Subnet Settings](others/subnet-settings.md)
   * [URL Scheme](others/url-scheme.md)
-  * [Snell Server](others/snell-server.md)
+  * [Snell Protocol](others/snell.md)
   * [Module](others/module.md)
   * [HTTP API](others/http-api.md)
   * [Information Panel](others/panel.md)

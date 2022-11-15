@@ -45,4 +45,19 @@ Disable TFO for the network completely.
 - tfo-behaviour=force-enabled
 Forcibly enable TFO for the network. This option will make Surge ignore the system TFO blackhole detecting mechanism.
 
+### DNS Override
+
+Override the DNS settings for specified networks.
+
+```
+[SSID Setting]
+SSID:MyHome dns-server=8.8.8.8,encrypted-dns-server=https://1.1.1.1/
+```
+
+If the encrypted DNS is configured in the global DNS settings. You must explicitly input the keyword 'off' below to use the traditional DNS.
+
+```
+[SSID Setting]
+SSID:MyHome dns-server=8.8.8.8,encrypted-dns-server=off
+```
 
