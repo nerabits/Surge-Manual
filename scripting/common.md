@@ -8,18 +8,18 @@ You may use JavaScript to extend the ability of Surge as your wish.
 
 ```
 [Script]
-script1 = type=http-response,pattern=^http://www.example.com/test script-path=test.js,max-size=16384,debug=true
+script1 = type=http-response,pattern=^http://www.example.com/test,script-path=test.js,max-size=16384,debug=true
 scropt2 = type=cron,cronexp="* * * * *",script-path=fired.js
-scropt3 = type=http-request,pattern=^http://httpbin.org script-path=http-request.js,max-size=16384,debug=true,requires-body=true
+scropt3 = type=http-request,pattern=^http://httpbin.org,script-path=http-request.js,max-size=16384,debug=true,requires-body=true
 scropt4 = type=dns,script-path=dns.js,debug=true
 ```
 
-Each line has two components: script name, and parameters. 
+Each line has two components: script name and parameters. 
 Common parameters: 
  
 * `type`: The type of script: `http-request`, `http-response`, `cron`, `event`, `dns`, `rule`, `generic`.
 * `script-path`: The path of the script, can be a relative path to the profile, an absolute path, or a URL.
-* `script-update-interval`: The update interval while using an URL for script-path, in second. 
+* `script-update-interval`: The update interval while using an URL for script-path, in seconds. 
 * `debug`: Enabling the debug mode, which has several effects:
    1. The script is loaded from the filesystem every time before evaluating it.
    2. For `http-request` and `http-response` scripts, when you use `console.log()` to log messages, the messages also appear in the request's notes.
@@ -28,16 +28,16 @@ Common parameters:
 
 Parameters for `http-request` and `http-response`:
 
-* `pattern`: The regex pattern to match URL.
+* `pattern`: The regex pattern to match the URL.
 
 * `requires-body`: This allows the script to modify the request/response body. The default value is false. This behavior is expensive. Only enable when necessary.
 
-* `max-size`: The maximum allowed size for the request/response body. Default value is 131072 (128KB).
+* `max-size`: The maximum allowed size for the request/response body. The default value is 131072 (128KB).
 
-* `binary-mode`: Only available in iOS 15 and macOS. The raw binary body data will be passed to the script in Uint8Array instead of a string value.
+* `binary-body-mode`: Only available in iOS 15 and macOS. The raw binary body data will be passed to the script in Uint8Array instead of a string value.
 * `ability`: Some script APIs must be predeclared. {{book.BETA}}
 
-Scripting requires Surge to load the entire response body data to memory. A huge response body may cause Surge iOS crash since the iOS system limits the maximum amount of memory that the Network Extension can occupy.
+Scripting requires Surge to load the entire response body data to memory. A huge response body may cause Surge iOS crash since the iOS system limits the maximum amount of memory the Network Extension can occupy.
 
 Please only enable scripting for necessary URLs.
 
@@ -61,7 +61,7 @@ The object contains the detail of the network environment.
 
 * **`$script`**
 
-  - `$script.name<String>`: The script name which is being evaluating.
+  - `$script.name<String>`: The script name which is being evaluated.
   - `$script.startTime<Date>`: The time when the current script starts.
   - `$script.type<String>`: The type of the current script.
 
@@ -82,13 +82,13 @@ Save data permanently. Only a string is allowed. Return true if successes.
 
 Get the saved data. Return a string or Null.
 
-Suppose the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
+If the key is undefined, the script with the same script-path shares the storage pool. Data can be shared among different scripts when using a key.
 
-Tips: Surge Mac writes the $persistentStore data to directory `~/Library/Application Support/com.nssurge.surge-mac/SGJSVMPersistentStore/`. You may edit the files here directly for debugging.
+Tips: Surge Mac writes the $persistentStore data to the directory `~/Library/Application Support/com.nssurge.surge-mac/SGJSVMPersistentStore/`. You may edit the files here directly for debugging.
 
 ### Control Surge
 
-* **`$httpAPI(method<String>, path<String>, body<String>, callback<Function>(result<Object>))`**
+* **`$httpAPI(method<String>, path<String>, body<Object>, callback<Function>(result<Object>))`**
 
 You may use $httpAPI to call all HTTP APIs to control Surge's functions. No authentication parameters are required. See the HTTP API section for the available abilities.
 
@@ -157,7 +157,7 @@ Decompress gzip data. The result is also a Uint8Array.
 
 ### Manually Trigger
 
-You can manually trigger a script on Surge iOS, by long pressing on the script or using the system Shortcuts.app.
+You can manually trigger a script on Surge iOS by long pressing on the script or using the system Shortcuts.app.
 
-If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script, and use `$intent.parameter` to retrieve it.
+If you use Shortcuts to trigger a script, you may optionally pass a parameter to the script and use `$intent.parameter` to retrieve it.
 

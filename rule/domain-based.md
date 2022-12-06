@@ -1,12 +1,12 @@
 # Domain-based Rule
 
-There are 3 domain-based rule types.
+There are three domain-based rule types.
 
 #### DOMAIN
 
 `DOMAIN,www.apple.com,Proxy`
 
-Rule matches if the domain of request matches exactly.
+Rule matches if the domain of the request matches exactly.
 
 #### DOMAIN-SUFFIX
 
@@ -23,7 +23,7 @@ Rule matches if the domain of the request contains the keyword.
 
 #### DOMAIN-SET
 
-Designed for a large number of domain name list, supports fast search for thousands of records. Each line in the file is a domain name, if a line begins with . matches all sub-domains and the domain name itself. This can be used for ad filtering.
+Designed for a large number of domain names, supports fast search for thousands of records. Each line in the file is a domain name if a line begins with . matches all sub-domains and the domain name itself. This can be used for ad filtering.
 
 > The DOMAIN-SET rule doesn't support including an eTLD suffix due to performance optimization.
 > 

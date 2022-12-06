@@ -1,6 +1,6 @@
 # HTTP Rule
 
-There are 2 HTTP rule types. HTTP rule is for HTTP requests or HTTPS requests. It won't effect TCP connections.
+There are two HTTP rule types. HTTP rule is for HTTP requests or HTTPS requests. It won't affect TCP connections.
 
 #### USER-AGENT
 

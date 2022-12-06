@@ -4,7 +4,51 @@ Starting from Surge Mac v4.4.0, you may get the most up-to-date release notes wi
 
 ## Surge Mac V4
 
-### Version 4.9.1
+### Version 4.10.1 (Dec 3, 2022)
+
+#### New Feature
+
+- Gaming Optimization Mode: `udp-priority = true`. Enabling it will prioritize UDP packets when the system load is very high, and packet processing is delayed.
+- SOCKS5 proxy now supports UDP forwarding, as the server side does not consistently support UDP forwarding, the parameter udp-relay=true needs to be explicitly configured.
+- The `ipv6-vif` parameter now supports `always` and `auto` like Surge iOS. If set to `auto`, IPv6 VIF will only be enabled if a valid Internet IPv6 address (2000::/3) exists.
+
+#### Minor Improvements
+
+- URL regular expressions for Script, Rewrite, Mock, etc. will try to match URLs constructed in many different ways (e.g. Host field in Header) to solve the problem that some apps use custom DNS logic to request directly to IP addresses.
+- Removed the silencing mechanism after UDP forwarding errors to avoid extra waiting time after switching networks.
+- The IPv6 switch no longer prevents direct access to IPv6 addresses when turned off. The switch is now limited to controlling whether the DNS Client requests AAAA records.
+- Automatic disabling of AAAA queries due to DNS issues will be prompted in the Event Center instead of just in the logs.
+- Fixed handling issue of generating IPv6 fragmentation when forwarding IPv6 UDP packets via WireGuard.
+- The external policy group will skip the line and continue processing when it encounters invalid content instead of returning an error directly.
+- Adjusted the buffering mechanism of raw TCP forwarding to avoid conflicts with some apps.
+- Fixed REJECT requests not being marked as failed under MITM H2.
+- Adjusted the output text under diagnostics.
+- Other bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.10.1-1964-34ee4f3efbd20065ad808cf0cab6d380.zip
+
+### Version 4.10.0 (Nov 10, 2022)
+
+#### Support New Proxy Protocol
+- New proxy protocol supported: TUIC. (https://github.com/EAimTY/tuic).
+- New proxy protocol supported: Snell V4. (https://manual.nssurge.com/others/snell.html)
+- New proxy transport layer protocol supported: Shadow TLS. (https://github.com/ihciah/shadow-tls). You may append `shadow-tls-password=pwd` to any proxy to utilize it.
+
+#### Other Improvements
+- shadowsocks now supports the none cipher.
+- Modified the handshake packet construction logic when forwarding HTTPS requests to proxies, which can slightly optimize latency.
+- Surge HTTP requests for proxy testing no longer contain a User-Agent header.
+- A new option to allow to disable system processes combining in the process view.
+- Fixes an issue on M1 processors where the system would move Surge to the efficiency core when using an application in full screen causing a significant drop in performance.
+
+#### Bug fixes
+- Fixed a memory leak that could occur when HTTP capturing is enabled.
+- Fixed an issue that may not work properly when nesting proxy chains with a specific protocol combination.
+- Fixed an issue that the module could not configure the MITM h2 parameter.
+
+https://dl.nssurge.com/mac/v4/Surge-4.10.0-1927-f009d35c5da9df00cccf818edd74b20d.zip
+
+### Version 4.9.1 (Sep 29, 2022)
 
 - Overall performance optimization.
 - Added an alert when using router mode in an IPv6 network.
@@ -13,7 +57,7 @@ Starting from Surge Mac v4.4.0, you may get the most up-to-date release notes wi
 https://dl.nssurge.com/mac/v4/Surge-4.9.1-1866-e90f4c1609827e5669c21803ac8e90a3.zip
 
 
-### Version 4.9.0
+### Version 4.9.0 (Sep 11, 2022)
 
 #### Router Mode
 - Overall performance optimization.
@@ -45,7 +89,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.9.1-1866-e90f4c1609827e5669c21803ac8e90a3.
 https://dl.nssurge.com/mac/v4/Surge-4.9.0-1850-c52ab2531bb82ff6f8d72df65f65c76a.zip
 
 
-### Version 4.8.0
+### Version 4.8.0 (Aug 9, 2022)
 
 #### Experimental function: DNS over QUIC and DNS over HTTP/3
 - Surge now supports DNS over QUIC. (e.g.: `encrypted-dns-server = quic://example.com`)
@@ -66,7 +110,7 @@ https://dl.nssurge.com/mac/v4/Surge-4.9.0-1850-c52ab2531bb82ff6f8d72df65f65c76a.
 https://dl.nssurge.com/mac/v4/Surge-4.8.0-1788-3b96ac4d92f39b6a4a8e195708aae8d8.zip
 
 
-### Version 4.7.0
+### Version 4.7.0 (Jun 30, 2022)
 
 #### MITM over HTTP/2
 - Surge now supports performing MITM with HTTP/2 protocol to improve concurrent performance.
@@ -78,13 +122,13 @@ https://dl.nssurge.com/mac/v4/Surge-4.8.0-1788-3b96ac4d92f39b6a4a8e195708aae8d8.
 https://dl.nssurge.com/mac/v4/Surge-4.7.0-1757-0b3d1ec3c3f7067386361dd582ad964a.zip
 
       
-### Version 4.6.1
+### Version 4.6.1 (Jun 10, 2022)
 - Bug fixes.
 
 https://dl.nssurge.com/mac/v4/Surge-4.6.1-1718-a39555f74c3f6d43fdcaa8501d55d26a.zip
 
 
-### Version 4.6.0
+### Version 4.6.0 (Jun 8, 2022)
 
 #### SSH Proxy Support
 - You can use SSH protocol as a proxy protocol. The feature is equivalent to the `ssh -D` command.

@@ -28,7 +28,7 @@ IN-PORT,6152,DIRECT
 
 #### PROTOCOL 
 
-Rule matches if the protocol of the request matches. The possible values are HTTP, HTTPS, TCP, UDP, DOH.
+Rule matches if the protocol of the request matches. The possible values are HTTP, HTTPS, TCP, UDP, DOH, DOH3, DOQ.
 
 ```
 PROTOCOL,HTTP,DIRECT

@@ -2,7 +2,7 @@
 
 A policy group may contain multiple policies. It can be a proxy policy, another policy group, or a built-in policy \(DIRECT and REJECT\).
 
-There are three group types: ‘select‘, ’url-test‘, ’fallback‘, ’load-balance‘ and ’subnet‘. Section \[Proxy Group\] declares policy group.
+There are several group types: `select`, `url-test`, `fallback`, `load-balance` and `subnet`. Policy groups should be declared in section \[Proxy Group\].
 
 ## Manual Select Group
 
@@ -10,8 +10,12 @@ Select which policy will be used on the user interface.
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 
-> In iOS version. You may use Today Widget to quickly switch the policy for the first 'select' group. 
-> In macOS version. You may switch the policy in the menubar menu.
+{% hint style='info' %}
+In Surge iOS. You may use the Today Widget to quickly switch the policy for the first 'select' group. <br />
+
+In Surge Mac. You may switch the policy in the menubar menu.
+{% endhint %}
+
 
 ## Auto URL Test Group
 
@@ -76,9 +80,9 @@ The legacy syntax of SSID Group is still supported. You may use the group type k
 
 The policy when no subnet expression is matched.
 
-#### cellular: Optional (Deprecated, use TYPE:CELLULAR instead)
+#### cellular: Optional (Deprecated, use `TYPE:CELLULAR` instead)
 
-The policy under cellular network. If not provided, the default policy will be used.
+The policy for cellular networks. If not provided, the default policy will be used.
 
 ## External Group
 
@@ -86,7 +90,7 @@ Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policie
 
 `egroup = select, policy-path=proxies.txt`
 
-This file contains a list of policies, just like the definition lines in the main profile
+This file contains a list of policies, just like the definition lines in the main profile.
 
 ```
 Proxy-A = https, example1.com, 443
@@ -114,18 +118,18 @@ Do not show the group in the menu (Surge Mac) and the policy selection view (Sur
 
 ## Policy Including
 
-Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can use include-all-proxies and include-other-group to include all proxies or reuse defines from another group.
+Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can use `include-all-proxies` and `include-other-group` to include all proxies or reuse defines from another group.
 
 #### include-all-proxies
 
-Parameter include-all-proxies=true includes all proxy policies defined in the [Proxy] section and can be used with the policy-regex-filter parameter for filtering.
+The parameter `include-all-proxies=true` includes all proxy policies defined in the [Proxy] section and can be used with the `policy-regex-filter` parameter for filtering.
 
 #### include-other-group
 
-Parameter include-other-group="group1,group2" includes policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the policy-regex-filter parameter for filtering.
+Parameter `include-other-group="group1,group2"` includes policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the `policy-regex-filter` parameter for filtering.
 
 Some Notes:
-- include-all-proxies, include-other-group, and policy-path parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
-- There is an order of precedence among the policy groups for the include-other-group parameter, but there is no order of precedence among the include-all-proxies, include-other-group, and policy-path parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with include-other-group.
+- `include-all-proxies`, `include-other-group`, and `policy-path` parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
+- There is an order of precedence among the policy groups for the `include-other-group` parameter, but there is no order of precedence among the `include-all-proxies`, `include-other-group`, and `policy-path` parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with `include-other-group`.
 
 

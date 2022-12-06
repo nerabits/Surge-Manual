@@ -16,11 +16,11 @@ key = value
 In these paragraphs, the order of the configuration lines has no effect. However, in paragraphs such as [Rule], the order of the configuration lines up and down is very important.
 
 
-### Classification of configuration files
+### Classification of profiles
 
-Configuration files are divided into three categories.
+Profiles are divided into three categories.
 1. Normal profile: created manually or used by default.
-2. Managed profile: usually provided by the enterprise administrator or service provider. The managed profile cannot be modified locally because they can be updated remotely. If you want to make changes, you should first create a copy to transfer it to a normal configuration.
+2. Managed profile: usually provided by the enterprise administrator or service provider. The managed profile cannot be modified locally because it can be updated remotely. If you want to make changes, you should first create a copy to transfer it to a normal configuration.
 3. Enterprise profile: Enterprise version only, cannot be modified or viewed, and cannot be copied.
 
 
@@ -62,16 +62,15 @@ Using this function, you can.
 This way, when adjusting the [General] section on iOS, it does not affect macOS and avoids the hassle of maintaining two sets of proxy configurations. It also does not interfere at all with the configuration using the UI.
 
 Some additional notes.
-- After modifying the configuration via the UI, the configuration is written to the corresponding detached configuration segment file according to the include statement. If the file contains other paragraphs that are not used, the write will only modify the paragraphs in question.
-- If a managed configuration is referenced, the configuration associated with that segment cannot be edited but does not affect the adjustment of other segments.
-- To complement this feature, all installed managed configurations will be checked for updates periodically in the new version of Surge Mac, whereas in the old version only the currently active configuration was checked for updates.
-- The filename suffix is not required, if it is a complete configuration you can continue to use the conf suffix, if it is not a complete configuration it is recommended to use another suffix to avoid being displayed in the configuration list.
+- After modifying the configuration via the UI, the profile is written to the corresponding detached profile according to the include statement. If the file contains other sections that are not used, the writing will only modify the section used.
+- If a managed profile is referenced, the configuration associated with that section cannot be edited but does not affect the adjustment of other sections.
+- The filename suffix is not required, if it is a complete profile, you can continue to use the conf suffix, if it is not a complete profile, it is recommended to use another suffix to avoid being displayed in the configuration list.
 - Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can include multiple detached profiles in one section. But the section will be marked read-only and can't be edited with UI.
 
-```
-[Proxy]
-#!include A.dconf, B.dconf
-```
+    ```
+    [Proxy]
+    #!include A.dconf, B.dconf
+    ```
 
 
 
@@ -94,5 +93,5 @@ The module description is available at: https://manual.nssurge.com/others/module
 
 ### Comment
 
-Surge profile supports comment line, starts with '#', ';' and '//'. Comment inline will also be supported with separation of '//'. 
+Surge profile supports comment line, starts with `#`, `;` and `//`. Inline comment is also supported by the separation of `//`. 
 

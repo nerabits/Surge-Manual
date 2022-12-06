@@ -16,9 +16,9 @@ The script must invoke $done() with an object. The object may contain:
 * `body<String or Uint8Array>`: Use the new body to overwrite the old one. Only works when requires-body = true.
 
 * `response<Object>`：If this object exists, Surge returns an HTTP response directly without making a real network operation. The object may contain:
-    * `$status<Number>`: Response HTTP status code. (Optional. Default: 200)
-    * `$headers<Object>`: Response HTTP Headers. (Optional)
-    * `$body<String or Uint8Array>`: Response HTTP Body. (Optional)
+    * `status<Number>`: Response HTTP status code. (Optional. Default: 200)
+    * `headers<Object>`: Response HTTP Headers. (Optional)
+    * `body<String or Uint8Array>`: Response HTTP Body. (Optional)
 
 You may use $done(); to abort the request without returning anything. Or use $done({}); to keep the request untouched.
 

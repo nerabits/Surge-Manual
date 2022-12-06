@@ -1,6 +1,6 @@
 # Ruleset
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of  rules from a file or a URL. Surge also provides two internal rulesets.
+Starts from Surge Mac v3.0 and Surge iOS v3.4. You may use a bundle of rules from a file or a URL. Surge also provides two internal rulesets.
 
 ## Internal Ruleset
 
@@ -10,7 +10,7 @@ The internal ruleset contents might change with Surge version updates. Please go
 
 `RULE-SET,SYSTEM,DIRECT`
 
-Includes rules for most requests sent by macOS and iOS itself. The requests sent by App Store, iTunes and other content services are not included.
+Includes rules for most requests sent by macOS and iOS itself. The requests sent by App Store, iTunes, and other content services are not included.
 
 ```
 USER-AGENT,*com.apple.mobileme.fmip1
@@ -48,7 +48,7 @@ DOMAIN-SUFFIX,ls.apple.com
 PROCESS-NAME,trustd
 ```
 
-> These rules may be updated with Surge updates. Please refer the description in the software to get the latest sub-rules.
+> These rules may be updated with Surge updates. Please refer to the description in the software to get the latest sub-rules.
 
 
 ### LAN

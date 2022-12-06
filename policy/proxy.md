@@ -88,7 +88,7 @@ See [Snell Protocol](../others/snell.md) for more information.
 
 #### Parameter for Shadowsocks protocol
 
-* `udp-relay`: Optional. Since the UDP relay is optional for the shadowsocks server. You must enable UDP relay explicitly.
+* `udp-relay`: Optional. Since the UDP relay is optional for the shadowsocks server, you must enable the UDP relay explicitly.
 
 #### Parameter for VMess protocol
 
@@ -103,10 +103,10 @@ See [Snell Protocol](../others/snell.md) for more information.
 * `ws-path`: Optional.
 * `ws-headers`: Optional.
 
-#### Parameter for TUIC  {{book.BETA}}
+#### Parameter for TUIC {{book.NEW}}
 
 * `token`: Required.
-* `alpn`: Optional. Must match the server's ALPN setting.
+* `alpn`: Optional. It must match the server's ALPN setting.
 
 
 ## Client Certificate for TLS Proxy
@@ -123,7 +123,7 @@ Proxy = https, example.com, 443, client-cert=cert1
 cert1 = base64=<P12 base64 string here>, password=123456
 ```
 
-## Shadow TLS  {{book.BETA}}
+## Shadow TLS {{book.BETA}}
 
 Shadow TLS is a proxy obfuscator and can be used with any TCP-based proxy. (https://github.com/ihciah/shadow-tls)
 
@@ -138,7 +138,7 @@ STLS-SNELL = snell, 1.2.3.4, 443, psk=pwd1, version=4, reuse=true, shadow-tls-pa
 
 #### Parameters
 
-* `shadow-tls-password`: Required. Must match the server's setting.
+* `shadow-tls-password`: Required. It must match the server's setting.
 * `shadow-tls-sni`: Optional. The SNI will be sent to the server during the TLS handshake in plain. If not set, no SNI will be sent.
 
 

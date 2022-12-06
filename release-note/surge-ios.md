@@ -1,5 +1,55 @@
 # Surge iOS Release Note
 
+### Version 5.2.2 (Dec 3, 2022)
+
+#### New Feature
+
+- Gaming Optimization. Enabling it will prioritize UDP packets when the system load is very high, and packet processing is delayed.
+- SOCKS5 proxy now supports UDP forwarding, as the server side does not consistently support UDP forwarding, the parameter udp-relay=true needs to be explicitly configured.
+
+#### Minor Improvements
+
+- URL regular expressions for Script, Rewrite, Mock, etc. will try to match URLs constructed in many different ways (e.g. Host field in Header) to solve the problem that some apps use custom DNS logic to request directly to IP addresses.
+- Removed the silencing mechanism after UDP forwarding errors to avoid extra waiting time after switching networks.
+- Added a workaround for suspend and subnet settings that may occur when the SSID is temporarily not available under iOS 16.
+- The log view supports freezing now.
+- The IPv6 switch no longer prevents direct access to IPv6 addresses when turned off. The switch is now limited to controlling whether the DNS Client requests AAAA records.
+- Automatic disabling of AAAA queries due to DNS issues will be prompted in the Event Center instead of just in the logs.
+- Fixed handling issue of generating IPv6 fragmentation when forwarding IPv6 UDP packets via WireGuard.
+- The external policy group will skip the line and continue processing when it encounters invalid content instead of returning an error directly.
+- Adjusted the buffering mechanism of raw TCP forwarding to avoid conflicts with some apps.
+- Fixed REJECT requests not being marked as failed under MITM H2.
+- Adjusted the output text under diagnostics.
+- Other bug fixes.
+
+### Version 5.2.0 (Nov 11, 2022)
+
+#### Support New Proxy Protocol
+- Snell V4
+- TUIC
+- Shadow TLS
+
+See the online manual for more information.
+
+####Other Improvements
+
+- A new expanded card style for the Policy Group view.
+- Refined the Route Table view.
+- shadowsocks now supports the none cipher.
+- Modified the handshake packet construction logic when forwarding HTTPS requests to proxies, which can slightly optimize latency.
+- Surge HTTP requests for proxy testing no longer contain a User-Agent header.
+
+#### Bug fixes
+
+- Fixed an issue that when using Subnet Suspend, the switch in the interface did not display the status correctly.
+- Fixed an issue that the module could not configure the MITM h2 parameter.
+- Fixed some keyboard-related layout problems.
+- Fixed an issue that may not work properly when nesting proxy chains with a specific protocol combination.
+- Fixed an issue where UI jumping may occur when starting Surge if iCloud Drive is used.
+- Fixed a memory leak that could occur when HTTP capturing is enabled.
+
+
+
 ### Version 5.1.3 (Sep 29, 2022)
 
 - Added a delayed update mode to the view of the recent request, which will automatically start when too many requests are received, to avoid the Surge main application from getting jammed.

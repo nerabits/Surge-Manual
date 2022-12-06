@@ -24,7 +24,7 @@ Log level. One of verbose, info, notify, or warning. It's not recommended to ena
 Enable full IPv6 support.
 
 
-### ipv6-vif {{book.BETA}}
+### ipv6-vif {{book.NEW}}
 
 Allow the IPv6 through Surge VIF. Useful when you want Surge to handle raw TCP connections connecting to IPv6 addresses.
 
