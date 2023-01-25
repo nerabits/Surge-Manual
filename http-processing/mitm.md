@@ -12,6 +12,7 @@ enable = true
 ca-p12 = MIIJtQ.........
 ca-passphrase = password
 hostname = *google.com
+h2 = true
 ```
 
 Surge 仅会解密这里指定的主机名的请求。
@@ -46,3 +47,17 @@ Surge 仅会解密这里指定的主机名的请求。
 
 在执行 MitM 是不验证远程主机的证书。
 
+
+### h2
+
+MITM over HTTP/2: 使用 HTTP/2 协议进行 MITM 解密，可在高并发下优化性能。
+
+### client-source-address {{book.BETA}}
+
+此参数用于仅在部分设备上启用 MITM 功能。
+
+  - 此参数为列表参数，使用逗号作为分隔符。
+  - 你可以指定单个地址，或使用 CIDR 块。IPv4 和 IPv6 同时支持。
+  - 你可以使用 `-` 前缀来排除部分客户端，例如：`client-source-address = -192.168.1.2, 0.0.0.0/0`
+  - 如果未设置该参数，则为所有客户端启用 MITM。相当于 `client-source-address = 0.0.0.0/0, ::/0`
+  - 如果你想为当前设备启用 MITM，则在此参数中，应包含 `127.0.0.1`。

@@ -4,6 +4,47 @@
 
 ## Surge Mac V4
 
+### Version 4.9.1
+
+- Overall performance optimization.
+- Added an alert when using router mode in an IPv6 network.
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.9.1-1866-e90f4c1609827e5669c21803ac8e90a3.zip
+
+
+### Version 4.9.0
+
+#### Router Mode
+- Overall performance optimization.
+- Fixed a performance issue with PS5.
+
+#### Surge VIF IPv6
+- You may use the parameter `ipv6-vif = always` to let Surge configure IPv6 address and the default route for Surge VIF.
+- Surge VIF now supports handling raw TCP and UDP traffic with IPv6.
+- ICMPv6 relay is now supported.
+
+#### MITM
+- New parameter `client-source-address`. Use this parameter to enable the MITM function on some devices only.
+  - It's a list parameter, using commas as the separator.
+  - You may specify a single IP address or use a CIDR block, both IPv4 and IPv6 are supported.
+  - You may use the `-` prefix to exclude some clients, e.g., `client-source-address = -192.168.1.2, 0.0.0.0/0`
+  - If the parameter is not set, MITM is enabled for all clients. A equivalent to `client-source-address = 0.0.0.0/0, ::/0`
+  - `127.0.0.1` should be included if you want to enable MITM for the current device.      
+
+#### WireGuard
+- WireGuard now supports IPv6 tunneling.
+  - Use parameter `self-ip-v6` to assign an IPv6 address for Surge.
+  - You may configure `self-ip` and `self-ip-v6` to utilize the IPv4 & IPv6 dual stack, or just one of them to use the single stack.
+  - Make sure to use the correct `dns-server` address for the enabled IP protocol version.
+  - The `allowed-ips` parameter supports IPv6 CIDR now, e.g., `allowed-ips = 0.0.0.0/0, ::0/0`
+
+#### Others
+- Bug fixes.
+
+https://dl.nssurge.com/mac/v4/Surge-4.9.0-1850-c52ab2531bb82ff6f8d72df65f65c76a.zip
+
+
 ### Version 4.8.0
 
 #### Experimental function: DNS over QUIC and DNS over HTTP/3

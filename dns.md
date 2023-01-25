@@ -4,7 +4,7 @@ Surge 使用自定义的 DNS 客户端，以支持高级特性。它的行为可
 
 ### 上游 DNS 服务器
 
-Surge 默认使用操作系统的 DNS 服务器地址。你可以使用['dns-server'](/dns/dns-override.md)选项覆盖它们。
+Surge 默认使用操作系统的 DNS 服务器地址。你可以使用 `dns-server` 选项覆盖它们。
 
 ### 详情
 

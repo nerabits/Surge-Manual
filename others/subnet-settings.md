@@ -45,4 +45,18 @@ SSID:MyHome tfo-behaviour=force-enabled
 - tfo-behaviour=force-enabled
   在特定网络下强制开启 TFO。此选项将允许 Surge 忽略系统 TFO 黑洞检测机制。
 
+### DNS 覆盖
 
+在特定网络中覆盖 DNS 设置。
+
+```
+[SSID Setting]
+SSID:MyHome dns-server=8.8.8.8,encrypted-dns-server=https://1.1.1.1/
+```
+
+若已在全局设置中配置加密 DNS，则必须在此处显式使用关键字 `off` 来使用传统 DNS。
+
+```
+[SSID Setting]
+SSID:MyHome dns-server=8.8.8.8,encrypted-dns-server=off
+```

@@ -1,10 +1,69 @@
 # Surge iOS 更新日志
 
+### Version 5.1.3 (Sep 29, 2022)
+
+- Added a delayed update mode to the view of the recent request, which will automatically start when too many requests are received, to avoid the Surge main application from getting jammed.
+
+- Optimized the check logic of ICMP traffic limit to avoid the alarm triggered by high concurrency in a very short period.
+
+- Added a lock screen widget that can be used to quickly open Surge.
+
+- Added a view to examine the modified profile after modules are applied.
+
+- Added a new Siri action: enable or disable modules, which can be used with Shortcut.
+
+### Version 5.1.0 (Sep 11, 2022)
+
+#### IPv6 Improvements
+
+- Support UDP forwarding with IPv6 VIF, including local and proxy forwarding.
+- Support ICMPv6 local forwarding with IPv6 VIF.
+- Fixed an issue that IPv6 address could not be used when using Surge Private DDNS.
+- IPv6 handling details refined.
+
+#### WireGuard IPv6 Tunneling
+
+- WireGuard policy now supports IPv6 Tunneling (the previous version already supports connecting to an endpoint with IPv6, this version adds IPv6 support inside the tunnel)
+- Read the manual for more information.
+
+#### Text Editor
+
+- A toolbar was added to the text editor.
+- Fixed a crash in text editing.
+- You can search text in the text editor now.
+
+#### Other updates
+
+- Optimize the proxy failure handling policy. Now when the TCP handshake time to the proxy server is greater than the test-timeout parameter, it is directly determined as failure in order to trigger the policy group to retest faster.
+- TabBar shortcut menu added module shortcut opening and closing.
+- External resources view allows side-swipe to edit local resources file.
+- All types of scripts that use $httpClient to initiate requests are now viewable in the view of the recent request.
+- Adjusted script concurrency limit policy to avoid deadlock when multiple scripts refer to each other.
+- Other minor bug fixes and improvements.
+
+---
+
+### Version 5.0.2 (Aug 19, 2022)
+
+- Fixed a bug that the text editor may be unable to save content.
+
+---
+
+### Version 5.0.1 (Aug 17, 2022)
+
+- You may now flush the DNS cache in the DNS result view.
+
+- Improved the script editor and log viewer.
+
+- Other bug fixes and minor improvements.
+
+---
+
 ### 版本 5.0.0 (Aug 10, 2022)
 
 Surge 5.0 comes with a brand new UI design, including a brand new policy group selection view, a new Start tab, and a new icon.
 
-And now you can try all the features for free for seven days before you purchase.
+And now, you can try all the features for free for seven days before you purchase.
 
 #### New Features:
 - DNS over QUIC and DNS over HTTP3 support
@@ -23,6 +82,7 @@ And now you can try all the features for free for seven days before you purchase
 
 ### 版本 4.15.0 (Jun 30, 2022)
 
+
 #### MITM over HTTP/2
 
 - Surge now supports performing MITM with HTTP/2 protocol to improve concurrent performance.
@@ -34,6 +94,7 @@ And now you can try all the features for free for seven days before you purchase
 - Bug fixes.
 
 ### 版本 4.14.0 (Jun 1, 2022)
+
 
 #### SSH Proxy Support
 - You can use SSH protocol as a proxy protocol. The feature is equivalent to the `ssh -D` command.

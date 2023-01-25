@@ -46,14 +46,16 @@ Macbook = server:system
 
 默认情况下，所有后缀为 '.local' 的主机名都将由系统解析。
 
-## 组合使用
+## 为代理使用本地 DNS 结果
 
-所有功能均可组合使用，例如：
 
 ```
-[Host]
-*.dev = foo.com
-*.bar.com = server:system
+[General]
+use-local-host-item-for-proxy=true
 ```
 
+默认情况下，因为 Surge 总是发送含有域名的代理请求，所以，请求的 DNS 解析由远程代理服务器完成。
 
+启用此选项后，对于匹配本地 DNS 映射记录的请求，Surge 将使用本地映射的 IP 地址，而不是域名来发送代理请求。
+
+此选项仅适用于使用 IP 地址的本地 DNS 映射。

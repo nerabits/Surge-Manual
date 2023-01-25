@@ -23,6 +23,14 @@ tun-included-routes = 192.168.1.12/32
 
 开启完整 IPv6 支持。
 
+### ipv6-vif {{book.BETA}}
+
+允许 IPv6 通过 Surge VIF。此选项用于处理连接到 IPv6 地址的原始 TCP 连接。
+
+- `off`: 关闭 Surge VIF 的 IPv6 功能。
+- `auto`: 当你的本地网络支持 IPv6 时，启动 Surge VIF 的 IPv6 功能。
+- `always`: 永远开启 Surge VIF 的 IPv6 功能。
+
 ### dns-server
 
 上级 DNS 服务器的 IP 地址。
@@ -101,12 +109,6 @@ DNS 数据包将被转发至上游 DNS 服务器。
 
 你可以使用 hijack-dns = \*:53 来劫持全部 DNS 查询。
 
-### network-framework
-
-使用 Network.framework 来利用用户空间的网络堆栈，这可以提高吞吐量，减少延迟，并实现最先进的功能，如多路径TCP。(需手动重启)
-
-实验性功能可能是不稳定的，甚至可能导致系统故障。
-
 ### force-http-engine-hosts
 
 使 Surge 将 TCP 连接视为 HTTP 请求。Surge HTTP 引擎将处理这些请求，所有的高级功能都可以使用，如抓取流量、Rewrite 和脚本。
@@ -133,11 +135,6 @@ Example:
 
   - \*:0: 对所有端口上的所有主机名使用强制HTTP处理。
 
-### tls-provider
-
-可用值：secure-transport, openssl, network-framework
-
-选择 OpenSSL 或 Network.Framework 以支持 TLS 1.3。OpenSSL 更稳定，但 Network Framework 可以提供更多先进的功能，但非常不稳定。
 
 ### debug-cpu-usage
 
@@ -146,10 +143,6 @@ Example:
 ### debug-memory-usage
 
 启用内存调试模式。这可能会降低性能。
-
-### doh-format
-
-可用值：wireformat, json。默认：wireformat
 
 ### doh-follow-outbound-mode
 
@@ -181,11 +174,7 @@ iOS system might perform an SVCB record DNS lookup instead of a standard A recor
 
 ### proxy-test-udp
 
-(null)
-
 ### compatibility-mode（仅限 iOS）
-
-不适用
 
 ### allow-wifi-access（仅限 iOS）
 
@@ -223,13 +212,7 @@ Surge SOCKS5 代理服务的端口号。
 
 隐藏状态栏的 VPN 图标。
 
-### ipv6-vif（仅限 iOS）
-
-允许 IPv6 通过 Surge VIF。当你想让 Surge 处理连接到 IPv6 地址的原始 TCP 连接时很有用。
-
 ### all-hybrid（仅限 iOS）
-
-不适用
 
 ### allow-hotspot-access（仅限 iOS）
 

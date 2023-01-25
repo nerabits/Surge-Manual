@@ -20,7 +20,7 @@ Crop-VPN = direct, interface = utun0
 WiFi = direct, interface = en2, allow-other-interface=true
 ```
 
-请确保该网卡拥有一个对目标地址有效的路由表。
+请确保该网卡拥有对目标地址有效的路由表。
 
 #### allow-other-interface
 
@@ -32,9 +32,9 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 #### ip-version
 
-在 IPv4 和 IPv6 协议间进行选择
+在 IPv4 和 IPv6 协议间进行选择。此选项只影响与代理服务器间的连接。因此，只有当代理服务器的主机名为域名时，此选项才有效。如果配置了底层代理，此选项无影响，因为 DNS 解析是远程进行的。
 
-- dual（默认，使用更快的连接）
+- dual（默认，使用最快的连接）
 - v4-only
 - v6-only
 - prefer-v4
@@ -54,9 +54,12 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 ### 测试
 
-#### test-url
+#### `test-url`
 
-覆盖全局设置的测试 URL。该 URL 用于可用性和基准测试。
+示例：
+`test-url=http://google.com`
+
+覆盖全局设置的测试 URL。该 URL 用于可用性和基准测试。Surge 通过对 URL 执行 HTTP HEAD 请求，对代理进行基准测试。
 
 #### test-timeout（单位：秒）
  

@@ -36,6 +36,8 @@ scropt4 = type=dns,script-path=dns.js,debug=true
 
 * `binary-mode`：仅在 iOS 15 和 macOS 上生效。原始的二进制 body 数据将以 Uint8Array 的形式传递给脚本，而非字符串值。
 
+* `ability`: 必须预先声明的脚本API {{book.BETA}}
+
 脚本需要 Surge 将整个 body 数据加载到内存。因为 iOS 系统限制了网络扩展所能占用的最大内存量，所以一个巨大的 body 可能会导致 Surge iOS 崩溃。
 
 请只对必要的 URL 启用脚本。

@@ -1,51 +1,40 @@
-# DNS over HTTPS
-如果配置了 DNS-over-HTTPS，传统 DNS 将仅用作解析 DoH 域名和测试网络连通性。
+# 加密 DNS
+如果配置了加密 DNS，传统 DNS 将仅用作解析加密 DNS 域名和测试网络连通性。
 
-### 为所有域名使用 DoH
+支持的协议：
+
+- DNS over HTTPS: https://example.com
+- DNS over HTTP/3: h3://example.com
+- DNS over QUIC: quic://example.com
+
+### 为所有域名使用加密 DNS
 
 ```
 [General]
-doh-server = https://9.9.9.9/dns-query
+encrypted-dns-server = https://8.8.8.8/dns-query
 ```
 
-你可以在这里指定多个 DNS-over-HTTPS 服务器（不推荐）。
+你可以在这里指定多个加密 DNS 服务器，多个服务器之间使用逗号分隔。
 
 
-### 为特定域名使用 DoH
+### 为特定域名使用加密 DNS
 
 ```
 [Host]
 example.com = server:https://cloudflare-dns.com/dns-query
 ```
-
-
-### DNS over HTTPS 格式
-
-有两种不同的 DoH 格式：JSON 和 DNS wireformat (RFC1035).
-
-你需要确定你的 DoH 服务支持的格式。
-
-* Surge iOS 4.1 及以下版本 / Surge Mac 3.4.1 及以下版本：仅支持 JSON 格式。
-
-* Surge iOS 4.2 及以上版本 / and Surge Mac 3.5.0 及以上版本：Surge 使用 DNS wireformat 作为默认。 你仍可以继续选择使用 JSON。
-
-	```
-	[General]
-	doh-format=json
-	```
-
 ### 与代理配合使用 DoH
 
 如果你想通过代理查询DoH服务器，你可以把 `doh-follow-outbound-mode` 设置为true。
 
 ```
 [General]
-doh-follow-outbound-mode=true
+encrypted-dns-follow-outbound-mode=true
 ```
 
-所有的 DoH 连接将遵循出站模式的设置。然后为 DoH 主机名配置一个规则来使用代理。
+所有的加密 DNS 连接将遵循出站模式的设置。然后为 DoH 主机名配置一个规则来使用代理。
 
-或者，使用 `PROTOCOL,DOH` 规则来匹配所有 DoH 连接。
+或者，使用 `PROTOCOL,DOH`, `PROTOCOL,DOH3` 或 `PROTOCOL,DOQ` 规则来匹配所有加密 DNS 连接。
 
 
 

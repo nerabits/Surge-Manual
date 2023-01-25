@@ -20,10 +20,10 @@
   * [策略组](policy/group.md)
   * [WireGuard](policy/wireguard.md)
   * [外部代理](policy/external-proxy.md)
-* [DNS](dns.md)
+* DNS
   * [DNS 服务器](dns/dns-override.md)
   * [本地 DNS 映射](dns/local-dns-mapping.md)
-  * [DNS over HTTPS](dns/doh.md)
+  * [加密 DNS](dns/doh.md)
 * HTTP 处理
   * [HTTPS 解密](http-processing/mitm.md)
   * [URL 重写](http-processing/url-rewrite.md)
@@ -42,7 +42,7 @@
   * [增强模式](others/enhanced-mode.md)
   * [网关模式](others/subnet-settings.md)
   * [URL Scheme](others/url-scheme.md)
-  * [Snell 服务端](others/snell-server.md)
+  * [Snell 协议](others/snell.md)
   * [模块](others/module.md)
   * [HTTP API](others/http-api.md)
   * [信息面板](others/panel.md)
