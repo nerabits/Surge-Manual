@@ -11,7 +11,7 @@
 external = external, exec = "/usr/bin/ssh", args = "11.22.33.44", args = "-D", args = "127.0.0.1:1080", local-port = 1080, addresses = 11.22.33.44
 ```
 
-其中，`args` 和 `addresses` 字符段为可选，`exec` 和 `local-port` 为必需。`args` 和 `addresses` 可重复追加。
+其中，`args` 和 `addresses` 字符段为可选，`exec` 和 `local-port` 为必选。`args` 和 `addresses` 可重复追加。
 
 由以上策略，Surge 将进行以下操作：
 

@@ -6,7 +6,7 @@
 
 ## 手动选择策略组
 
-在图形界面中选择将要使用的策略。
+在图形界面中选择需要使用的策略。
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 

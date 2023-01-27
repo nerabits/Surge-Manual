@@ -21,7 +21,7 @@ https://dl.nssurge.com/snell/snell-server-v4.0.0-linux-aarch64.zip
 https://dl.nssurge.com/snell/snell-server-v4.0.0-linux-armv7l.zip
 
 
-Snell 的最新版本是 v4，与之前不同的是，此版本不向下兼容旧版本协议。请同时升级客户端（Surge iOS & Surge Mac）和服务器二进制文件。
+Snell 的最新版本是 v4，与之前不同的是，此版本不向下兼容旧版本协议。请同时升级客户端（Surge iOS & Surge Mac）和服务端程序。
 
 ```
 [Proxy]
@@ -30,7 +30,7 @@ Proxy = snell, 1.2.3.4, 6333, psk=RANDOM_KEY_HERE, version=4
 
 ## 使用 Surge Mac 作为 Snell 代理服务端
 
-你也可以使用 Surge Mac 作为 Snell 代理服务端（从3.1.0版本开始）。 你可以在配置文件中添加以下配置：
+你也可以使用 Surge Mac（3.1.0 之后版本）作为 Snell 代理服务端。你可以在配置文件中添加以下配置：
 
 ```
 [Snell Server]

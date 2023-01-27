@@ -1,6 +1,6 @@
 ### DNS
 
-使用脚本去执行 DNS 解析操作，该类型下第二参数为脚本名。
+使用脚本执行 DNS 解析，该类型下第二参数为脚本名。
 
 `dns dnspod script-path=dnspod.js`
 

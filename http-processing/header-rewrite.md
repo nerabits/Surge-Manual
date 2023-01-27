@@ -1,7 +1,5 @@
 # Header Rewrite
 
-**此功能目前只在测试版中提供。**
-
 Surge 可以在被转发到服务器之前重写 Request Header 或 Response Header。
 
 示例:

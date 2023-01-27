@@ -1,12 +1,12 @@
 # 托管配置
 
-如果 Surge 配置文件以以下内容作为开始，Surge 可以从 URL 自动更新配置文件。
+如果 Surge 配置文件开头为以下内容，Surge 可以从 URL 自动更新配置文件。
 
 `#!MANAGED-CONFIG http://test.com/surge.conf interval=60 strict=true`
 
-当且仅当 Surge 主程序运行时，配置文件才可被更新。
+当且仅当 Surge 主程序运行时，才可自动更新配置文件。
 
-> 注意：新的托管配置必须包含 #!MANAGED-CONFIG，否则其仍被视为普通配置文件。
+> 注意：新的托管配置必须包含 #!MANAGED-CONFIG，否则 Surge 仍将视其为普通配置。
 
 ### 参数
    

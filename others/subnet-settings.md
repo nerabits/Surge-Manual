@@ -1,6 +1,6 @@
 # 子网设置
 
-您可以使用 [subnet expression](../rule/subnet.md) 以匹配指定的网络，并应用特定的设置。
+您可以使用 [子网表达式](../rule/subnet.md) 以匹配指定的网络，并应用特定的设置。
 
 > 出于兼容性的考虑。配置文件中的子网设置部分的名称为 [SSID Setting]。
 

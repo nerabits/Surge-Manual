@@ -26,7 +26,7 @@ Accept: */*
 * 对于 GET 请求，应使用 URL 发送参数。
 * 对于 POST 请求，应使用 JSON Body 发送参数。
 
-Surge 总会返回 JSON Body 格式的响应。
+Surge 总是返回 JSON Body 格式的响应。
 
 ## 路径
 

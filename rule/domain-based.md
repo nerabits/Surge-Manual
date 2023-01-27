@@ -12,7 +12,7 @@
 
 `DOMAIN-SUFFIX,apple.com,Proxy`
 
-此规则用于匹配对应请求的域名后缀。例如："google.com" 匹配 www.google.com mail.google.com和 "google.com"，但不***匹配*** "content-google.com"。
+此规则用于匹配对应请求的域名后缀。例如："google.com" 匹配 www.google.com mail.google.com和 "google.com"，但**不匹配** "content-google.com"。
 
 #### DOMAIN-KEYWORD
 

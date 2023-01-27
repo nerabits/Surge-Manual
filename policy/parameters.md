@@ -2,7 +2,7 @@
 
 ### 出口参数
 
-所有这些参数对内置和代理策略都是可用的。
+内置和代理策略均可使用这些参数。
 
 #### interface （默认：自动）
 
@@ -12,7 +12,7 @@
 ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2
 ```
 
-像代理策略一样，direct 策略别名支持 interface 参数。
+和代理策略一样，direct 策略别名支持 interface 参数。
 
 ```
 [Proxy]
@@ -32,7 +32,7 @@ ProxyHTTP = http, 1.2.3.4, 443, username, password, interface = en2, allow-other
 
 #### ip-version
 
-在 IPv4 和 IPv6 协议间进行选择。此选项只影响与代理服务器间的连接。因此，只有当代理服务器的主机名为域名时，此选项才有效。如果配置了底层代理，此选项无影响，因为 DNS 解析是远程进行的。
+选择 IPv4 和 IPv6 协议。此选项只影响与代理服务器间的连接。因此，只有当代理服务器的主机名为域名时，此选项才有效。如果配置了底层代理，此选项无影响，因为 DNS 解析是远程进行的。
 
 - dual（默认，使用最快的连接）
 - v4-only

@@ -25,7 +25,7 @@ example.com = server:https://cloudflare-dns.com/dns-query
 ```
 ### 与代理配合使用 DoH
 
-如果你想通过代理查询DoH服务器，你可以把 `doh-follow-outbound-mode` 设置为true。
+如果你想通过代理查询DoH服务器，你可以把 `doh-follow-outbound-mode` 设置为 true。
 
 ```
 [General]
