@@ -7,7 +7,7 @@
 * `$request.url<String>`：请求的 URL
 * `$request.method<String>`：请求的 HTTP 方法
 * `$request.headers<Object>`：请求的 Header
-* `$request.body<String or Uint8Array>`：请求的 Body，类型为 String 或 Unit8Array，仅当 requires-body = true 时有效
+* `$request.body<String or Uint8Array>`：请求的 Body，类型为 String 或 Uint8Array，仅当 requires-body = true 时有效
 * `$request.id<String>`：一个特有的ID，以便在脚本之间保持连续性。
 
 应执行 $done 返回一个对象，可选包含字段：
