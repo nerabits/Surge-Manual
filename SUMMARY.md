@@ -47,8 +47,6 @@
   * [HTTP API](others/http-api.md)
   * [Information Panel](others/panel.md)
 * Release Note
-  * [Surge Mac](release-note/surge-mac.md)
-  * [Surge iOS](release-note/surge-ios.md)
   * [Profile Version](release-note/profile-version.md)
 
 

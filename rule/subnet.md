@@ -9,7 +9,6 @@ A subnet expression can be one of these:
   - Use `TYPE:WIFI` to match all Wi-Fi networks.
   - Use `TYPE:WIRED` to match all wired networks.
   - Use `TYPE:CELLULAR` to match all cellular networks.
-  - Use `MCCMNC:100-200` to match a cellular network
   - If no prefix is provided, it tries to match SSID/BSSID/Router for the legacy version compatibility.
 
 

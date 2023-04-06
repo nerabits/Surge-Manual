@@ -1,13 +1,9 @@
 # Enhanced Mode
 
-***Only Surge Mac supports this feature, from version 2.1.0***
+Some applications may not follow the system proxy settings. Using the enhanced mode in Surge can ensure all applications are handled. 
 
-Some applications may not obey the system proxy settings. Using enhanced mode can make all applications handled by Surge.
+To accomplish this, Surge creates a virtual network interface (VIF) and registers it as the default route. All DNS queries are answered with a virtual IP in the 198.18.0.0/15 block. 
 
-- Surge will setup a virtual network interface (VIF) and register as the default route. All DNS questions will get answers with a virtual IP in 198.18.0.0/15 block.
+It is important to note that the Surge VIF can only process TCP, UDP, and ICMP traffic. Therefore, only enable this feature when necessary. Additionally, it is not possible to proxy ICMP traffic, so the Surge VIF will return a response directly. 
 
-- Surge VIF can only process TCP, UDP and ICMP traffic. Only enable this feature when necessary.
-
-- ICMP traffic can't be proxied. Surge VIF will return a response directly.
-
-
+The enhanced mode is enabled by default on Surge for iOS, while on Surge for Mac, it must be manually started.

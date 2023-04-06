@@ -1,9 +1,8 @@
 # Information Panel
 
-Surge iOS 4.9.3 adds an experimental feature that allows users to customize one or more information panels for displaying related information.
+Surge iOS 4.9.3 has added an experimental feature which enables users to customize one or more information panels to display related information. 
 
-This feature requires a feature subscription expiration date after September 22, 2021. When the subscription has expired but there is a Panel profile section in the configuration, the panel will not be displayed, but it will not affect the normal use of other features.
-
+To access this feature, users will need to have an active subscription that expires after September 22, 2021. If the subscription expires and there is a Panel profile section still configured, the panel will not be displayed but it will not affect the normal use of other features.
 Example:
 
 ```

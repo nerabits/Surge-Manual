@@ -1,17 +1,16 @@
 # Surge Overview
 
-Surge is a web development and proxy utility. It is designed for developers and therefore requires professional knowledge to use.
+Surge is a web development and proxy utility designed for developers, thus requiring professional knowledge to use.
 
-These four capabilities form the core workflow of Surge:
+The core workflow of Surge consists of four main capabilities:
 
-* Takeover: You can take over the network connection sent by the device. Surge supports both proxy service and virtual NIC takeover.
+* Takeover: Surge allows the user to take over the network connection sent by the device. Both proxy service and virtual NIC takeover are supported.
 
-* Processing: You can modify the network requests and responses that have been taken over. This includes URL redirection, local file mapping, custom modification using JavaScript, and many other methods.
+* Processing: The software enables users to modify network requests and responses which have been taken over. This includes URL redirection, local file mapping, custom modification using JavaScript, and many other methods.
 
-* Forwarding: You can forward the taken-over network requests to other proxy servers. This can be global forwarding or using a flexible rule system to determine an outbound policy.
+* Forwarding: The network requests, once taken over, can be forwarded by the user to other proxy servers. The forwarding can be either global or using a flexible rule system to determine an outbound policy.
 
-* Intercept: You can intercept and save specific data of network requests and responses, and you can also decrypt HTTPS traffic with MITM.
-
+* Intercept: Specific data from network requests and responses can be intercepted and saved by the user. Additionally, the user can also decrypt HTTPS traffic with MITM.
 
 ## Features
 

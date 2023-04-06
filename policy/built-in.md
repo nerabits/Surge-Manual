@@ -1,7 +1,6 @@
 # Built-in Policy
 
-There are several built-in policies, the most important two are: DIRECT and REJECT. DIRECT means the request should be sent to the host directly. REJECT means the request should be rejected.
-
+There are several built-in policies, with the most important being DIRECT and REJECT. DIRECT signifies that the request should be sent directly to the host, while REJECT denotes that the request should be rejected.
 
 ### Built-in Policy
 

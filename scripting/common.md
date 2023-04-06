@@ -2,7 +2,7 @@ _Scripting requires Surge iOS 4 or Surge Mac 3.3.0_
 
 # Scripting
 
-You may use JavaScript to extend the ability of Surge as your wish.
+You may use JavaScript to extend the ability of Surge as you wish.
 
 ## Script Section
 

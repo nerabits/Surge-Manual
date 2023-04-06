@@ -2,22 +2,20 @@
 
 A policy group may contain multiple policies. It can be a proxy policy, another policy group, or a built-in policy \(DIRECT and REJECT\).
 
-There are several group types: `select`, `url-test`, `fallback`, `load-balance` and `subnet`. Policy groups should be declared in section \[Proxy Group\].
+There are several group types: `select`, `url-test`, `fallback`, `load-balance`, and `subnet`. Policy groups should be declared in section \[Proxy Group\].
 
-## Manual Select Group
+## Manual Selection Group
 
 Select which policy will be used on the user interface.
 
 `SelectGroup = select, ProxyHTTP, ProxyHTTPS, DIRECT, REJECT`
 
 {% hint style='info' %}
-In Surge iOS. You may use the Today Widget to quickly switch the policy for the first 'select' group. <br />
-
-In Surge Mac. You may switch the policy in the menubar menu.
+In Surge iOS. You may use the Today Widget to quickly switch the policy for the first 'select' group. <br />In Surge Mac. You may switch the policy in the menubar menu.
 {% endhint %}
 
 
-## Auto URL Test Group
+## Automatic Testing Group
 
 Automatically select which policy will be used by benchmarking the latency to the testing URL. You change the testing URL in the general settings or override the testing URL for a policy.
 
@@ -76,17 +74,17 @@ The legacy syntax of SSID Group is still supported. You may use the group type k
 
 ### Parameters
 
-#### default: Required
+#### `default`: Required
 
 The policy when no subnet expression is matched.
 
-#### cellular: Optional (Deprecated, use `TYPE:CELLULAR` instead)
+#### `cellular`: Optional (Deprecated, use `TYPE:CELLULAR` instead)
 
 The policy for cellular networks. If not provided, the default policy will be used.
 
 ## External Group
 
-Starts from Surge Mac v3.0 and Surge iOS v3.4. A policy group may import policies defined in an external file or from a URL.
+A policy group may import policies defined in an external file or from a URL.
 
 `egroup = select, policy-path=proxies.txt`
 
@@ -103,7 +101,7 @@ The update interval if the path is a URL.
 
 #### policy-regex-filter: Optional
 
-Only use the policies in the external file that the regex matches the policy name.
+Only use the policies that the regex matches the policy name.
 
 ## Other Common Parameters
 
@@ -126,10 +124,10 @@ The parameter `include-all-proxies=true` includes all proxy policies defined in 
 
 #### include-other-group
 
-Parameter `include-other-group="group1,group2"` includes policies from another policy group, and can include multiple policy groups separated by commas, also can be used with the `policy-regex-filter` parameter for filtering.
+Parameter `include-other-group="group1,group2"` includes policies from another policy group, and can include multiple policy groups separated by commas. It also can be used with the `policy-regex-filter` parameter for filtering.
 
 Some Notes:
-- `include-all-proxies`, `include-other-group`, and `policy-path` parameters are allowed to be used in a single policy group at the same time. The policy-regex-filter parameter applies to all three.
-- There is an order of precedence among the policy groups for the `include-other-group` parameter, but there is no order of precedence among the `include-all-proxies`, `include-other-group`, and `policy-path` parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with `include-other-group`.
+* `include-all-proxies`, `include-other-group`, and `policy-path` parameters are allowed to be used in a single policy group at the same time. The `policy-regex-filter` parameter applies to all three.
+* There is an order of precedence among the policy groups for the `include-other-group` parameter, but there is no order of precedence among the `include-all-proxies`, `include-other-group`, and `policy-path` parameters. For scenarios where the order of sub-policies makes sense (e.g., fallback groups), use policy groups nesting with `include-other-group`.
 
 
